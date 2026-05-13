@@ -1,0 +1,2873 @@
+fileFormatVersion: 2
+guid: ec435548e39c8ab4aaff7ae7faf2531f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4402835472560877220
+    second: SPR_Enemy_BasicCell_Spritesheet_0
+  - first:
+      213: -3946052852551440013
+    second: SPR_Enemy_BasicCell_Spritesheet_1
+  - first:
+      213: 5354569353628946922
+    second: SPR_Enemy_BasicCell_Spritesheet_2
+  - first:
+      213: -6168946449559441176
+    second: SPR_Enemy_BasicCell_Spritesheet_3
+  - first:
+      213: 1308867018719918921
+    second: SPR_Enemy_BasicCell_Spritesheet_4
+  - first:
+      213: 7939449849862389638
+    second: SPR_Enemy_BasicCell_Spritesheet_5
+  - first:
+      213: -8482260727816266742
+    second: SPR_Enemy_BasicCell_Spritesheet_6
+  - first:
+      213: 5169232485622036588
+    second: SPR_Enemy_BasicCell_Spritesheet_7
+  - first:
+      213: -4846314449765798799
+    second: SPR_Enemy_BasicCell_Spritesheet_8
+  - first:
+      213: 8614931665361295687
+    second: SPR_Enemy_BasicCell_Spritesheet_9
+  - first:
+      213: -2001650481914446663
+    second: SPR_Enemy_BasicCell_Spritesheet_10
+  - first:
+      213: 3429559604953977003
+    second: SPR_Enemy_BasicCell_Spritesheet_11
+  - first:
+      213: 2076952053792620272
+    second: SPR_Enemy_BasicCell_Spritesheet_12
+  - first:
+      213: -5244761093420740065
+    second: SPR_Enemy_BasicCell_Spritesheet_13
+  - first:
+      213: 7038006368925487551
+    second: SPR_Enemy_BasicCell_Spritesheet_14
+  - first:
+      213: -99954044590862110
+    second: SPR_Enemy_BasicCell_Spritesheet_15
+  - first:
+      213: 2427433306012721514
+    second: SPR_Enemy_BasicCell_Spritesheet_16
+  - first:
+      213: 1560121574288392214
+    second: SPR_Enemy_BasicCell_Spritesheet_17
+  - first:
+      213: 122770698388974688
+    second: SPR_Enemy_BasicCell_Spritesheet_18
+  - first:
+      213: -8384217823142186478
+    second: SPR_Enemy_BasicCell_Spritesheet_19
+  - first:
+      213: 2526748399314638311
+    second: SPR_Enemy_BasicCell_Spritesheet_20
+  - first:
+      213: 3074222051549416804
+    second: SPR_Enemy_BasicCell_Spritesheet_21
+  - first:
+      213: -7694178620960097800
+    second: SPR_Enemy_BasicCell_Spritesheet_22
+  - first:
+      213: -1419037788726497676
+    second: SPR_Enemy_BasicCell_Spritesheet_23
+  - first:
+      213: 2972040811094509873
+    second: SPR_Enemy_BasicCell_Spritesheet_24
+  - first:
+      213: -6204326836779674020
+    second: SPR_Enemy_BasicCell_Spritesheet_25
+  - first:
+      213: -2163528334423589842
+    second: SPR_Enemy_BasicCell_Spritesheet_26
+  - first:
+      213: 6251735872445208037
+    second: SPR_Enemy_BasicCell_Spritesheet_27
+  - first:
+      213: -3484164891974072075
+    second: SPR_Enemy_BasicCell_Spritesheet_28
+  - first:
+      213: 297299232110788797
+    second: SPR_Enemy_BasicCell_Spritesheet_29
+  - first:
+      213: -6271034725265887068
+    second: SPR_Enemy_BasicCell_Spritesheet_30
+  - first:
+      213: -5754841605111902686
+    second: SPR_Enemy_BasicCell_Spritesheet_31
+  - first:
+      213: -4257918259152586260
+    second: SPR_Enemy_BasicCell_Spritesheet_32
+  - first:
+      213: -3249246942948696926
+    second: SPR_Enemy_BasicCell_Spritesheet_33
+  - first:
+      213: -2750833586647342250
+    second: SPR_Enemy_BasicCell_Spritesheet_34
+  - first:
+      213: -3824160501597851466
+    second: SPR_Enemy_BasicCell_Spritesheet_35
+  - first:
+      213: 533355964702846269
+    second: SPR_Enemy_BasicCell_Spritesheet_36
+  - first:
+      213: 3262285910362664710
+    second: SPR_Enemy_BasicCell_Spritesheet_37
+  - first:
+      213: -1883357689319499668
+    second: SPR_Enemy_BasicCell_Spritesheet_38
+  - first:
+      213: 4899310890825608972
+    second: SPR_Enemy_BasicCell_Spritesheet_39
+  - first:
+      213: 4409623778453944476
+    second: SPR_Enemy_BasicCell_Spritesheet_40
+  - first:
+      213: 5677362149386078477
+    second: SPR_Enemy_BasicCell_Spritesheet_41
+  - first:
+      213: -2251359814988443768
+    second: SPR_Enemy_BasicCell_Spritesheet_42
+  - first:
+      213: -1097775255429140951
+    second: SPR_Enemy_BasicCell_Spritesheet_43
+  - first:
+      213: -2190604558821019501
+    second: SPR_Enemy_BasicCell_Spritesheet_44
+  - first:
+      213: -6600473161344255889
+    second: SPR_Enemy_BasicCell_Spritesheet_45
+  - first:
+      213: -3799302638116708223
+    second: SPR_Enemy_BasicCell_Spritesheet_46
+  - first:
+      213: 1412463575585647895
+    second: SPR_Enemy_BasicCell_Spritesheet_47
+  - first:
+      213: -1121581025082159508
+    second: SPR_Enemy_BasicCell_Spritesheet_48
+  - first:
+      213: 8906416316757874982
+    second: SPR_Enemy_BasicCell_Spritesheet_49
+  - first:
+      213: -2690759699481461765
+    second: SPR_Enemy_BasicCell_Spritesheet_50
+  - first:
+      213: -4901116924767443138
+    second: SPR_Enemy_BasicCell_Spritesheet_51
+  - first:
+      213: -3049888364555815053
+    second: SPR_Enemy_BasicCell_Spritesheet_52
+  - first:
+      213: -4440298864190897534
+    second: SPR_Enemy_BasicCell_Spritesheet_53
+  - first:
+      213: 6260546025287480107
+    second: SPR_Enemy_BasicCell_Spritesheet_54
+  - first:
+      213: -5759566961790917070
+    second: SPR_Enemy_BasicCell_Spritesheet_55
+  - first:
+      213: 4706802976429013044
+    second: SPR_Enemy_BasicCell_Spritesheet_56
+  - first:
+      213: -664702206280349758
+    second: SPR_Enemy_BasicCell_Spritesheet_57
+  - first:
+      213: -7488551298003898258
+    second: SPR_Enemy_BasicCell_Spritesheet_58
+  - first:
+      213: -2812294577070757043
+    second: SPR_Enemy_BasicCell_Spritesheet_59
+  - first:
+      213: 3006687264779702211
+    second: SPR_Enemy_BasicCell_Spritesheet_60
+  - first:
+      213: -232661991240013145
+    second: SPR_Enemy_BasicCell_Spritesheet_61
+  - first:
+      213: -2410763566926291850
+    second: SPR_Enemy_BasicCell_Spritesheet_62
+  - first:
+      213: 7785926539087052129
+    second: SPR_Enemy_BasicCell_Spritesheet_63
+  - first:
+      213: 1277267692877189005
+    second: SPR_Enemy_BasicCell_Spritesheet_64
+  - first:
+      213: 2126696687522273349
+    second: SPR_Enemy_BasicCell_Spritesheet_65
+  - first:
+      213: 1418955734522760959
+    second: SPR_Enemy_BasicCell_Spritesheet_66
+  - first:
+      213: -7293761236289631126
+    second: SPR_Enemy_BasicCell_Spritesheet_67
+  - first:
+      213: -8150212997068373626
+    second: SPR_Enemy_BasicCell_Spritesheet_68
+  - first:
+      213: 3651312909657127743
+    second: SPR_Enemy_BasicCell_Spritesheet_69
+  - first:
+      213: 620331011737242090
+    second: SPR_Enemy_BasicCell_Spritesheet_70
+  - first:
+      213: 8293477777829440498
+    second: SPR_Enemy_BasicCell_Spritesheet_71
+  - first:
+      213: 1199425352926363358
+    second: SPR_Enemy_BasicCell_Spritesheet_72
+  - first:
+      213: -6786866132324567984
+    second: SPR_Enemy_BasicCell_Spritesheet_73
+  - first:
+      213: -5968393535425744144
+    second: SPR_Enemy_BasicCell_Spritesheet_74
+  - first:
+      213: -7197060465048554744
+    second: SPR_Enemy_BasicCell_Spritesheet_75
+  - first:
+      213: 4484211027054822255
+    second: SPR_Enemy_BasicCell_Spritesheet_76
+  - first:
+      213: -2826058311542942636
+    second: SPR_Enemy_BasicCell_Spritesheet_77
+  - first:
+      213: -1586037765954726842
+    second: SPR_Enemy_BasicCell_Spritesheet_78
+  - first:
+      213: 8866787549941034584
+    second: SPR_Enemy_BasicCell_Spritesheet_79
+  - first:
+      213: 2878154069138610977
+    second: SPR_Enemy_BasicCell_Spritesheet_80
+  - first:
+      213: -3648302020434976503
+    second: SPR_Enemy_BasicCell_Spritesheet_81
+  - first:
+      213: 3620060546590339273
+    second: SPR_Enemy_BasicCell_Spritesheet_82
+  - first:
+      213: 3177977755850210941
+    second: SPR_Enemy_BasicCell_Spritesheet_83
+  - first:
+      213: -6041477553401943246
+    second: SPR_Enemy_BasicCell_Spritesheet_84
+  - first:
+      213: -3951620346785609276
+    second: SPR_Enemy_BasicCell_Spritesheet_85
+  - first:
+      213: -560712819116510924
+    second: SPR_Enemy_BasicCell_Spritesheet_86
+  - first:
+      213: -2881524696723167459
+    second: SPR_Enemy_BasicCell_Spritesheet_87
+  - first:
+      213: -1871154915538475155
+    second: SPR_Enemy_BasicCell_Spritesheet_88
+  - first:
+      213: 3594711144872509690
+    second: SPR_Enemy_BasicCell_Spritesheet_89
+  - first:
+      213: -6164111593704114633
+    second: SPR_Enemy_BasicCell_Spritesheet_90
+  - first:
+      213: -8441614659119287797
+    second: SPR_Enemy_BasicCell_Spritesheet_91
+  - first:
+      213: 4639178431288947402
+    second: SPR_Enemy_BasicCell_Spritesheet_92
+  - first:
+      213: 7237481891221136549
+    second: SPR_Enemy_BasicCell_Spritesheet_93
+  - first:
+      213: 8470561748445893112
+    second: SPR_Enemy_BasicCell_Spritesheet_94
+  - first:
+      213: -2803203356057905667
+    second: SPR_Enemy_BasicCell_Spritesheet_95
+  - first:
+      213: 5224105732555448301
+    second: SPR_Enemy_BasicCell_Spritesheet_96
+  - first:
+      213: -62549883908517051
+    second: SPR_Enemy_BasicCell_Spritesheet_97
+  - first:
+      213: -4954860805453002941
+    second: SPR_Enemy_BasicCell_Spritesheet_98
+  - first:
+      213: -4184161891612773554
+    second: SPR_Enemy_BasicCell_Spritesheet_99
+  - first:
+      213: -7590471825132141653
+    second: SPR_Enemy_BasicCell_Spritesheet_100
+  - first:
+      213: 3078357003188886572
+    second: SPR_Enemy_BasicCell_Spritesheet_101
+  - first:
+      213: 954668740214990363
+    second: SPR_Enemy_BasicCell_Spritesheet_102
+  - first:
+      213: -7593221033618927019
+    second: SPR_Enemy_BasicCell_Spritesheet_103
+  - first:
+      213: 6067409177906758345
+    second: SPR_Enemy_BasicCell_Spritesheet_104
+  - first:
+      213: 6164132783461762847
+    second: SPR_Enemy_BasicCell_Spritesheet_105
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 395
+        width: 92
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c511585077cf5e2c0800000000000000
+      internalID: -4402835472560877220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 395
+        width: 93
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37921c276ddcc39c0800000000000000
+      internalID: -3946052852551440013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 395
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae11f3815704f4a40800000000000000
+      internalID: 5354569353628946922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 395
+        width: 90
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e03a9b73ef736aa0800000000000000
+      internalID: -6168946449559441176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 395
+        width: 91
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94b760d6e970a2210800000000000000
+      internalID: 1308867018719918921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 272
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68f731dc2979e2e60800000000000000
+      internalID: 7939449849862389638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 357
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0cd34a1fc4f84a80800000000000000
+      internalID: -8482260727816266742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 361
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6839e2de8dccb740800000000000000
+      internalID: 5169232485622036588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 359
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17ceddf4fae6ebcb0800000000000000
+      internalID: -4846314449765798799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 272
+        width: 98
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 749df1ea4b26e8770800000000000000
+      internalID: 8614931665361295687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 357
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bcfffced75b834e0800000000000000
+      internalID: -2001650481914446663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 362
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba09f454a4e389f20800000000000000
+      internalID: 3429559604953977003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 358
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0feb3d583e0d2dc10800000000000000
+      internalID: 2076952053792620272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 272
+        width: 100
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f121edec29dd637b0800000000000000
+      internalID: -5244761093420740065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 357
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb19dbae0850ca160800000000000000
+      internalID: 7038006368925487551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 362
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e05c467354ec9ef0800000000000000
+      internalID: -99954044590862110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 358
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6127d01bb9ffa120800000000000000
+      internalID: 2427433306012721514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 275
+        width: 86
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61002e15e4aa6a510800000000000000
+      internalID: 1560121574288392214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 338
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06c2d4abc4b24b100800000000000000
+      internalID: 122770698388974688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 275
+        width: 84
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2127c14bf4645ab80800000000000000
+      internalID: -8384217823142186478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 328
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e59fe92840d01320800000000000000
+      internalID: 2526748399314638311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 319
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46d864ffaa4d9aa20800000000000000
+      internalID: 3074222051549416804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 305
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9b44b4f49c83590800000000000000
+      internalID: -7694178620960097800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 306
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ee91846a09e4ce0800000000000000
+      internalID: -1419037788726497676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 305
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13980430f5fce3920800000000000000
+      internalID: 2972040811094509873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 302
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5613572d9dc5e9a0800000000000000
+      internalID: -6204326836779674020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 282
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2c7035517a99f1e0800000000000000
+      internalID: -2163528334423589842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 271
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e5d9a227a0a2c650800000000000000
+      internalID: 6251735872445208037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 271
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f88ffa9d72c5afc0800000000000000
+      internalID: -3484164891974072075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 270
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db0c5f19318302400800000000000000
+      internalID: 297299232110788797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 271
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a0336a842fc8f8a0800000000000000
+      internalID: -6271034725265887068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 270
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22e8aa4fc02b220b0800000000000000
+      internalID: -5754841605111902686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 272
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce97f8817e5d8e4c0800000000000000
+      internalID: -4257918259152586260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 167
+        width: 83
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2acd402ee1b58e2d0800000000000000
+      internalID: -3249246942948696926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 147
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 653ebaf6d6313d9d0800000000000000
+      internalID: -2750833586647342250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 145
+        width: 84
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b03e2af84addeac0800000000000000
+      internalID: -3824160501597851466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 162
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3de2fe8c6cd66700800000000000000
+      internalID: 533355964702846269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 163
+        width: 80
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60fadea40c7f54d20800000000000000
+      internalID: 3262285910362664710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 163
+        width: 80
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c685c17f828fcd5e0800000000000000
+      internalID: -1883357689319499668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 150
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0fecdb2c49ddf340800000000000000
+      internalID: 4899310890825608972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 143
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c98fcdb9671223d30800000000000000
+      internalID: 4409623778453944476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 144
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d09c76f7bca0ace40800000000000000
+      internalID: 5677362149386078477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 145
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88f460e2d2091c0e0800000000000000
+      internalID: -2251359814988443768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 30
+        width: 91
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92eaee0b83be3c0f0800000000000000
+      internalID: -1097775255429140951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 120
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3903f1492c86991e0800000000000000
+      internalID: -2190604558821019501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 120
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f68739c61a86664a0800000000000000
+      internalID: -6600473161344255889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 121
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18069d4516a264bc0800000000000000
+      internalID: -3799302638116708223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 18
+        width: 93
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71de5f073241a9310800000000000000
+      internalID: 1412463575585647895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 35
+        width: 96
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6ec82500085f60f0800000000000000
+      internalID: -1121581025082159508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 120
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 629981ea372f99b70800000000000000
+      internalID: 8906416316757874982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 119
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfb78704f4088aad0800000000000000
+      internalID: -2690759699481461765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 117
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e37e498cf1cbbfbb0800000000000000
+      internalID: -4901116924767443138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 110
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 377bd0201be9ca5d0800000000000000
+      internalID: -3049888364555815053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 110
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282c45f65b3e062c0800000000000000
+      internalID: -4440298864190897534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 114
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b237e31b07de1e650800000000000000
+      internalID: 6260546025287480107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 98
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 236606e1d58e110b0800000000000000
+      internalID: -5759566961790917070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 51
+        width: 74
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4387dcd8e5ce15140800000000000000
+      internalID: 4706802976429013044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 96
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c7cd397dd086c6f0800000000000000
+      internalID: -664702206280349758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 108
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e60ff204542531890800000000000000
+      internalID: -7488551298003898258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 94
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4ba0f97bf8b8f8d0800000000000000
+      internalID: -2812294577070757043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 98
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cf82ef1326e9b920800000000000000
+      internalID: 3006687264779702211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 109
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aa6763d62b65ccf0800000000000000
+      internalID: -232661991240013145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 83
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67c97e30f4f3b8ed0800000000000000
+      internalID: -2410763566926291850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 79
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16df1998fea2d0c60800000000000000
+      internalID: 7785926539087052129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 91
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8f070d0334c9b110800000000000000
+      internalID: 1277267692877189005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 98
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 548d3cc9e5b838d10800000000000000
+      internalID: 2126696687522273349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 89
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffe8b3cf8b421b310800000000000000
+      internalID: 1418955734522760959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 87
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6c4172bcca57ca90800000000000000
+      internalID: -7293761236289631126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 87
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 681c7f9f570a4ee80800000000000000
+      internalID: -8150212997068373626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 87
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3b39efeeb11ca230800000000000000
+      internalID: 3651312909657127743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 80
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae9c1cdb4cbdb9800800000000000000
+      internalID: 620331011737242090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 78
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fbae14291a581370800000000000000
+      internalID: 8293477777829440498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 82
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edef5cfe00735a010800000000000000
+      internalID: 1199425352926363358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 70
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0543aa4063530d1a0800000000000000
+      internalID: -6786866132324567984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 78
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f2f53193b10c2da0800000000000000
+      internalID: -5968393535425744144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 51
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 803f5c183a7ee1c90800000000000000
+      internalID: -7197060465048554744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 70
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f630e75bb2e1b3e30800000000000000
+      internalID: 4484211027054822255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 74
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45451f150f2d7c8d0800000000000000
+      internalID: -2826058311542942636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_78
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 75
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6441ae71e034df9e0800000000000000
+      internalID: -1586037765954726842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_79
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 73
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85e67156c482d0b70800000000000000
+      internalID: 8866787549941034584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_80
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 62
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12b1ad370e141f720800000000000000
+      internalID: 2878154069138610977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_81
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 66
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90122a654a0ae5dc0800000000000000
+      internalID: -3648302020434976503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_82
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 65
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c07ce023e90d3230800000000000000
+      internalID: 3620060546590339273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_83
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 64
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e7b896ee17a1c20800000000000000
+      internalID: 3177977755850210941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_84
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 63
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23b2bfe9c2c582ca0800000000000000
+      internalID: -6041477553401943246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_85
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 62
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c943ae2b360929c0800000000000000
+      internalID: -3951620346785609276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_86
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 63
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4317d8b69a2f738f0800000000000000
+      internalID: -560712819116510924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_87
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 54
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d17ec482e84c208d0800000000000000
+      internalID: -2881524696723167459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_88
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 62
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d676a93a4825806e0800000000000000
+      internalID: -1871154915538475155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_89
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 64
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af0834c9dbaf2e130800000000000000
+      internalID: 3594711144872509690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_90
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 69
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73636651a2da47aa0800000000000000
+      internalID: -6164111593704114633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_91
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 54
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b02f670713c59da80800000000000000
+      internalID: -8441614659119287797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_92
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 47
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac2b1ae243ca16040800000000000000
+      internalID: 4639178431288947402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_93
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 41
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a4ee8a2f63b07460800000000000000
+      internalID: 7237481891221136549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_94
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 44
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f11120080b7d8570800000000000000
+      internalID: 8470561748445893112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_95
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 56
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df55cf056650919d0800000000000000
+      internalID: -2803203356057905667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_96
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 49
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: def9c0a3c70cf7840800000000000000
+      internalID: 5224105732555448301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_97
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 47
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54314e44637c12ff0800000000000000
+      internalID: -62549883908517051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_98
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 35
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 347c773795ccc3bb0800000000000000
+      internalID: -4954860805453002941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_99
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 44
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e43b1bf9deedee5c0800000000000000
+      internalID: -4184161891612773554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_100
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 36
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba34361571a39a690800000000000000
+      internalID: -7590471825132141653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_101
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 47
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2cd8e2726588ba20800000000000000
+      internalID: 3078357003188886572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_102
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 34
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b162fa2492aaf3d00800000000000000
+      internalID: 954668740214990363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_103
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 38
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5529e1653b57f9690800000000000000
+      internalID: -7593221033618927019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_104
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 20
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c2c3143084c33450800000000000000
+      internalID: 6067409177906758345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_BasicCell_Spritesheet_105
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 18
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f17049a8b166b8550800000000000000
+      internalID: 6164132783461762847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SPR_Enemy_BasicCell_Spritesheet_0: -4402835472560877220
+      SPR_Enemy_BasicCell_Spritesheet_1: -3946052852551440013
+      SPR_Enemy_BasicCell_Spritesheet_10: -2001650481914446663
+      SPR_Enemy_BasicCell_Spritesheet_100: -7590471825132141653
+      SPR_Enemy_BasicCell_Spritesheet_101: 3078357003188886572
+      SPR_Enemy_BasicCell_Spritesheet_102: 954668740214990363
+      SPR_Enemy_BasicCell_Spritesheet_103: -7593221033618927019
+      SPR_Enemy_BasicCell_Spritesheet_104: 6067409177906758345
+      SPR_Enemy_BasicCell_Spritesheet_105: 6164132783461762847
+      SPR_Enemy_BasicCell_Spritesheet_11: 3429559604953977003
+      SPR_Enemy_BasicCell_Spritesheet_12: 2076952053792620272
+      SPR_Enemy_BasicCell_Spritesheet_13: -5244761093420740065
+      SPR_Enemy_BasicCell_Spritesheet_14: 7038006368925487551
+      SPR_Enemy_BasicCell_Spritesheet_15: -99954044590862110
+      SPR_Enemy_BasicCell_Spritesheet_16: 2427433306012721514
+      SPR_Enemy_BasicCell_Spritesheet_17: 1560121574288392214
+      SPR_Enemy_BasicCell_Spritesheet_18: 122770698388974688
+      SPR_Enemy_BasicCell_Spritesheet_19: -8384217823142186478
+      SPR_Enemy_BasicCell_Spritesheet_2: 5354569353628946922
+      SPR_Enemy_BasicCell_Spritesheet_20: 2526748399314638311
+      SPR_Enemy_BasicCell_Spritesheet_21: 3074222051549416804
+      SPR_Enemy_BasicCell_Spritesheet_22: -7694178620960097800
+      SPR_Enemy_BasicCell_Spritesheet_23: -1419037788726497676
+      SPR_Enemy_BasicCell_Spritesheet_24: 2972040811094509873
+      SPR_Enemy_BasicCell_Spritesheet_25: -6204326836779674020
+      SPR_Enemy_BasicCell_Spritesheet_26: -2163528334423589842
+      SPR_Enemy_BasicCell_Spritesheet_27: 6251735872445208037
+      SPR_Enemy_BasicCell_Spritesheet_28: -3484164891974072075
+      SPR_Enemy_BasicCell_Spritesheet_29: 297299232110788797
+      SPR_Enemy_BasicCell_Spritesheet_3: -6168946449559441176
+      SPR_Enemy_BasicCell_Spritesheet_30: -6271034725265887068
+      SPR_Enemy_BasicCell_Spritesheet_31: -5754841605111902686
+      SPR_Enemy_BasicCell_Spritesheet_32: -4257918259152586260
+      SPR_Enemy_BasicCell_Spritesheet_33: -3249246942948696926
+      SPR_Enemy_BasicCell_Spritesheet_34: -2750833586647342250
+      SPR_Enemy_BasicCell_Spritesheet_35: -3824160501597851466
+      SPR_Enemy_BasicCell_Spritesheet_36: 533355964702846269
+      SPR_Enemy_BasicCell_Spritesheet_37: 3262285910362664710
+      SPR_Enemy_BasicCell_Spritesheet_38: -1883357689319499668
+      SPR_Enemy_BasicCell_Spritesheet_39: 4899310890825608972
+      SPR_Enemy_BasicCell_Spritesheet_4: 1308867018719918921
+      SPR_Enemy_BasicCell_Spritesheet_40: 4409623778453944476
+      SPR_Enemy_BasicCell_Spritesheet_41: 5677362149386078477
+      SPR_Enemy_BasicCell_Spritesheet_42: -2251359814988443768
+      SPR_Enemy_BasicCell_Spritesheet_43: -1097775255429140951
+      SPR_Enemy_BasicCell_Spritesheet_44: -2190604558821019501
+      SPR_Enemy_BasicCell_Spritesheet_45: -6600473161344255889
+      SPR_Enemy_BasicCell_Spritesheet_46: -3799302638116708223
+      SPR_Enemy_BasicCell_Spritesheet_47: 1412463575585647895
+      SPR_Enemy_BasicCell_Spritesheet_48: -1121581025082159508
+      SPR_Enemy_BasicCell_Spritesheet_49: 8906416316757874982
+      SPR_Enemy_BasicCell_Spritesheet_5: 7939449849862389638
+      SPR_Enemy_BasicCell_Spritesheet_50: -2690759699481461765
+      SPR_Enemy_BasicCell_Spritesheet_51: -4901116924767443138
+      SPR_Enemy_BasicCell_Spritesheet_52: -3049888364555815053
+      SPR_Enemy_BasicCell_Spritesheet_53: -4440298864190897534
+      SPR_Enemy_BasicCell_Spritesheet_54: 6260546025287480107
+      SPR_Enemy_BasicCell_Spritesheet_55: -5759566961790917070
+      SPR_Enemy_BasicCell_Spritesheet_56: 4706802976429013044
+      SPR_Enemy_BasicCell_Spritesheet_57: -664702206280349758
+      SPR_Enemy_BasicCell_Spritesheet_58: -7488551298003898258
+      SPR_Enemy_BasicCell_Spritesheet_59: -2812294577070757043
+      SPR_Enemy_BasicCell_Spritesheet_6: -8482260727816266742
+      SPR_Enemy_BasicCell_Spritesheet_60: 3006687264779702211
+      SPR_Enemy_BasicCell_Spritesheet_61: -232661991240013145
+      SPR_Enemy_BasicCell_Spritesheet_62: -2410763566926291850
+      SPR_Enemy_BasicCell_Spritesheet_63: 7785926539087052129
+      SPR_Enemy_BasicCell_Spritesheet_64: 1277267692877189005
+      SPR_Enemy_BasicCell_Spritesheet_65: 2126696687522273349
+      SPR_Enemy_BasicCell_Spritesheet_66: 1418955734522760959
+      SPR_Enemy_BasicCell_Spritesheet_67: -7293761236289631126
+      SPR_Enemy_BasicCell_Spritesheet_68: -8150212997068373626
+      SPR_Enemy_BasicCell_Spritesheet_69: 3651312909657127743
+      SPR_Enemy_BasicCell_Spritesheet_7: 5169232485622036588
+      SPR_Enemy_BasicCell_Spritesheet_70: 620331011737242090
+      SPR_Enemy_BasicCell_Spritesheet_71: 8293477777829440498
+      SPR_Enemy_BasicCell_Spritesheet_72: 1199425352926363358
+      SPR_Enemy_BasicCell_Spritesheet_73: -6786866132324567984
+      SPR_Enemy_BasicCell_Spritesheet_74: -5968393535425744144
+      SPR_Enemy_BasicCell_Spritesheet_75: -7197060465048554744
+      SPR_Enemy_BasicCell_Spritesheet_76: 4484211027054822255
+      SPR_Enemy_BasicCell_Spritesheet_77: -2826058311542942636
+      SPR_Enemy_BasicCell_Spritesheet_78: -1586037765954726842
+      SPR_Enemy_BasicCell_Spritesheet_79: 8866787549941034584
+      SPR_Enemy_BasicCell_Spritesheet_8: -4846314449765798799
+      SPR_Enemy_BasicCell_Spritesheet_80: 2878154069138610977
+      SPR_Enemy_BasicCell_Spritesheet_81: -3648302020434976503
+      SPR_Enemy_BasicCell_Spritesheet_82: 3620060546590339273
+      SPR_Enemy_BasicCell_Spritesheet_83: 3177977755850210941
+      SPR_Enemy_BasicCell_Spritesheet_84: -6041477553401943246
+      SPR_Enemy_BasicCell_Spritesheet_85: -3951620346785609276
+      SPR_Enemy_BasicCell_Spritesheet_86: -560712819116510924
+      SPR_Enemy_BasicCell_Spritesheet_87: -2881524696723167459
+      SPR_Enemy_BasicCell_Spritesheet_88: -1871154915538475155
+      SPR_Enemy_BasicCell_Spritesheet_89: 3594711144872509690
+      SPR_Enemy_BasicCell_Spritesheet_9: 8614931665361295687
+      SPR_Enemy_BasicCell_Spritesheet_90: -6164111593704114633
+      SPR_Enemy_BasicCell_Spritesheet_91: -8441614659119287797
+      SPR_Enemy_BasicCell_Spritesheet_92: 4639178431288947402
+      SPR_Enemy_BasicCell_Spritesheet_93: 7237481891221136549
+      SPR_Enemy_BasicCell_Spritesheet_94: 8470561748445893112
+      SPR_Enemy_BasicCell_Spritesheet_95: -2803203356057905667
+      SPR_Enemy_BasicCell_Spritesheet_96: 5224105732555448301
+      SPR_Enemy_BasicCell_Spritesheet_97: -62549883908517051
+      SPR_Enemy_BasicCell_Spritesheet_98: -4954860805453002941
+      SPR_Enemy_BasicCell_Spritesheet_99: -4184161891612773554
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

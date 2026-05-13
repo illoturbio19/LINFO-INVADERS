@@ -1,0 +1,3237 @@
+fileFormatVersion: 2
+guid: 3d9d62f4b5585b54ea61f8c65b8d09fa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1489519439778337131
+    second: SPR_Projectiles_Spritesheet_0
+  - first:
+      213: 7699556506488571076
+    second: SPR_Projectiles_Spritesheet_1
+  - first:
+      213: -1410276865893575393
+    second: SPR_Projectiles_Spritesheet_2
+  - first:
+      213: -2616367230305035736
+    second: SPR_Projectiles_Spritesheet_3
+  - first:
+      213: -4107858206540777969
+    second: SPR_Projectiles_Spritesheet_4
+  - first:
+      213: 8194253010710976070
+    second: SPR_Projectiles_Spritesheet_5
+  - first:
+      213: -1213331987425648847
+    second: SPR_Projectiles_Spritesheet_6
+  - first:
+      213: -3259292569398034112
+    second: SPR_Projectiles_Spritesheet_7
+  - first:
+      213: 206550353541456579
+    second: SPR_Projectiles_Spritesheet_8
+  - first:
+      213: 1484020542697621607
+    second: SPR_Projectiles_Spritesheet_9
+  - first:
+      213: 6437073770817379660
+    second: SPR_Projectiles_Spritesheet_10
+  - first:
+      213: -8648820788212519514
+    second: SPR_Projectiles_Spritesheet_11
+  - first:
+      213: -6684249410786735106
+    second: SPR_Projectiles_Spritesheet_12
+  - first:
+      213: -7996604096765176921
+    second: SPR_Projectiles_Spritesheet_13
+  - first:
+      213: -7149166609775353869
+    second: SPR_Projectiles_Spritesheet_14
+  - first:
+      213: 4775617115227416
+    second: SPR_Projectiles_Spritesheet_15
+  - first:
+      213: 7073289955315877127
+    second: SPR_Projectiles_Spritesheet_16
+  - first:
+      213: 409702193791569635
+    second: SPR_Projectiles_Spritesheet_17
+  - first:
+      213: 8829337985612459367
+    second: SPR_Projectiles_Spritesheet_18
+  - first:
+      213: 306467669078824330
+    second: SPR_Projectiles_Spritesheet_19
+  - first:
+      213: 4448744607104833925
+    second: SPR_Projectiles_Spritesheet_20
+  - first:
+      213: 6237550531622878296
+    second: SPR_Projectiles_Spritesheet_21
+  - first:
+      213: 2471838009838452384
+    second: SPR_Projectiles_Spritesheet_22
+  - first:
+      213: -2674284368144313201
+    second: SPR_Projectiles_Spritesheet_23
+  - first:
+      213: 665082880499838833
+    second: SPR_Projectiles_Spritesheet_24
+  - first:
+      213: -5063720878719467026
+    second: SPR_Projectiles_Spritesheet_25
+  - first:
+      213: 5543739644053697433
+    second: SPR_Projectiles_Spritesheet_26
+  - first:
+      213: 4562877160361313504
+    second: SPR_Projectiles_Spritesheet_27
+  - first:
+      213: -8561739513873624461
+    second: SPR_Projectiles_Spritesheet_28
+  - first:
+      213: 8886138943752817896
+    second: SPR_Projectiles_Spritesheet_29
+  - first:
+      213: 1098175345855975535
+    second: SPR_Projectiles_Spritesheet_30
+  - first:
+      213: 1507101560261747609
+    second: SPR_Projectiles_Spritesheet_31
+  - first:
+      213: 7749330674227704743
+    second: SPR_Projectiles_Spritesheet_32
+  - first:
+      213: 8084933268750899384
+    second: SPR_Projectiles_Spritesheet_33
+  - first:
+      213: -1298133610896313664
+    second: SPR_Projectiles_Spritesheet_34
+  - first:
+      213: 5535026140758598464
+    second: SPR_Projectiles_Spritesheet_35
+  - first:
+      213: -2218937383157106924
+    second: SPR_Projectiles_Spritesheet_36
+  - first:
+      213: -8491377709802164669
+    second: SPR_Projectiles_Spritesheet_37
+  - first:
+      213: 6368801793863128442
+    second: SPR_Projectiles_Spritesheet_38
+  - first:
+      213: 6041777272177395910
+    second: SPR_Projectiles_Spritesheet_39
+  - first:
+      213: 2474580841201009303
+    second: SPR_Projectiles_Spritesheet_40
+  - first:
+      213: -21541802429001778
+    second: SPR_Projectiles_Spritesheet_41
+  - first:
+      213: 865044447061705226
+    second: SPR_Projectiles_Spritesheet_42
+  - first:
+      213: 6721380641427837888
+    second: SPR_Projectiles_Spritesheet_43
+  - first:
+      213: 4537428075628510002
+    second: SPR_Projectiles_Spritesheet_44
+  - first:
+      213: -953981787082662033
+    second: SPR_Projectiles_Spritesheet_45
+  - first:
+      213: 1994399496585267874
+    second: SPR_Projectiles_Spritesheet_46
+  - first:
+      213: 5932571133822068072
+    second: SPR_Projectiles_Spritesheet_47
+  - first:
+      213: 2615317271426361830
+    second: SPR_Projectiles_Spritesheet_48
+  - first:
+      213: 1943507391801266414
+    second: SPR_Projectiles_Spritesheet_49
+  - first:
+      213: 9115386305642047611
+    second: SPR_Projectiles_Spritesheet_50
+  - first:
+      213: 8397695435248372860
+    second: SPR_Projectiles_Spritesheet_51
+  - first:
+      213: -8439406186708295045
+    second: SPR_Projectiles_Spritesheet_52
+  - first:
+      213: -5845287194214508215
+    second: SPR_Projectiles_Spritesheet_53
+  - first:
+      213: -4216927369154874011
+    second: SPR_Projectiles_Spritesheet_54
+  - first:
+      213: -3695296397113400287
+    second: SPR_Projectiles_Spritesheet_55
+  - first:
+      213: 261929641001938528
+    second: SPR_Projectiles_Spritesheet_56
+  - first:
+      213: -6033524697997423314
+    second: SPR_Projectiles_Spritesheet_57
+  - first:
+      213: -7553331622102962714
+    second: SPR_Projectiles_Spritesheet_58
+  - first:
+      213: 2745444658149940484
+    second: SPR_Projectiles_Spritesheet_59
+  - first:
+      213: -2017026447404849658
+    second: SPR_Projectiles_Spritesheet_60
+  - first:
+      213: 5214099033004472849
+    second: SPR_Projectiles_Spritesheet_61
+  - first:
+      213: 4114939205529941513
+    second: SPR_Projectiles_Spritesheet_62
+  - first:
+      213: -5958294441330672852
+    second: SPR_Projectiles_Spritesheet_63
+  - first:
+      213: -5089056635350537581
+    second: SPR_Projectiles_Spritesheet_64
+  - first:
+      213: 1267411756583940710
+    second: SPR_Projectiles_Spritesheet_65
+  - first:
+      213: -8580742876301825567
+    second: SPR_Projectiles_Spritesheet_66
+  - first:
+      213: 1305512665150158437
+    second: SPR_Projectiles_Spritesheet_67
+  - first:
+      213: 1748208252705674504
+    second: SPR_Projectiles_Spritesheet_68
+  - first:
+      213: -2591327845360944
+    second: SPR_Projectiles_Spritesheet_69
+  - first:
+      213: -4599911763207140208
+    second: SPR_Projectiles_Spritesheet_70
+  - first:
+      213: -5940458801271526650
+    second: SPR_Projectiles_Spritesheet_71
+  - first:
+      213: -7374336653408637274
+    second: SPR_Projectiles_Spritesheet_72
+  - first:
+      213: 439252261304824315
+    second: SPR_Projectiles_Spritesheet_73
+  - first:
+      213: -7372001762738159288
+    second: SPR_Projectiles_Spritesheet_74
+  - first:
+      213: -1499368721584293165
+    second: SPR_Projectiles_Spritesheet_75
+  - first:
+      213: -4735995103843300378
+    second: SPR_Projectiles_Spritesheet_76
+  - first:
+      213: -4922351848348182632
+    second: SPR_Projectiles_Spritesheet_77
+  - first:
+      213: -8558391040236619125
+    second: SPR_Projectiles_Spritesheet_78
+  - first:
+      213: 9204767415160843807
+    second: SPR_Projectiles_Spritesheet_79
+  - first:
+      213: 6570414752730040623
+    second: SPR_Projectiles_Spritesheet_80
+  - first:
+      213: 6372110703463562871
+    second: SPR_Projectiles_Spritesheet_81
+  - first:
+      213: 3404038199164068188
+    second: SPR_Projectiles_Spritesheet_82
+  - first:
+      213: 4060441367305643860
+    second: SPR_Projectiles_Spritesheet_83
+  - first:
+      213: -4229810364716894847
+    second: SPR_Projectiles_Spritesheet_84
+  - first:
+      213: -5023214740055573520
+    second: SPR_Projectiles_Spritesheet_85
+  - first:
+      213: 5192521265274156836
+    second: SPR_Projectiles_Spritesheet_86
+  - first:
+      213: -1933978943339636669
+    second: SPR_Projectiles_Spritesheet_87
+  - first:
+      213: 2368244747579072924
+    second: SPR_Projectiles_Spritesheet_88
+  - first:
+      213: -3367209873939352801
+    second: SPR_Projectiles_Spritesheet_89
+  - first:
+      213: 2710465412170593892
+    second: SPR_Projectiles_Spritesheet_90
+  - first:
+      213: -7749684690943642625
+    second: SPR_Projectiles_Spritesheet_91
+  - first:
+      213: -8153263891677656156
+    second: SPR_Projectiles_Spritesheet_92
+  - first:
+      213: 7104253292543192068
+    second: SPR_Projectiles_Spritesheet_93
+  - first:
+      213: 3264193764409314404
+    second: SPR_Projectiles_Spritesheet_94
+  - first:
+      213: -3031202619397830388
+    second: SPR_Projectiles_Spritesheet_95
+  - first:
+      213: -5600587856138906267
+    second: SPR_Projectiles_Spritesheet_96
+  - first:
+      213: -5207887131836030781
+    second: SPR_Projectiles_Spritesheet_97
+  - first:
+      213: 8305963172635971766
+    second: SPR_Projectiles_Spritesheet_98
+  - first:
+      213: 3608711752659394204
+    second: SPR_Projectiles_Spritesheet_99
+  - first:
+      213: -7837130043972452892
+    second: SPR_Projectiles_Spritesheet_100
+  - first:
+      213: -2944555364554359546
+    second: SPR_Projectiles_Spritesheet_101
+  - first:
+      213: 6723887724531726833
+    second: SPR_Projectiles_Spritesheet_102
+  - first:
+      213: 7707560389506565773
+    second: SPR_Projectiles_Spritesheet_103
+  - first:
+      213: 7176745209216124926
+    second: SPR_Projectiles_Spritesheet_104
+  - first:
+      213: 3018187093327082975
+    second: SPR_Projectiles_Spritesheet_105
+  - first:
+      213: -5726272247054624216
+    second: SPR_Projectiles_Spritesheet_106
+  - first:
+      213: 4508193174648019994
+    second: SPR_Projectiles_Spritesheet_107
+  - first:
+      213: -8225515317196173720
+    second: SPR_Projectiles_Spritesheet_108
+  - first:
+      213: -5938682150138839837
+    second: SPR_Projectiles_Spritesheet_109
+  - first:
+      213: 2685084828108293966
+    second: SPR_Projectiles_Spritesheet_110
+  - first:
+      213: 4257844215746568304
+    second: SPR_Projectiles_Spritesheet_111
+  - first:
+      213: -275640776825680779
+    second: SPR_Projectiles_Spritesheet_112
+  - first:
+      213: 2282398780089305881
+    second: SPR_Projectiles_Spritesheet_113
+  - first:
+      213: -8348929785988365780
+    second: SPR_Projectiles_Spritesheet_114
+  - first:
+      213: -547041957464957258
+    second: SPR_Projectiles_Spritesheet_115
+  - first:
+      213: -7138624214082772301
+    second: SPR_Projectiles_Spritesheet_116
+  - first:
+      213: -3942979842385372170
+    second: SPR_Projectiles_Spritesheet_117
+  - first:
+      213: -175718372436849778
+    second: SPR_Projectiles_Spritesheet_118
+  - first:
+      213: 4571529657391478283
+    second: SPR_Projectiles_Spritesheet_119
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 748
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b61d606e906dba410800000000000000
+      internalID: 1489519439778337131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 651
+        width: 37
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c48c4149d15ada60800000000000000
+      internalID: 7699556506488571076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 742
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f15567599a0bd6ce0800000000000000
+      internalID: -1410276865893575393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 746
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82a12bbbddbc0bbd0800000000000000
+      internalID: -2616367230305035736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 656
+        width: 28
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06b67bb9b4fdf6c0800000000000000
+      internalID: -4107858206540777969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 646
+        width: 33
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6465a1fb2b5d7b170800000000000000
+      internalID: 8194253010710976070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 736
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13f10e66cf0692fe0800000000000000
+      internalID: -1213331987425648847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 736
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 041c5f53daaa4c2d0800000000000000
+      internalID: -3259292569398034112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 738
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c2e113c370ddd200800000000000000
+      internalID: 206550353541456579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 656
+        width: 28
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 768cfd622dc489410800000000000000
+      internalID: 1484020542697621607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 720
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4ddd8e4d74155950800000000000000
+      internalID: 6437073770817379660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 720
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad2498015739f780800000000000000
+      internalID: -8648820788212519514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 721
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efb41f75396cc33a0800000000000000
+      internalID: -6684249410786735106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 722
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a3d0ea11fa560190800000000000000
+      internalID: -7996604096765176921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 717
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ff9148a8de09cc90800000000000000
+      internalID: -7149166609775353869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 722
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8158cb10667f01000800000000000000
+      internalID: 4775617115227416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 720
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70501fb0dbf592260800000000000000
+      internalID: 7073289955315877127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 720
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ee05ac79fd8fa500800000000000000
+      internalID: 409702193791569635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 708
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d2b4a3e1c188a70800000000000000
+      internalID: 8829337985612459367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 708
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a85d596a8bac04400800000000000000
+      internalID: 306467669078824330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 705
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5891be256ad1dbd30800000000000000
+      internalID: 4448744607104833925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 704
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85c3ee9192b309650800000000000000
+      internalID: 6237550531622878296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 705
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aebab6d29bbd4220800000000000000
+      internalID: 2471838009838452384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 706
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f84d060498803ead0800000000000000
+      internalID: -2674284368144313201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 708
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17fe2662b59da3900800000000000000
+      internalID: 665082880499838833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 708
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee1823680bc0ab9b0800000000000000
+      internalID: -5063720878719467026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 694
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 993321395d15fec40800000000000000
+      internalID: 5543739644053697433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 700
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e444192a98925f30800000000000000
+      internalID: 4562877160361313504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 693
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 372132036479e2980800000000000000
+      internalID: -8561739513873624461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 679
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ecc62fd948e15b70800000000000000
+      internalID: 8886138943752817896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 690
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6056de98a08d3f00800000000000000
+      internalID: 1098175345855975535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 684
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 993a6d352ec4ae410800000000000000
+      internalID: 1507101560261747609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 690
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a37164c0372b8b60800000000000000
+      internalID: 7749330674227704743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 679
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b892acd8f3733070800000000000000
+      internalID: 8084933268750899384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 679
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c2b783db5a1cfde0800000000000000
+      internalID: -1298133610896313664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 679
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 043ea6ef2fc50dc40800000000000000
+      internalID: 5535026140758598464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 679
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 417f51ad430c431e0800000000000000
+      internalID: -2218937383157106924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 650
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34e629156f0982a80800000000000000
+      internalID: -8491377709802164669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 646
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a751518fc77826850800000000000000
+      internalID: 6368801793863128442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 650
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c889281b64b8d350800000000000000
+      internalID: 6041777272177395910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 521
+        width: 34
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79206c70a2a775220800000000000000
+      internalID: 2474580841201009303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 519
+        width: 34
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecfc56648d773bff0800000000000000
+      internalID: -21541802429001778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 592
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0289066751410c00800000000000000
+      internalID: 865044447061705226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 518
+        width: 36
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c35e7cf414274d50800000000000000
+      internalID: 6721380641427837888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 588
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23bb8b16bce28fe30800000000000000
+      internalID: 4537428075628510002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 521
+        width: 34
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6fdeba7e96c2c2f0800000000000000
+      internalID: -953981787082662033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 579
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aace2e76c78dab10800000000000000
+      internalID: 1994399496585267874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 576
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 865633c930ab45250800000000000000
+      internalID: 5932571133822068072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 575
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e9ef4aa3397b4420800000000000000
+      internalID: 2615317271426361830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 569
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee019aafca9b8fa10800000000000000
+      internalID: 1943507391801266414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 557
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b782142bc8b508e70800000000000000
+      internalID: 9115386305642047611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 554
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7c06e5618b9a8470800000000000000
+      internalID: 8397695435248372860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 545
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b72a40e79c431ea80800000000000000
+      internalID: -8439406186708295045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 544
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94954ba344e51eea0800000000000000
+      internalID: -5845287194214508215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 499
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 565b6e566e67a75c0800000000000000
+      internalID: -4216927369154874011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 497
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 124664e518ba7bcc0800000000000000
+      internalID: -3695296397113400287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 393
+        width: 36
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06ee018ee9f82a300800000000000000
+      internalID: 261929641001938528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 489
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2d4150114d944ca0800000000000000
+      internalID: -6033524697997423314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 391
+        width: 38
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ede3d1b8ec2d2790800000000000000
+      internalID: -7553331622102962714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 391
+        width: 40
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40d558fde57c91620800000000000000
+      internalID: 2745444658149940484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 393
+        width: 36
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 606addbf1251204e0800000000000000
+      internalID: -2017026447404849658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 489
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a70fde1733c5840800000000000000
+      internalID: 5214099033004472849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 463
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 906b0f1d7633b1930800000000000000
+      internalID: 4114939205529941513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 466
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2bfc4526c2ef4da0800000000000000
+      internalID: -5958294441330672852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 457
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a261004f90069b0800000000000000
+      internalID: -5089056635350537581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 306
+        width: 51
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 662f65f0740c69110800000000000000
+      internalID: 1267411756583940710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 302
+        width: 50
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e9e01511d31be880800000000000000
+      internalID: -8580742876301825567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 301
+        width: 51
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5667c002adc1e1210800000000000000
+      internalID: 1305512665150158437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 306
+        width: 50
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8059de7b422e24810800000000000000
+      internalID: 1748208252705674504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 295
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dad748733bc6fff0800000000000000
+      internalID: -2591327845360944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 298
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09cc5eb6f94d920c0800000000000000
+      internalID: -4599911763207140208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 290
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60b2e53b1304f8da0800000000000000
+      internalID: -5940458801271526650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 298
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ae6f6772e719a990800000000000000
+      internalID: -7374336653408637274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 295
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf17cd9ba99881600800000000000000
+      internalID: 439252261304824315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 286
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8414070947361b990800000000000000
+      internalID: -7372001762738159288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 296
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3daf2aa771c213be0800000000000000
+      internalID: -1499368721584293165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 295
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eb4e61ab8d564eb0800000000000000
+      internalID: -4735995103843300378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 284
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89718bbd21b40bbb0800000000000000
+      internalID: -4922351848348182632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_78
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 282
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8a7fc571bc7a3980800000000000000
+      internalID: -8558391040236619125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_79
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 275
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ea0c4f137edbf70800000000000000
+      internalID: 9204767415160843807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_80
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 283
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f29c573f76dce2b50800000000000000
+      internalID: 6570414752730040623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_81
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 270
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77ef8658ce84e6850800000000000000
+      internalID: 6372110703463562871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_82
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 269
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c51e80fe4b29d3f20800000000000000
+      internalID: 3404038199164068188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_83
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 266
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 457ed8119e5995830800000000000000
+      internalID: 4060441367305643860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_84
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 270
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 185b8cf32e1bc45c0800000000000000
+      internalID: -4229810364716894847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_85
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 165
+        width: 56
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb3b7cdec4f94ab0800000000000000
+      internalID: -5023214740055573520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_86
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 165
+        width: 56
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 427f351649a8f0840800000000000000
+      internalID: 5192521265274156836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_87
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 175
+        width: 57
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 348d72fc5602925e0800000000000000
+      internalID: -1933978943339636669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_88
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 167
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c91a2a8ec02bdd020800000000000000
+      internalID: 2368244747579072924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_89
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 164
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1338abb5744541d0800000000000000
+      internalID: -3367209873939352801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_90
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 170
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46639648ee18d9520800000000000000
+      internalID: 2710465412170593892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_91
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 172
+        width: 56
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff3750b45d6937490800000000000000
+      internalID: -7749684690943642625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_92
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 165
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4abc88830b9c9de80800000000000000
+      internalID: -8153263891677656156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_93
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 156
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40caf68cab0679260800000000000000
+      internalID: 7104253292543192068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_94
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 148
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46c89ad2feebc4d20800000000000000
+      internalID: 3264193764409314404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_95
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 156
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c090f8417410fe5d0800000000000000
+      internalID: -3031202619397830388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_96
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 148
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 565597d9407b642b0800000000000000
+      internalID: -5600587856138906267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_97
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 156
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c0e5940f3ed9b7b0800000000000000
+      internalID: -5207887131836030781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_98
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 146
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b09176af75b44370800000000000000
+      internalID: 8305963172635971766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_99
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 148
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9e5a022838b41230800000000000000
+      internalID: 3608711752659394204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_100
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 45
+        width: 61
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4edfa767fbbec3390800000000000000
+      internalID: -7837130043972452892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_101
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 39
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60d34423f76d227d0800000000000000
+      internalID: -2944555364554359546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_102
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 44
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f9b252c24c005d50800000000000000
+      internalID: 6723887724531726833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_103
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 44
+        width: 62
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d86096d7651c6fa60800000000000000
+      internalID: 7707560389506565773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_104
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 39
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef740d66ebbe89360800000000000000
+      internalID: 7176745209216124926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_105
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 42
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd5fd6b9b21c2e920800000000000000
+      internalID: 3018187093327082975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_106
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 44
+        width: 61
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82a912bfab13880b0800000000000000
+      internalID: -5726272247054624216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_107
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 40
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c5cb19ec1509e30800000000000000
+      internalID: 4508193174648019994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_108
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 37
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86eccff466919dd80800000000000000
+      internalID: -8225515317196173720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_109
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 45
+        width: 60
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ec75078c00959da0800000000000000
+      internalID: -5938682150138839837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_110
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 40
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e478f2bcc66534520800000000000000
+      internalID: 2685084828108293966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_111
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 44
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 070a68451c6e61b30800000000000000
+      internalID: 4257844215746568304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_112
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 31
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57c41b38c2abc2cf0800000000000000
+      internalID: -275640776825680779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_113
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 33
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91b020b0995bcaf10800000000000000
+      internalID: 2282398780089305881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_114
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 23
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c224c7b1894a22c80800000000000000
+      internalID: -8348929785988365780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_115
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 29
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6be1110fc348868f0800000000000000
+      internalID: -547041957464957258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_116
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 31
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b2289e69138eec90800000000000000
+      internalID: -7138624214082772301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_117
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 22
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fb181269b8b749c0800000000000000
+      internalID: -3942979842385372170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_118
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 20
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8b446e3219bf8df0800000000000000
+      internalID: -175718372436849778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectiles_Spritesheet_119
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 22
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b067bfc9006517f30800000000000000
+      internalID: 4571529657391478283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SPR_Projectiles_Spritesheet_0: 1489519439778337131
+      SPR_Projectiles_Spritesheet_1: 7699556506488571076
+      SPR_Projectiles_Spritesheet_10: 6437073770817379660
+      SPR_Projectiles_Spritesheet_100: -7837130043972452892
+      SPR_Projectiles_Spritesheet_101: -2944555364554359546
+      SPR_Projectiles_Spritesheet_102: 6723887724531726833
+      SPR_Projectiles_Spritesheet_103: 7707560389506565773
+      SPR_Projectiles_Spritesheet_104: 7176745209216124926
+      SPR_Projectiles_Spritesheet_105: 3018187093327082975
+      SPR_Projectiles_Spritesheet_106: -5726272247054624216
+      SPR_Projectiles_Spritesheet_107: 4508193174648019994
+      SPR_Projectiles_Spritesheet_108: -8225515317196173720
+      SPR_Projectiles_Spritesheet_109: -5938682150138839837
+      SPR_Projectiles_Spritesheet_11: -8648820788212519514
+      SPR_Projectiles_Spritesheet_110: 2685084828108293966
+      SPR_Projectiles_Spritesheet_111: 4257844215746568304
+      SPR_Projectiles_Spritesheet_112: -275640776825680779
+      SPR_Projectiles_Spritesheet_113: 2282398780089305881
+      SPR_Projectiles_Spritesheet_114: -8348929785988365780
+      SPR_Projectiles_Spritesheet_115: -547041957464957258
+      SPR_Projectiles_Spritesheet_116: -7138624214082772301
+      SPR_Projectiles_Spritesheet_117: -3942979842385372170
+      SPR_Projectiles_Spritesheet_118: -175718372436849778
+      SPR_Projectiles_Spritesheet_119: 4571529657391478283
+      SPR_Projectiles_Spritesheet_12: -6684249410786735106
+      SPR_Projectiles_Spritesheet_13: -7996604096765176921
+      SPR_Projectiles_Spritesheet_14: -7149166609775353869
+      SPR_Projectiles_Spritesheet_15: 4775617115227416
+      SPR_Projectiles_Spritesheet_16: 7073289955315877127
+      SPR_Projectiles_Spritesheet_17: 409702193791569635
+      SPR_Projectiles_Spritesheet_18: 8829337985612459367
+      SPR_Projectiles_Spritesheet_19: 306467669078824330
+      SPR_Projectiles_Spritesheet_2: -1410276865893575393
+      SPR_Projectiles_Spritesheet_20: 4448744607104833925
+      SPR_Projectiles_Spritesheet_21: 6237550531622878296
+      SPR_Projectiles_Spritesheet_22: 2471838009838452384
+      SPR_Projectiles_Spritesheet_23: -2674284368144313201
+      SPR_Projectiles_Spritesheet_24: 665082880499838833
+      SPR_Projectiles_Spritesheet_25: -5063720878719467026
+      SPR_Projectiles_Spritesheet_26: 5543739644053697433
+      SPR_Projectiles_Spritesheet_27: 4562877160361313504
+      SPR_Projectiles_Spritesheet_28: -8561739513873624461
+      SPR_Projectiles_Spritesheet_29: 8886138943752817896
+      SPR_Projectiles_Spritesheet_3: -2616367230305035736
+      SPR_Projectiles_Spritesheet_30: 1098175345855975535
+      SPR_Projectiles_Spritesheet_31: 1507101560261747609
+      SPR_Projectiles_Spritesheet_32: 7749330674227704743
+      SPR_Projectiles_Spritesheet_33: 8084933268750899384
+      SPR_Projectiles_Spritesheet_34: -1298133610896313664
+      SPR_Projectiles_Spritesheet_35: 5535026140758598464
+      SPR_Projectiles_Spritesheet_36: -2218937383157106924
+      SPR_Projectiles_Spritesheet_37: -8491377709802164669
+      SPR_Projectiles_Spritesheet_38: 6368801793863128442
+      SPR_Projectiles_Spritesheet_39: 6041777272177395910
+      SPR_Projectiles_Spritesheet_4: -4107858206540777969
+      SPR_Projectiles_Spritesheet_40: 2474580841201009303
+      SPR_Projectiles_Spritesheet_41: -21541802429001778
+      SPR_Projectiles_Spritesheet_42: 865044447061705226
+      SPR_Projectiles_Spritesheet_43: 6721380641427837888
+      SPR_Projectiles_Spritesheet_44: 4537428075628510002
+      SPR_Projectiles_Spritesheet_45: -953981787082662033
+      SPR_Projectiles_Spritesheet_46: 1994399496585267874
+      SPR_Projectiles_Spritesheet_47: 5932571133822068072
+      SPR_Projectiles_Spritesheet_48: 2615317271426361830
+      SPR_Projectiles_Spritesheet_49: 1943507391801266414
+      SPR_Projectiles_Spritesheet_5: 8194253010710976070
+      SPR_Projectiles_Spritesheet_50: 9115386305642047611
+      SPR_Projectiles_Spritesheet_51: 8397695435248372860
+      SPR_Projectiles_Spritesheet_52: -8439406186708295045
+      SPR_Projectiles_Spritesheet_53: -5845287194214508215
+      SPR_Projectiles_Spritesheet_54: -4216927369154874011
+      SPR_Projectiles_Spritesheet_55: -3695296397113400287
+      SPR_Projectiles_Spritesheet_56: 261929641001938528
+      SPR_Projectiles_Spritesheet_57: -6033524697997423314
+      SPR_Projectiles_Spritesheet_58: -7553331622102962714
+      SPR_Projectiles_Spritesheet_59: 2745444658149940484
+      SPR_Projectiles_Spritesheet_6: -1213331987425648847
+      SPR_Projectiles_Spritesheet_60: -2017026447404849658
+      SPR_Projectiles_Spritesheet_61: 5214099033004472849
+      SPR_Projectiles_Spritesheet_62: 4114939205529941513
+      SPR_Projectiles_Spritesheet_63: -5958294441330672852
+      SPR_Projectiles_Spritesheet_64: -5089056635350537581
+      SPR_Projectiles_Spritesheet_65: 1267411756583940710
+      SPR_Projectiles_Spritesheet_66: -8580742876301825567
+      SPR_Projectiles_Spritesheet_67: 1305512665150158437
+      SPR_Projectiles_Spritesheet_68: 1748208252705674504
+      SPR_Projectiles_Spritesheet_69: -2591327845360944
+      SPR_Projectiles_Spritesheet_7: -3259292569398034112
+      SPR_Projectiles_Spritesheet_70: -4599911763207140208
+      SPR_Projectiles_Spritesheet_71: -5940458801271526650
+      SPR_Projectiles_Spritesheet_72: -7374336653408637274
+      SPR_Projectiles_Spritesheet_73: 439252261304824315
+      SPR_Projectiles_Spritesheet_74: -7372001762738159288
+      SPR_Projectiles_Spritesheet_75: -1499368721584293165
+      SPR_Projectiles_Spritesheet_76: -4735995103843300378
+      SPR_Projectiles_Spritesheet_77: -4922351848348182632
+      SPR_Projectiles_Spritesheet_78: -8558391040236619125
+      SPR_Projectiles_Spritesheet_79: 9204767415160843807
+      SPR_Projectiles_Spritesheet_8: 206550353541456579
+      SPR_Projectiles_Spritesheet_80: 6570414752730040623
+      SPR_Projectiles_Spritesheet_81: 6372110703463562871
+      SPR_Projectiles_Spritesheet_82: 3404038199164068188
+      SPR_Projectiles_Spritesheet_83: 4060441367305643860
+      SPR_Projectiles_Spritesheet_84: -4229810364716894847
+      SPR_Projectiles_Spritesheet_85: -5023214740055573520
+      SPR_Projectiles_Spritesheet_86: 5192521265274156836
+      SPR_Projectiles_Spritesheet_87: -1933978943339636669
+      SPR_Projectiles_Spritesheet_88: 2368244747579072924
+      SPR_Projectiles_Spritesheet_89: -3367209873939352801
+      SPR_Projectiles_Spritesheet_9: 1484020542697621607
+      SPR_Projectiles_Spritesheet_90: 2710465412170593892
+      SPR_Projectiles_Spritesheet_91: -7749684690943642625
+      SPR_Projectiles_Spritesheet_92: -8153263891677656156
+      SPR_Projectiles_Spritesheet_93: 7104253292543192068
+      SPR_Projectiles_Spritesheet_94: 3264193764409314404
+      SPR_Projectiles_Spritesheet_95: -3031202619397830388
+      SPR_Projectiles_Spritesheet_96: -5600587856138906267
+      SPR_Projectiles_Spritesheet_97: -5207887131836030781
+      SPR_Projectiles_Spritesheet_98: 8305963172635971766
+      SPR_Projectiles_Spritesheet_99: 3608711752659394204
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

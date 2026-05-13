@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerShooter : MonoBehaviour
@@ -13,6 +14,10 @@ public class PlayerShooter : MonoBehaviour
     private float nextShootTime;
     private bool mobileShootHeld;
     private bool controlsEnabled = true;
+    private Bullet activeBullet;
+
+    public event Action ShotFired;
+    public event Action<TreatmentType> TreatmentChanged;
 
     public TreatmentType SelectedTreatment => selectedTreatment;
 
@@ -24,8 +29,14 @@ public class PlayerShooter : MonoBehaviour
 
     public void SelectTreatment(TreatmentType treatmentType)
     {
+        if (selectedTreatment == treatmentType)
+        {
+            return;
+        }
+
         selectedTreatment = treatmentType;
         GameManager.Instance?.SetSelectedTreatment(selectedTreatment);
+        TreatmentChanged?.Invoke(selectedTreatment);
     }
 
     public void CycleTreatment()
@@ -51,7 +62,7 @@ public class PlayerShooter : MonoBehaviour
 
     public void TryShoot()
     {
-        if (!controlsEnabled || Time.time < nextShootTime)
+        if (!controlsEnabled || Time.time < nextShootTime || activeBullet != null)
         {
             return;
         }
@@ -64,7 +75,8 @@ public class PlayerShooter : MonoBehaviour
         }
 
         Transform origin = firePoint == null ? transform : firePoint;
-        Instantiate(prefab, origin.position, Quaternion.identity);
+        activeBullet = Instantiate(prefab, origin.position, Quaternion.identity);
+        ShotFired?.Invoke();
         nextShootTime = Time.time + shootCooldown;
     }
 

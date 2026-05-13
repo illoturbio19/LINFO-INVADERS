@@ -5475,6 +5475,9 @@ MonoBehaviour:
   armoredCellPrefab: {fileID: 7973099172699690650, guid: 31558fe01fe9c174baee2ff10459845e, type: 3}
   mutatedCellPrefab: {fileID: 8031172817940483777, guid: 782c17e59e94a2743bd0045083d01e87, type: 3}
   enemyProjectilePrefab: {fileID: 2047040083741153100, guid: a4a33f6f6059935499d0ae39f90d38bc, type: 3}
+  basicEnemyProjectilePrefab: {fileID: 2047040083741153100, guid: a4a33f6f6059935499d0ae39f90d38bc, type: 3}
+  armoredEnemyProjectilePrefab: {fileID: 2047040083741153100, guid: 21b7da08d1b82da45b03e1bba5c4a3d5, type: 3}
+  mutatedEnemyProjectilePrefab: {fileID: 2047040083741153100, guid: db5fc35ae195841448a945a7974730a4, type: 3}
   startPosition: {x: -4.9, y: 3.6}
   spacing: {x: 1.4, y: 0.85}
   horizontalLimit: 7.2

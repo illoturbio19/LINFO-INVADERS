@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: c247838f5229466499cc73586aa326aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4515486765142196711
+    second: SPR_Projectile_ChemoShot_00_0
+  - first:
+      213: -911310241902206930
+    second: SPR_Projectile_ChemoShot_00_1
+  - first:
+      213: 7774656713093177968
+    second: SPR_Projectile_ChemoShot_00_2
+  - first:
+      213: 6664901487093125947
+    second: SPR_Projectile_ChemoShot_00_3
+  - first:
+      213: 2873752722563136744
+    second: SPR_Projectile_ChemoShot_00_4
+  - first:
+      213: 1056458359015573607
+    second: SPR_Projectile_ChemoShot_00_5
+  - first:
+      213: -5003821964393653370
+    second: SPR_Projectile_ChemoShot_00_6
+  - first:
+      213: -6103223810165243622
+    second: SPR_Projectile_ChemoShot_00_7
+  - first:
+      213: -4365474363572855830
+    second: SPR_Projectile_ChemoShot_00_8
+  - first:
+      213: -8817282996567387380
+    second: SPR_Projectile_ChemoShot_00_9
+  - first:
+      213: 6045078055202923483
+    second: SPR_Projectile_ChemoShot_00_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPR_Projectile_ChemoShot_00_0
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 86
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e14740f94b3aae30800000000000000
+      internalID: 4515486765142196711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectile_ChemoShot_00_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 22
+        width: 28
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e206e3fc9206a53f0800000000000000
+      internalID: -911310241902206930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectile_ChemoShot_00_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 86
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0726682b61125eb60800000000000000
+      internalID: 7774656713093177968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectile_ChemoShot_00_3
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 74
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b339821279c7e7c50800000000000000
+      internalID: 6664901487093125947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectile_ChemoShot_00_4
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 74
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ecffa810ee91e720800000000000000
+      internalID: 2873752722563136744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectile_ChemoShot_00_5
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 60
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7688d19b74b49ae00800000000000000
+      internalID: 1056458359015573607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectile_ChemoShot_00_6
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68bd40d4f6ade8ab0800000000000000
+      internalID: -5003821964393653370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectile_ChemoShot_00_7
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 45
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a11056ae74efc4ba0800000000000000
+      internalID: -6103223810165243622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectile_ChemoShot_00_8
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 56
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeb5a231238ba63c0800000000000000
+      internalID: -4365474363572855830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectile_ChemoShot_00_9
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 45
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c035281a4d7b2a580800000000000000
+      internalID: -8817282996567387380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Projectile_ChemoShot_00_10
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 16
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd321e7867e64e350800000000000000
+      internalID: 6045078055202923483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SPR_Projectile_ChemoShot_00_0: 4515486765142196711
+      SPR_Projectile_ChemoShot_00_1: -911310241902206930
+      SPR_Projectile_ChemoShot_00_10: 6045078055202923483
+      SPR_Projectile_ChemoShot_00_2: 7774656713093177968
+      SPR_Projectile_ChemoShot_00_3: 6664901487093125947
+      SPR_Projectile_ChemoShot_00_4: 2873752722563136744
+      SPR_Projectile_ChemoShot_00_5: 1056458359015573607
+      SPR_Projectile_ChemoShot_00_6: -5003821964393653370
+      SPR_Projectile_ChemoShot_00_7: -6103223810165243622
+      SPR_Projectile_ChemoShot_00_8: -4365474363572855830
+      SPR_Projectile_ChemoShot_00_9: -8817282996567387380
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

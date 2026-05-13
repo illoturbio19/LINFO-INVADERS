@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private float destroyY = 6.5f;
     [SerializeField] private Color placeholderColor = Color.white;
+    [SerializeField] private bool usePlaceholderColor = true;
 
     public TreatmentType TreatmentType => treatmentType;
 
@@ -16,7 +17,7 @@ public class Bullet : MonoBehaviour
     {
         GetComponent<Collider2D>().isTrigger = true;
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = placeholderColor;
+        spriteRenderer.color = usePlaceholderColor ? placeholderColor : Color.white;
     }
 
     private void Update()
