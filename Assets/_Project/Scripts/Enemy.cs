@@ -82,7 +82,8 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        currentHealth = Mathf.Max(0f, currentHealth - result.FinalDamage);
+        float damage = DamageResolver.GetArcadeDamage(result.Effectiveness, currentHealth, maxHealth);
+        currentHealth = Mathf.Max(0f, currentHealth - damage);
         if (result.Effectiveness == EffectivenessType.SuperEffective)
         {
             lastEffectiveHitTime = Time.time;
