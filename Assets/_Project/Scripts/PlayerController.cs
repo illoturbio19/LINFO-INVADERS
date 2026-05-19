@@ -8,7 +8,10 @@ public class PlayerController : MonoBehaviour
 
     private bool mobileLeftPressed;
     private bool mobileRightPressed;
+    private float currentMoveDirection;
     private bool controlsEnabled = true;
+
+    public float CurrentMoveDirection => currentMoveDirection;
 
     public void SetHorizontalLimit(float limit)
     {
@@ -22,6 +25,7 @@ public class PlayerController : MonoBehaviour
         {
             mobileLeftPressed = false;
             mobileRightPressed = false;
+            currentMoveDirection = 0f;
         }
     }
 
@@ -46,6 +50,7 @@ public class PlayerController : MonoBehaviour
         int mobileDirection = mobileRightPressed ? 1 : 0;
         mobileDirection += mobileLeftPressed ? -1 : 0;
         float direction = Mathf.Abs(keyboardDirection) > 0.01f ? keyboardDirection : mobileDirection;
+        currentMoveDirection = direction;
         Vector3 position = transform.position + Vector3.right * (direction * moveSpeed * Time.deltaTime);
         position.x = Mathf.Clamp(position.x, -horizontalLimit, horizontalLimit);
         transform.position = position;

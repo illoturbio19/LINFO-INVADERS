@@ -8,6 +8,9 @@ public class EnemyFormationManager : MonoBehaviour
     [SerializeField] private Enemy armoredCellPrefab;
     [SerializeField] private Enemy mutatedCellPrefab;
     [SerializeField] private EnemyProjectile enemyProjectilePrefab;
+    [SerializeField] private EnemyProjectile basicEnemyProjectilePrefab;
+    [SerializeField] private EnemyProjectile armoredEnemyProjectilePrefab;
+    [SerializeField] private EnemyProjectile mutatedEnemyProjectilePrefab;
     [SerializeField] private Vector2 startPosition = new Vector2(-4.9f, 3.6f);
     [SerializeField] private Vector2 spacing = new Vector2(1.4f, 0.85f);
     [SerializeField] private float horizontalLimit = 7.2f;
@@ -104,7 +107,7 @@ public class EnemyFormationManager : MonoBehaviour
 
     private void TryEnemyFire()
     {
-        if (enemyProjectilePrefab == null || Time.time < nextEnemyFireTime || aliveEnemies.Count == 0)
+        if (Time.time < nextEnemyFireTime || aliveEnemies.Count == 0)
         {
             return;
         }
@@ -113,7 +116,14 @@ public class EnemyFormationManager : MonoBehaviour
         Enemy shooter = aliveEnemies[Random.Range(0, aliveEnemies.Count)];
         if (shooter != null)
         {
-            Instantiate(enemyProjectilePrefab, shooter.transform.position + Vector3.down * 0.45f, Quaternion.identity);
+            EnemyProjectile projectilePrefab = GetProjectilePrefab(shooter.EnemyType);
+            if (projectilePrefab == null)
+            {
+                return;
+            }
+
+            shooter.PlayShootFeedback();
+            Instantiate(projectilePrefab, shooter.transform.position + Vector3.down * 0.45f, Quaternion.identity);
         }
     }
 
@@ -157,6 +167,19 @@ public class EnemyFormationManager : MonoBehaviour
                 return mutatedCellPrefab;
             default:
                 return basicCellPrefab;
+        }
+    }
+
+    private EnemyProjectile GetProjectilePrefab(EnemyType enemyType)
+    {
+        switch (enemyType)
+        {
+            case EnemyType.ArmoredCell:
+                return armoredEnemyProjectilePrefab != null ? armoredEnemyProjectilePrefab : enemyProjectilePrefab;
+            case EnemyType.MutatedCell:
+                return mutatedEnemyProjectilePrefab != null ? mutatedEnemyProjectilePrefab : enemyProjectilePrefab;
+            default:
+                return basicEnemyProjectilePrefab != null ? basicEnemyProjectilePrefab : enemyProjectilePrefab;
         }
     }
 

@@ -1,0 +1,2145 @@
+fileFormatVersion: 2
+guid: 8945f10f87d35a142a65855aa31a66e6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3972528180857592981
+    second: SPR_Enemy_ArmoredCell_Spritesheet_0
+  - first:
+      213: 6752587061604195131
+    second: SPR_Enemy_ArmoredCell_Spritesheet_1
+  - first:
+      213: 7713359349324916829
+    second: SPR_Enemy_ArmoredCell_Spritesheet_2
+  - first:
+      213: 2396155809935909054
+    second: SPR_Enemy_ArmoredCell_Spritesheet_3
+  - first:
+      213: -162477840379753884
+    second: SPR_Enemy_ArmoredCell_Spritesheet_4
+  - first:
+      213: -2532608409852725192
+    second: SPR_Enemy_ArmoredCell_Spritesheet_5
+  - first:
+      213: 494852627347721884
+    second: SPR_Enemy_ArmoredCell_Spritesheet_6
+  - first:
+      213: -6241330608087352892
+    second: SPR_Enemy_ArmoredCell_Spritesheet_7
+  - first:
+      213: -6160764057021537906
+    second: SPR_Enemy_ArmoredCell_Spritesheet_8
+  - first:
+      213: -3719987246471759348
+    second: SPR_Enemy_ArmoredCell_Spritesheet_9
+  - first:
+      213: 8286211249311715203
+    second: SPR_Enemy_ArmoredCell_Spritesheet_10
+  - first:
+      213: 4733540103763371237
+    second: SPR_Enemy_ArmoredCell_Spritesheet_11
+  - first:
+      213: 522134684375969632
+    second: SPR_Enemy_ArmoredCell_Spritesheet_12
+  - first:
+      213: -7853531532593724414
+    second: SPR_Enemy_ArmoredCell_Spritesheet_13
+  - first:
+      213: 2230798284390788261
+    second: SPR_Enemy_ArmoredCell_Spritesheet_14
+  - first:
+      213: -8678484097619525566
+    second: SPR_Enemy_ArmoredCell_Spritesheet_15
+  - first:
+      213: 2700790425621749086
+    second: SPR_Enemy_ArmoredCell_Spritesheet_16
+  - first:
+      213: -4235292533929343708
+    second: SPR_Enemy_ArmoredCell_Spritesheet_17
+  - first:
+      213: -6496103635988717528
+    second: SPR_Enemy_ArmoredCell_Spritesheet_18
+  - first:
+      213: 5696819483589887434
+    second: SPR_Enemy_ArmoredCell_Spritesheet_19
+  - first:
+      213: -5366495424791821094
+    second: SPR_Enemy_ArmoredCell_Spritesheet_20
+  - first:
+      213: -1524461383335277401
+    second: SPR_Enemy_ArmoredCell_Spritesheet_21
+  - first:
+      213: 6450026199642616887
+    second: SPR_Enemy_ArmoredCell_Spritesheet_22
+  - first:
+      213: -4971882501348997035
+    second: SPR_Enemy_ArmoredCell_Spritesheet_23
+  - first:
+      213: -1090091826517901760
+    second: SPR_Enemy_ArmoredCell_Spritesheet_24
+  - first:
+      213: -2661918653092088603
+    second: SPR_Enemy_ArmoredCell_Spritesheet_25
+  - first:
+      213: 1765069896345710611
+    second: SPR_Enemy_ArmoredCell_Spritesheet_26
+  - first:
+      213: 3925791183664899850
+    second: SPR_Enemy_ArmoredCell_Spritesheet_27
+  - first:
+      213: 4812035733797868655
+    second: SPR_Enemy_ArmoredCell_Spritesheet_28
+  - first:
+      213: 163012273034271638
+    second: SPR_Enemy_ArmoredCell_Spritesheet_29
+  - first:
+      213: -3161123654123656861
+    second: SPR_Enemy_ArmoredCell_Spritesheet_30
+  - first:
+      213: -397150723681165807
+    second: SPR_Enemy_ArmoredCell_Spritesheet_31
+  - first:
+      213: 171978619555550160
+    second: SPR_Enemy_ArmoredCell_Spritesheet_32
+  - first:
+      213: -4672966250171176039
+    second: SPR_Enemy_ArmoredCell_Spritesheet_33
+  - first:
+      213: 3407810210910137996
+    second: SPR_Enemy_ArmoredCell_Spritesheet_34
+  - first:
+      213: 6959090791858318394
+    second: SPR_Enemy_ArmoredCell_Spritesheet_35
+  - first:
+      213: 2732770862035613681
+    second: SPR_Enemy_ArmoredCell_Spritesheet_36
+  - first:
+      213: 4606244530065909900
+    second: SPR_Enemy_ArmoredCell_Spritesheet_37
+  - first:
+      213: 1024974032962694635
+    second: SPR_Enemy_ArmoredCell_Spritesheet_38
+  - first:
+      213: -7904416407051207869
+    second: SPR_Enemy_ArmoredCell_Spritesheet_39
+  - first:
+      213: 7508781466792942529
+    second: SPR_Enemy_ArmoredCell_Spritesheet_40
+  - first:
+      213: -8710512887070784339
+    second: SPR_Enemy_ArmoredCell_Spritesheet_41
+  - first:
+      213: -5225357152560522328
+    second: SPR_Enemy_ArmoredCell_Spritesheet_42
+  - first:
+      213: -8475706554189808764
+    second: SPR_Enemy_ArmoredCell_Spritesheet_43
+  - first:
+      213: -6329593203038158447
+    second: SPR_Enemy_ArmoredCell_Spritesheet_44
+  - first:
+      213: 7152118036125557259
+    second: SPR_Enemy_ArmoredCell_Spritesheet_45
+  - first:
+      213: 131787393327277084
+    second: SPR_Enemy_ArmoredCell_Spritesheet_46
+  - first:
+      213: 2062343540241517512
+    second: SPR_Enemy_ArmoredCell_Spritesheet_47
+  - first:
+      213: 8698463723514913316
+    second: SPR_Enemy_ArmoredCell_Spritesheet_48
+  - first:
+      213: -7431831917187582959
+    second: SPR_Enemy_ArmoredCell_Spritesheet_49
+  - first:
+      213: 5937868088718597726
+    second: SPR_Enemy_ArmoredCell_Spritesheet_50
+  - first:
+      213: -3516736405100987263
+    second: SPR_Enemy_ArmoredCell_Spritesheet_51
+  - first:
+      213: -2596578110662885054
+    second: SPR_Enemy_ArmoredCell_Spritesheet_52
+  - first:
+      213: 1568761848549443204
+    second: SPR_Enemy_ArmoredCell_Spritesheet_53
+  - first:
+      213: -4072691986054288261
+    second: SPR_Enemy_ArmoredCell_Spritesheet_54
+  - first:
+      213: -5936608217484439410
+    second: SPR_Enemy_ArmoredCell_Spritesheet_55
+  - first:
+      213: 2336357049098709992
+    second: SPR_Enemy_ArmoredCell_Spritesheet_56
+  - first:
+      213: -5748852906861475812
+    second: SPR_Enemy_ArmoredCell_Spritesheet_57
+  - first:
+      213: 6266395495212428742
+    second: SPR_Enemy_ArmoredCell_Spritesheet_58
+  - first:
+      213: 7802702458510080348
+    second: SPR_Enemy_ArmoredCell_Spritesheet_59
+  - first:
+      213: 3283869621983830749
+    second: SPR_Enemy_ArmoredCell_Spritesheet_60
+  - first:
+      213: 5228247495479063800
+    second: SPR_Enemy_ArmoredCell_Spritesheet_61
+  - first:
+      213: 8461570636575366477
+    second: SPR_Enemy_ArmoredCell_Spritesheet_62
+  - first:
+      213: -2642792848464435384
+    second: SPR_Enemy_ArmoredCell_Spritesheet_63
+  - first:
+      213: 1718390945261744145
+    second: SPR_Enemy_ArmoredCell_Spritesheet_64
+  - first:
+      213: -7045250769467585169
+    second: SPR_Enemy_ArmoredCell_Spritesheet_65
+  - first:
+      213: -9212108275397116087
+    second: SPR_Enemy_ArmoredCell_Spritesheet_66
+  - first:
+      213: 563502089158228980
+    second: SPR_Enemy_ArmoredCell_Spritesheet_67
+  - first:
+      213: -2080663907729541105
+    second: SPR_Enemy_ArmoredCell_Spritesheet_68
+  - first:
+      213: -9208602893071928255
+    second: SPR_Enemy_ArmoredCell_Spritesheet_69
+  - first:
+      213: 1504015850104807011
+    second: SPR_Enemy_ArmoredCell_Spritesheet_70
+  - first:
+      213: 2357455311969096765
+    second: SPR_Enemy_ArmoredCell_Spritesheet_71
+  - first:
+      213: -7025407248309341170
+    second: SPR_Enemy_ArmoredCell_Spritesheet_72
+  - first:
+      213: -148755186300874442
+    second: SPR_Enemy_ArmoredCell_Spritesheet_73
+  - first:
+      213: -7274899159050838835
+    second: SPR_Enemy_ArmoredCell_Spritesheet_74
+  - first:
+      213: -4920759119283598161
+    second: SPR_Enemy_ArmoredCell_Spritesheet_75
+  - first:
+      213: 7212241161194148891
+    second: SPR_Enemy_ArmoredCell_Spritesheet_76
+  - first:
+      213: 6604452550026788804
+    second: SPR_Enemy_ArmoredCell_Spritesheet_77
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 386
+        width: 94
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6321c7baaebed8c0800000000000000
+      internalID: -3972528180857592981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 386
+        width: 95
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3b11d1e72206bd50800000000000000
+      internalID: 6752587061604195131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 386
+        width: 95
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d582379067b5b0b60800000000000000
+      internalID: 7713359349324916829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 386
+        width: 94
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb0e7b5830bd04120800000000000000
+      internalID: 2396155809935909054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 386
+        width: 95
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46aca48d343cebdf0800000000000000
+      internalID: -162477840379753884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 263
+        width: 105
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 838bf8fc11e5adcd0800000000000000
+      internalID: -2532608409852725192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 263
+        width: 106
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9eca3db7d11ed600800000000000000
+      internalID: 494852627347721884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 262
+        width: 106
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c93e2341e65269a0800000000000000
+      internalID: -6241330608087352892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 260
+        width: 110
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e81ac343bb1908aa0800000000000000
+      internalID: -6160764057021537906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 262
+        width: 107
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0a31150f43ff5cc0800000000000000
+      internalID: -3719987246471759348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 141
+        width: 85
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f0211aa398ef270800000000000000
+      internalID: 8286211249311715203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 137
+        width: 84
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4a1ee15a9e0b140800000000000000
+      internalID: 4733540103763371237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 136
+        width: 83
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06fe323aabefe3700800000000000000
+      internalID: 522134684375969632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 140
+        width: 83
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2040c6f4ea6a20390800000000000000
+      internalID: -7853531532593724414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 139
+        width: 84
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ace9aa683365fe10800000000000000
+      internalID: 2230798284390788261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 27
+        width: 85
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 240038c91b4df8780800000000000000
+      internalID: -8678484097619525566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 83
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5dd5fb25922b7520800000000000000
+      internalID: 2700790425621749086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 108
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 425074341e73935c0800000000000000
+      internalID: -4235292533929343708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 107
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 820e4c0392439d5a0800000000000000
+      internalID: -6496103635988717528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 83
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac546e4232b2f0f40800000000000000
+      internalID: 5696819483589887434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 87
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad4468418d06685b0800000000000000
+      internalID: -5366495424791821094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 99
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ac0084e27608dae0800000000000000
+      internalID: -1524461383335277401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 93
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73439a5a7a8138950800000000000000
+      internalID: 6450026199642616887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 99
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 558cc1a0533500bb0800000000000000
+      internalID: -4971882501348997035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 36
+        width: 52
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04ef7d362473fd0f0800000000000000
+      internalID: -1090091826517901760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 104
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4b575a617fe0bd0800000000000000
+      internalID: -2661918653092088603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 96
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 310fb6f08b9ce7810800000000000000
+      internalID: 1765069896345710611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 102
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a07e4b428463b7630800000000000000
+      internalID: 3925791183664899850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 105
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f64128f2109c7c240800000000000000
+      internalID: 4812035733797868655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 30
+        width: 54
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b9c347cc2234200800000000000000
+      internalID: 163012273034271638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 101
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 369efd0f8ce6124d0800000000000000
+      internalID: -3161123654123656861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 88
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11ed1b065890d7af0800000000000000
+      internalID: -397150723681165807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 92
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d3129fa4adf26200800000000000000
+      internalID: 171978619555550160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 69
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99b682334f9462fb0800000000000000
+      internalID: -4672966250171176039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 29
+        width: 53
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8e6f3bd459fa4f20800000000000000
+      internalID: 3407810210910137996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 76
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3c28605438a39060800000000000000
+      internalID: 6959090791858318394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 85
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f7bb24ce90cce520800000000000000
+      internalID: 2732770862035613681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 83
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c882a23cefaacef30800000000000000
+      internalID: 4606244530065909900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 86
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bedadb2d370793e00800000000000000
+      internalID: 1024974032962694635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 82
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b71fc382fdd4290800000000000000
+      internalID: -7904416407051207869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 76
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cbda38f5fc843860800000000000000
+      internalID: 7508781466792942529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 84
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da40fa2fdaa0e1780800000000000000
+      internalID: -8710512887070784339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 62
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ab5519da5dcb77b0800000000000000
+      internalID: -5225357152560522328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48bf0119bcd306a80800000000000000
+      internalID: -8475706554189808764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 67
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1910f287484c828a0800000000000000
+      internalID: -6329593203038158447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 70
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b02ade6d57d614360800000000000000
+      internalID: 7152118036125557259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 74
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c14a52d9fe334d100800000000000000
+      internalID: 131787393327277084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 69
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cbcae8e58aee9c10800000000000000
+      internalID: 2062343540241517512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 64
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4226abb8ba627b870800000000000000
+      internalID: 8698463723514913316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 74
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 114bf913f34dcd890800000000000000
+      internalID: -7431831917187582959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 58
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5e1337019b876250800000000000000
+      internalID: 5937868088718597726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 73
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18c754d3fda023fc0800000000000000
+      internalID: -3516736405100987263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 76
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 241426237f917fbd0800000000000000
+      internalID: -2596578110662885054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 35
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48689ffe69c55c510800000000000000
+      internalID: 1568761848549443204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 56
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7c67ab7734ea77c0800000000000000
+      internalID: -4072691986054288261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 49
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e80dc2a974eec9da0800000000000000
+      internalID: -5936608217484439410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 66
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eb220c8b586c6020800000000000000
+      internalID: 2336357049098709992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 66
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c18cc8c6db8f730b0800000000000000
+      internalID: -5748852906861475812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 55
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cdae3a8085b6f650800000000000000
+      internalID: 6266395495212428742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 62
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c597f87ab84c84c60800000000000000
+      internalID: 7802702458510080348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 32
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd2ea03c506a29d20800000000000000
+      internalID: 3283869621983830749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 58
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f4fadd85677e8840800000000000000
+      internalID: 5228247495479063800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 57
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4d53f2a9a98d6570800000000000000
+      internalID: 8461570636575366477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 39
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 847a55c08e9e25bd0800000000000000
+      internalID: -2642792848464435384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 57
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 110f295d573f8d710800000000000000
+      internalID: 1718390945261744145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 49
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6d4654a0cd3a3e90800000000000000
+      internalID: -7045250769467585169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 50
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94fb484d454082080800000000000000
+      internalID: -9212108275397116087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 30
+        width: 33
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fb777e1a26f1d700800000000000000
+      internalID: 563502089158228980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 29
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f08fdc2233fff13e0800000000000000
+      internalID: -2080663907729541105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 35
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14430d04578743080800000000000000
+      internalID: -9208602893071928255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 29
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36edd0272765fd410800000000000000
+      internalID: 1504015850104807011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 42
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3496cbad1d57b020800000000000000
+      internalID: 2357455311969096765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 46
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e043112745db08e90800000000000000
+      internalID: -7025407248309341170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 42
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6311a0a32f38fedf0800000000000000
+      internalID: -148755186300874442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 37
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcc9cf742cd5a0b90800000000000000
+      internalID: -7274899159050838835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 27
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fac46ddf6a3f5bbb0800000000000000
+      internalID: -4920759119283598161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 25
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b149d6fbf17071460800000000000000
+      internalID: 7212241161194148891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_ArmoredCell_Spritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 31
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cff4443a9ab7ab50800000000000000
+      internalID: 6604452550026788804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SPR_Enemy_ArmoredCell_Spritesheet_0: -3972528180857592981
+      SPR_Enemy_ArmoredCell_Spritesheet_1: 6752587061604195131
+      SPR_Enemy_ArmoredCell_Spritesheet_10: 8286211249311715203
+      SPR_Enemy_ArmoredCell_Spritesheet_11: 4733540103763371237
+      SPR_Enemy_ArmoredCell_Spritesheet_12: 522134684375969632
+      SPR_Enemy_ArmoredCell_Spritesheet_13: -7853531532593724414
+      SPR_Enemy_ArmoredCell_Spritesheet_14: 2230798284390788261
+      SPR_Enemy_ArmoredCell_Spritesheet_15: -8678484097619525566
+      SPR_Enemy_ArmoredCell_Spritesheet_16: 2700790425621749086
+      SPR_Enemy_ArmoredCell_Spritesheet_17: -4235292533929343708
+      SPR_Enemy_ArmoredCell_Spritesheet_18: -6496103635988717528
+      SPR_Enemy_ArmoredCell_Spritesheet_19: 5696819483589887434
+      SPR_Enemy_ArmoredCell_Spritesheet_2: 7713359349324916829
+      SPR_Enemy_ArmoredCell_Spritesheet_20: -5366495424791821094
+      SPR_Enemy_ArmoredCell_Spritesheet_21: -1524461383335277401
+      SPR_Enemy_ArmoredCell_Spritesheet_22: 6450026199642616887
+      SPR_Enemy_ArmoredCell_Spritesheet_23: -4971882501348997035
+      SPR_Enemy_ArmoredCell_Spritesheet_24: -1090091826517901760
+      SPR_Enemy_ArmoredCell_Spritesheet_25: -2661918653092088603
+      SPR_Enemy_ArmoredCell_Spritesheet_26: 1765069896345710611
+      SPR_Enemy_ArmoredCell_Spritesheet_27: 3925791183664899850
+      SPR_Enemy_ArmoredCell_Spritesheet_28: 4812035733797868655
+      SPR_Enemy_ArmoredCell_Spritesheet_29: 163012273034271638
+      SPR_Enemy_ArmoredCell_Spritesheet_3: 2396155809935909054
+      SPR_Enemy_ArmoredCell_Spritesheet_30: -3161123654123656861
+      SPR_Enemy_ArmoredCell_Spritesheet_31: -397150723681165807
+      SPR_Enemy_ArmoredCell_Spritesheet_32: 171978619555550160
+      SPR_Enemy_ArmoredCell_Spritesheet_33: -4672966250171176039
+      SPR_Enemy_ArmoredCell_Spritesheet_34: 3407810210910137996
+      SPR_Enemy_ArmoredCell_Spritesheet_35: 6959090791858318394
+      SPR_Enemy_ArmoredCell_Spritesheet_36: 2732770862035613681
+      SPR_Enemy_ArmoredCell_Spritesheet_37: 4606244530065909900
+      SPR_Enemy_ArmoredCell_Spritesheet_38: 1024974032962694635
+      SPR_Enemy_ArmoredCell_Spritesheet_39: -7904416407051207869
+      SPR_Enemy_ArmoredCell_Spritesheet_4: -162477840379753884
+      SPR_Enemy_ArmoredCell_Spritesheet_40: 7508781466792942529
+      SPR_Enemy_ArmoredCell_Spritesheet_41: -8710512887070784339
+      SPR_Enemy_ArmoredCell_Spritesheet_42: -5225357152560522328
+      SPR_Enemy_ArmoredCell_Spritesheet_43: -8475706554189808764
+      SPR_Enemy_ArmoredCell_Spritesheet_44: -6329593203038158447
+      SPR_Enemy_ArmoredCell_Spritesheet_45: 7152118036125557259
+      SPR_Enemy_ArmoredCell_Spritesheet_46: 131787393327277084
+      SPR_Enemy_ArmoredCell_Spritesheet_47: 2062343540241517512
+      SPR_Enemy_ArmoredCell_Spritesheet_48: 8698463723514913316
+      SPR_Enemy_ArmoredCell_Spritesheet_49: -7431831917187582959
+      SPR_Enemy_ArmoredCell_Spritesheet_5: -2532608409852725192
+      SPR_Enemy_ArmoredCell_Spritesheet_50: 5937868088718597726
+      SPR_Enemy_ArmoredCell_Spritesheet_51: -3516736405100987263
+      SPR_Enemy_ArmoredCell_Spritesheet_52: -2596578110662885054
+      SPR_Enemy_ArmoredCell_Spritesheet_53: 1568761848549443204
+      SPR_Enemy_ArmoredCell_Spritesheet_54: -4072691986054288261
+      SPR_Enemy_ArmoredCell_Spritesheet_55: -5936608217484439410
+      SPR_Enemy_ArmoredCell_Spritesheet_56: 2336357049098709992
+      SPR_Enemy_ArmoredCell_Spritesheet_57: -5748852906861475812
+      SPR_Enemy_ArmoredCell_Spritesheet_58: 6266395495212428742
+      SPR_Enemy_ArmoredCell_Spritesheet_59: 7802702458510080348
+      SPR_Enemy_ArmoredCell_Spritesheet_6: 494852627347721884
+      SPR_Enemy_ArmoredCell_Spritesheet_60: 3283869621983830749
+      SPR_Enemy_ArmoredCell_Spritesheet_61: 5228247495479063800
+      SPR_Enemy_ArmoredCell_Spritesheet_62: 8461570636575366477
+      SPR_Enemy_ArmoredCell_Spritesheet_63: -2642792848464435384
+      SPR_Enemy_ArmoredCell_Spritesheet_64: 1718390945261744145
+      SPR_Enemy_ArmoredCell_Spritesheet_65: -7045250769467585169
+      SPR_Enemy_ArmoredCell_Spritesheet_66: -9212108275397116087
+      SPR_Enemy_ArmoredCell_Spritesheet_67: 563502089158228980
+      SPR_Enemy_ArmoredCell_Spritesheet_68: -2080663907729541105
+      SPR_Enemy_ArmoredCell_Spritesheet_69: -9208602893071928255
+      SPR_Enemy_ArmoredCell_Spritesheet_7: -6241330608087352892
+      SPR_Enemy_ArmoredCell_Spritesheet_70: 1504015850104807011
+      SPR_Enemy_ArmoredCell_Spritesheet_71: 2357455311969096765
+      SPR_Enemy_ArmoredCell_Spritesheet_72: -7025407248309341170
+      SPR_Enemy_ArmoredCell_Spritesheet_73: -148755186300874442
+      SPR_Enemy_ArmoredCell_Spritesheet_74: -7274899159050838835
+      SPR_Enemy_ArmoredCell_Spritesheet_75: -4920759119283598161
+      SPR_Enemy_ArmoredCell_Spritesheet_76: 7212241161194148891
+      SPR_Enemy_ArmoredCell_Spritesheet_77: 6604452550026788804
+      SPR_Enemy_ArmoredCell_Spritesheet_8: -6160764057021537906
+      SPR_Enemy_ArmoredCell_Spritesheet_9: -3719987246471759348
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

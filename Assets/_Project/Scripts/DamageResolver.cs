@@ -70,6 +70,21 @@ public static class DamageResolver
         }
     }
 
+    public static float GetArcadeDamage(EffectivenessType effectiveness, float currentHealth, float maxHealth)
+    {
+        switch (effectiveness)
+        {
+            case EffectivenessType.SuperEffective:
+                return currentHealth;
+            case EffectivenessType.Normal:
+                return maxHealth * 0.5f;
+            case EffectivenessType.Resistant:
+                return 0f;
+            default:
+                return 0f;
+        }
+    }
+
     public static string GetFeedbackLabel(EffectivenessType effectiveness)
     {
         switch (effectiveness)
