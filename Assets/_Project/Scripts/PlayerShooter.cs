@@ -7,6 +7,7 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private Bullet chemoShotPrefab;
     [SerializeField] private Bullet immunoBeamPrefab;
     [SerializeField] private Bullet targetedNanoPrefab;
+    [SerializeField] private PlayerVisualAnimator visualAnimator;
     [SerializeField] private float shootCooldown = 0.25f;
     [SerializeField] private KeyCode cycleTreatmentKey = KeyCode.Q;
 
@@ -20,6 +21,14 @@ public class PlayerShooter : MonoBehaviour
     public event Action<TreatmentType> TreatmentChanged;
 
     public TreatmentType SelectedTreatment => selectedTreatment;
+
+    private void Awake()
+    {
+        if (visualAnimator == null)
+        {
+            visualAnimator = GetComponent<PlayerVisualAnimator>();
+        }
+    }
 
     public void SetControlsEnabled(bool enabled)
     {
@@ -74,8 +83,8 @@ public class PlayerShooter : MonoBehaviour
             return;
         }
 
-        Transform origin = firePoint == null ? transform : firePoint;
-        activeBullet = Instantiate(prefab, origin.position, Quaternion.identity);
+        Vector3 firePosition = GetFirePosition();
+        activeBullet = Instantiate(prefab, firePosition, Quaternion.identity);
         ShotFired?.Invoke();
         nextShootTime = Time.time + shootCooldown;
     }
@@ -111,5 +120,16 @@ public class PlayerShooter : MonoBehaviour
             default:
                 return chemoShotPrefab;
         }
+    }
+
+    private Vector3 GetFirePosition()
+    {
+        if (visualAnimator != null && visualAnimator.TryGetFirePosition(out Vector3 visualFirePosition))
+        {
+            return visualFirePosition;
+        }
+
+        Transform origin = firePoint == null ? transform : firePoint;
+        return origin.position;
     }
 }
