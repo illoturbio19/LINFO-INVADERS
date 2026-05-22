@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private float horizontalLimit = 7.5f;
+    [SerializeField] private float horizontalLimit = 9.05f;
 
     private bool mobileLeftPressed;
     private bool mobileRightPressed;

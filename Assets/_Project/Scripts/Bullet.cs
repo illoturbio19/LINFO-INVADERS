@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private TreatmentType treatmentType;
     [SerializeField] private float baseDamage = 1f;
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float destroyY = 6.5f;
+    [SerializeField] private float destroyY = 6.75f;
     [SerializeField] private Color placeholderColor = Color.white;
     [SerializeField] private bool usePlaceholderColor = true;
 

@@ -92,7 +92,7 @@ public static class DamageResolver
             case EffectivenessType.SuperEffective:
                 return "SUPER EFECTIU";
             case EffectivenessType.Resistant:
-                return "RESISTENT";
+                return "NO AFECTA";
             default:
                 return "NORMAL";
         }

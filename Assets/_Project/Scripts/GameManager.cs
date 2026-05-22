@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private WaveManager waveManager;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private bool autoStartWaves;
+    [SerializeField] private bool rebuildShieldBunkersOnStart = true;
+    [SerializeField] private int shieldBunkerCount = 7;
+    [SerializeField] private float shieldBunkerSpacing = 2.75f;
+    [SerializeField] private float shieldBunkerY = -2.75f;
+    [SerializeField] private Vector2 shieldBlockSpacing = new Vector2(0.28f, 0.23f);
+    [SerializeField] private int shieldColumns = 6;
+    [SerializeField] private int shieldRows = 3;
 
     private int score;
     private int lives;
@@ -25,6 +33,7 @@ public class GameManager : MonoBehaviour
         lives = startingLives;
         score = 0;
         gameOver = false;
+        RebuildShieldBunkers();
         SetControlsEnabled(true);
         uiManager?.SetScore(score);
         uiManager?.SetLives(lives);
@@ -111,5 +120,81 @@ public class GameManager : MonoBehaviour
     {
         playerController?.SetControlsEnabled(enabled);
         playerShooter?.SetControlsEnabled(enabled);
+    }
+
+    private void RebuildShieldBunkers()
+    {
+        if (!rebuildShieldBunkersOnStart || shieldBunkerCount <= 0 || shieldColumns <= 0 || shieldRows <= 0)
+        {
+            return;
+        }
+
+        ShieldBlock templateBlock = FindFirstObjectByType<ShieldBlock>();
+        if (templateBlock == null)
+        {
+            return;
+        }
+
+        GameObject template = templateBlock.gameObject;
+        List<GameObject> oldRoots = GetExistingShieldBunkerRoots();
+        float firstX = -((shieldBunkerCount - 1) * shieldBunkerSpacing) * 0.5f;
+
+        for (int bunkerIndex = 0; bunkerIndex < shieldBunkerCount; bunkerIndex++)
+        {
+            GameObject root = new GameObject($"ShieldBunker_{bunkerIndex + 1}");
+            root.transform.position = new Vector3(firstX + bunkerIndex * shieldBunkerSpacing, shieldBunkerY, 0f);
+
+            for (int row = 0; row < shieldRows; row++)
+            {
+                for (int column = 0; column < shieldColumns; column++)
+                {
+                    bool isBottomHole = row == 0 && (column == shieldColumns / 2 - 1 || column == shieldColumns / 2);
+                    if (isBottomHole)
+                    {
+                        continue;
+                    }
+
+                    GameObject blockObject = Instantiate(template, root.transform);
+                    blockObject.name = "ShieldBlock";
+                    blockObject.transform.localPosition = new Vector3(
+                        (column - (shieldColumns - 1) * 0.5f) * shieldBlockSpacing.x,
+                        row * shieldBlockSpacing.y,
+                        0f);
+                    blockObject.transform.localRotation = Quaternion.identity;
+                }
+            }
+        }
+
+        for (int i = 0; i < oldRoots.Count; i++)
+        {
+            if (oldRoots[i] != null)
+            {
+                Destroy(oldRoots[i]);
+            }
+        }
+    }
+
+    private static List<GameObject> GetExistingShieldBunkerRoots()
+    {
+        List<GameObject> roots = new List<GameObject>();
+        HashSet<GameObject> seenRoots = new HashSet<GameObject>();
+        ShieldBlock[] blocks = FindObjectsByType<ShieldBlock>(FindObjectsSortMode.None);
+
+        for (int i = 0; i < blocks.Length; i++)
+        {
+            Transform parent = blocks[i].transform.parent;
+            if (parent == null || !parent.name.StartsWith("ShieldBunker_"))
+            {
+                continue;
+            }
+
+            GameObject root = parent.gameObject;
+            if (seenRoots.Add(root))
+            {
+                roots.Add(root);
+            }
+        }
+
+        return roots;
     }
 }

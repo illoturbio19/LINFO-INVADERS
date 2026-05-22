@@ -32,7 +32,7 @@ public class CombatFeedback : MonoBehaviour
             case EffectivenessType.SuperEffective:
                 return new Color(0.5f, 1f, 0.25f);
             case EffectivenessType.Resistant:
-                return new Color(1f, 0.25f, 0.25f);
+                return new Color(0.72f, 0.72f, 0.72f);
             default:
                 return new Color(0.35f, 0.9f, 1f);
         }

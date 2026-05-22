@@ -44,7 +44,7 @@ public static class LinfoInvadersPrototypeBuilder
 
         GameObject player = (GameObject)PrefabUtility.InstantiatePrefab(playerPrefab);
         player.name = "Player_LINFO";
-        player.transform.position = new Vector3(0f, -4.3f, 0f);
+        player.transform.position = new Vector3(0f, -4.55f, 0f);
         PlayerController playerController = player.GetComponent<PlayerController>();
         PlayerShooter playerShooter = player.GetComponent<PlayerShooter>();
 
@@ -142,7 +142,7 @@ public static class LinfoInvadersPrototypeBuilder
         SetObject(shooter, "chemoShotPrefab", chemo);
         SetObject(shooter, "immunoBeamPrefab", immuno);
         SetObject(shooter, "targetedNanoPrefab", targeted);
-        SetFloat(controller, "horizontalLimit", 7.35f);
+        SetFloat(controller, "horizontalLimit", 9.05f);
 
         return SavePrefab(player, PrefabsRoot + "/PF_Player_LINFO.prefab");
     }
@@ -169,7 +169,7 @@ public static class LinfoInvadersPrototypeBuilder
 
     private static GameObject CreateShieldBlockPrefab(Sprite sprite)
     {
-        GameObject block = CreateSpriteObject("PF_ShieldBlock", sprite, new Color(0.28f, 0.9f, 0.78f), new Vector3(0.32f, 0.24f, 1f));
+        GameObject block = CreateSpriteObject("PF_ShieldBlock", sprite, new Color(0.28f, 0.9f, 0.78f), new Vector3(0.2f, 0.17f, 1f));
         ShieldBlock shieldBlock = block.AddComponent<ShieldBlock>();
         SetInt(shieldBlock, "maxHits", 3);
         return SavePrefab(block, PrefabsRoot + "/PF_ShieldBlock.prefab");
@@ -177,7 +177,7 @@ public static class LinfoInvadersPrototypeBuilder
 
     private static Enemy CreateEnemyPrefab(string name, EnemyType type, float health, int score, float regenDelay, float regenRate, Color color, Sprite sprite)
     {
-        GameObject enemyObject = CreateSpriteObject(name, sprite, color, new Vector3(0.82f, 0.66f, 1f));
+        GameObject enemyObject = CreateSpriteObject(name, sprite, color, new Vector3(0.72f, 0.72f, 1f));
         Enemy enemy = enemyObject.AddComponent<Enemy>();
         enemy.Configure(type, health, score, regenDelay, regenRate, color);
         return SavePrefab(enemyObject, PrefabsRoot + "/" + name + ".prefab").GetComponent<Enemy>();
@@ -223,7 +223,7 @@ public static class LinfoInvadersPrototypeBuilder
         Camera camera = cameraObject.AddComponent<Camera>();
         camera.tag = "MainCamera";
         camera.orthographic = true;
-        camera.orthographicSize = 5.25f;
+        camera.orthographicSize = 5.4f;
         camera.clearFlags = CameraClearFlags.SolidColor;
         camera.backgroundColor = new Color(0.04f, 0.03f, 0.08f);
         camera.transform.position = new Vector3(0f, 0f, -10f);
@@ -240,11 +240,11 @@ public static class LinfoInvadersPrototypeBuilder
 
     private static void CreateShieldBunkers(GameObject blockPrefab)
     {
-        float[] bunkerCenters = { -4.8f, -1.6f, 1.6f, 4.8f };
+        float[] bunkerCenters = { -8.25f, -5.5f, -2.75f, 0f, 2.75f, 5.5f, 8.25f };
         for (int i = 0; i < bunkerCenters.Length; i++)
         {
             GameObject root = new GameObject($"ShieldBunker_{i + 1}");
-            root.transform.position = new Vector3(bunkerCenters[i], -2.95f, 0f);
+            root.transform.position = new Vector3(bunkerCenters[i], -2.75f, 0f);
 
             for (int row = 0; row < 3; row++)
             {
@@ -259,7 +259,7 @@ public static class LinfoInvadersPrototypeBuilder
                     GameObject blockObject = (GameObject)PrefabUtility.InstantiatePrefab(blockPrefab, root.transform);
                     ShieldBlock block = blockObject.GetComponent<ShieldBlock>();
                     block.name = "ShieldBlock";
-                    block.transform.localPosition = new Vector3((column - 2.5f) * 0.34f, row * 0.26f, 0f);
+                    block.transform.localPosition = new Vector3((column - 2.5f) * 0.28f, row * 0.23f, 0f);
                 }
             }
         }
@@ -401,9 +401,9 @@ public static class LinfoInvadersPrototypeBuilder
         waves.ClearArray();
         waves.arraySize = 3;
 
-        ConfigureWave(waves.GetArrayElementAtIndex(0), 8, 0.95f, 2.1f, EnemyType.BasicCell, EnemyType.BasicCell, EnemyType.BasicCell);
-        ConfigureWave(waves.GetArrayElementAtIndex(1), 8, 1.08f, 1.8f, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.ArmoredCell, EnemyType.BasicCell);
-        ConfigureWave(waves.GetArrayElementAtIndex(2), 8, 1.18f, 1.55f, EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.MutatedCell, EnemyType.ArmoredCell);
+        ConfigureWave(waves.GetArrayElementAtIndex(0), 11, 0.32f, 2.25f, EnemyType.BasicCell, EnemyType.BasicCell, EnemyType.BasicCell);
+        ConfigureWave(waves.GetArrayElementAtIndex(1), 11, 0.38f, 1.95f, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.ArmoredCell, EnemyType.BasicCell);
+        ConfigureWave(waves.GetArrayElementAtIndex(2), 11, 0.45f, 1.7f, EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.MutatedCell, EnemyType.ArmoredCell);
 
         serializedObject.ApplyModifiedProperties();
     }

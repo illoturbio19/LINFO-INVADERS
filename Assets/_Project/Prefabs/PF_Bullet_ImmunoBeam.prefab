@@ -179,7 +179,7 @@ MonoBehaviour:
   treatmentType: 1
   baseDamage: 1
   speed: 10
-  destroyY: 6.5
+  destroyY: 6.75
   placeholderColor: {r: 0.25, g: 0.88, b: 1, a: 1}
   usePlaceholderColor: 0
 --- !u!95 &9036639354878781755

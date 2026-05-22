@@ -11,18 +11,22 @@ public class EnemyFormationManager : MonoBehaviour
     [SerializeField] private EnemyProjectile basicEnemyProjectilePrefab;
     [SerializeField] private EnemyProjectile armoredEnemyProjectilePrefab;
     [SerializeField] private EnemyProjectile mutatedEnemyProjectilePrefab;
-    [SerializeField] private Vector2 startPosition = new Vector2(-4.9f, 3.6f);
-    [SerializeField] private Vector2 spacing = new Vector2(1.4f, 0.85f);
-    [SerializeField] private float horizontalLimit = 7.2f;
-    [SerializeField] private float downStep = 0.45f;
-    [SerializeField] private float defeatY = -3.75f;
+    [SerializeField] private Vector2 startPosition = new Vector2(-5.5f, 3.95f);
+    [SerializeField] private Vector2 spacing = new Vector2(1.1f, 0.62f);
+    [SerializeField] private float horizontalLimit = 9.1f;
+    [SerializeField] private float downStep = 0.16f;
+    [SerializeField] private float edgeSpeedIncrease = 0.005f;
+    [SerializeField] private float maxRemainingSpeedMultiplier = 2.75f;
+    [SerializeField] private float defeatY = -4.45f;
 
     private readonly List<Enemy> aliveEnemies = new List<Enemy>();
     private WaveManager waveManager;
     private float direction = 1f;
     private float speed = 1f;
+    private float edgeSpeedBonus;
     private float nextEnemyFireTime;
     private float enemyFireInterval = 1.8f;
+    private int enemiesAtWaveStart;
     private bool waveActive;
 
     private void Awake()
@@ -51,6 +55,7 @@ public class EnemyFormationManager : MonoBehaviour
         waveManager = owner;
         direction = 1f;
         speed = wave.formationSpeed;
+        edgeSpeedBonus = 0f;
         enemyFireInterval = wave.enemyFireInterval;
         nextEnemyFireTime = Time.time + enemyFireInterval;
         formationRoot.position = Vector3.zero;
@@ -76,6 +81,7 @@ public class EnemyFormationManager : MonoBehaviour
             }
         }
 
+        enemiesAtWaveStart = aliveEnemies.Count;
         waveActive = aliveEnemies.Count > 0;
     }
 
@@ -95,14 +101,26 @@ public class EnemyFormationManager : MonoBehaviour
 
     private void MoveFormation()
     {
-        formationRoot.position += Vector3.right * (direction * speed * Time.deltaTime);
+        formationRoot.position += Vector3.right * (direction * GetCurrentFormationSpeed() * Time.deltaTime);
         GetHorizontalBounds(out float minX, out float maxX);
         if (maxX >= horizontalLimit || minX <= -horizontalLimit)
         {
             direction *= -1f;
             formationRoot.position += Vector3.down * downStep;
-            speed += 0.08f;
+            edgeSpeedBonus += edgeSpeedIncrease;
         }
+    }
+
+    private float GetCurrentFormationSpeed()
+    {
+        if (enemiesAtWaveStart <= 0)
+        {
+            return speed + edgeSpeedBonus;
+        }
+
+        float clearedProgress = 1f - aliveEnemies.Count / (float)enemiesAtWaveStart;
+        float speedMultiplier = Mathf.Lerp(1f, maxRemainingSpeedMultiplier, Mathf.Pow(clearedProgress, 1.25f));
+        return (speed + edgeSpeedBonus) * speedMultiplier;
     }
 
     private void TryEnemyFire()

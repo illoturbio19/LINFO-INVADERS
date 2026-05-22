@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class WaveConfig
 {
-    public int columns = 8;
+    public int columns = 11;
     public EnemyType[] rowTypes;
-    public float formationSpeed = 1f;
+    public float formationSpeed = 0.32f;
     public float enemyFireInterval = 1.8f;
 }
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [System.Serializable]
@@ -16,12 +17,22 @@ public class PlayerVisualAnimator : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private PlayerShipFormVisual[] forms;
     [SerializeField] private float bankThreshold = 0.1f;
+    [SerializeField] private float formTransitionDuration = 0.32f;
+    [SerializeField] private float formTransitionPulseScale = 1.18f;
+    [SerializeField] private float formTransitionHaloScale = 1.7f;
+    [SerializeField] private Color chemoTransitionColor = new Color(1f, 0.57f, 0.05f, 0.75f);
+    [SerializeField] private Color immunoTransitionColor = new Color(0.25f, 0.88f, 1f, 0.75f);
+    [SerializeField] private Color targetedTransitionColor = new Color(0.72f, 0.25f, 1f, 0.75f);
 
     private static readonly int BankLeftHash = Animator.StringToHash("BankLeft");
     private static readonly int BankRightHash = Animator.StringToHash("BankRight");
     private static readonly int ShootHash = Animator.StringToHash("Shoot");
 
     private Animator animator;
+    private SpriteRenderer transitionHalo;
+    private Coroutine formTransitionRoutine;
+    private Vector3 baseScale;
+    private Color baseSpriteColor = Color.white;
 
     private void Awake()
     {
@@ -40,6 +51,12 @@ public class PlayerVisualAnimator : MonoBehaviour
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
+
+        baseScale = transform.localScale;
+        if (spriteRenderer != null)
+        {
+            baseSpriteColor = spriteRenderer.color;
+        }
     }
 
     private void OnEnable()
@@ -47,7 +64,7 @@ public class PlayerVisualAnimator : MonoBehaviour
         if (playerShooter != null)
         {
             playerShooter.ShotFired += OnShotFired;
-            playerShooter.TreatmentChanged += ApplyTreatmentVisual;
+            playerShooter.TreatmentChanged += OnTreatmentChanged;
         }
     }
 
@@ -56,7 +73,14 @@ public class PlayerVisualAnimator : MonoBehaviour
         if (playerShooter != null)
         {
             playerShooter.ShotFired -= OnShotFired;
-            playerShooter.TreatmentChanged -= ApplyTreatmentVisual;
+            playerShooter.TreatmentChanged -= OnTreatmentChanged;
+        }
+
+        if (formTransitionRoutine != null)
+        {
+            StopCoroutine(formTransitionRoutine);
+            ResetTransitionState();
+            formTransitionRoutine = null;
         }
     }
 
@@ -64,7 +88,7 @@ public class PlayerVisualAnimator : MonoBehaviour
     {
         if (playerShooter != null)
         {
-            ApplyTreatmentVisual(playerShooter.SelectedTreatment);
+            ApplyTreatmentVisual(playerShooter.SelectedTreatment, false);
         }
     }
 
@@ -91,7 +115,12 @@ public class PlayerVisualAnimator : MonoBehaviour
         animator.SetTrigger(ShootHash);
     }
 
-    private void ApplyTreatmentVisual(TreatmentType treatmentType)
+    private void OnTreatmentChanged(TreatmentType treatmentType)
+    {
+        ApplyTreatmentVisual(treatmentType, true);
+    }
+
+    private void ApplyTreatmentVisual(TreatmentType treatmentType, bool playTransition)
     {
         PlayerShipFormVisual form = GetForm(treatmentType);
         if (form == null)
@@ -108,6 +137,112 @@ public class PlayerVisualAnimator : MonoBehaviour
         if (spriteRenderer != null && form.defaultSprite != null)
         {
             spriteRenderer.sprite = form.defaultSprite;
+        }
+
+        if (playTransition)
+        {
+            PlayFormTransition(treatmentType);
+        }
+    }
+
+    private void PlayFormTransition(TreatmentType treatmentType)
+    {
+        if (formTransitionRoutine != null)
+        {
+            StopCoroutine(formTransitionRoutine);
+            ResetTransitionState();
+        }
+
+        formTransitionRoutine = StartCoroutine(FormTransitionRoutine(treatmentType));
+    }
+
+    private IEnumerator FormTransitionRoutine(TreatmentType treatmentType)
+    {
+        EnsureTransitionHalo();
+        Color transitionColor = GetTransitionColor(treatmentType);
+
+        if (transitionHalo != null && spriteRenderer != null)
+        {
+            transitionHalo.sprite = spriteRenderer.sprite;
+            transitionHalo.color = transitionColor;
+            transitionHalo.enabled = true;
+            transitionHalo.transform.localScale = Vector3.one * 0.9f;
+        }
+
+        float elapsed = 0f;
+        while (elapsed < formTransitionDuration)
+        {
+            float t = elapsed / formTransitionDuration;
+            float pulse = Mathf.Sin(t * Mathf.PI);
+            transform.localScale = baseScale * Mathf.Lerp(1f, formTransitionPulseScale, pulse);
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.color = Color.Lerp(transitionColor, baseSpriteColor, t);
+            }
+
+            if (transitionHalo != null)
+            {
+                Color haloColor = transitionColor;
+                haloColor.a *= 1f - t;
+                transitionHalo.color = haloColor;
+                transitionHalo.transform.localScale = Vector3.one * Mathf.Lerp(0.9f, formTransitionHaloScale, t);
+            }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        ResetTransitionState();
+        formTransitionRoutine = null;
+    }
+
+    private void EnsureTransitionHalo()
+    {
+        if (transitionHalo != null)
+        {
+            return;
+        }
+
+        GameObject haloObject = new GameObject("FormTransitionHalo");
+        haloObject.transform.SetParent(transform, false);
+        haloObject.transform.localPosition = Vector3.zero;
+        haloObject.transform.localRotation = Quaternion.identity;
+        haloObject.transform.localScale = Vector3.one;
+
+        transitionHalo = haloObject.AddComponent<SpriteRenderer>();
+        transitionHalo.enabled = false;
+        if (spriteRenderer != null)
+        {
+            transitionHalo.sortingLayerID = spriteRenderer.sortingLayerID;
+            transitionHalo.sortingOrder = spriteRenderer.sortingOrder - 1;
+        }
+    }
+
+    private void ResetTransitionState()
+    {
+        transform.localScale = baseScale;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = baseSpriteColor;
+        }
+
+        if (transitionHalo != null)
+        {
+            transitionHalo.enabled = false;
+        }
+    }
+
+    private Color GetTransitionColor(TreatmentType treatmentType)
+    {
+        switch (treatmentType)
+        {
+            case TreatmentType.ImmunoBeam:
+                return immunoTransitionColor;
+            case TreatmentType.TargetedNano:
+                return targetedTransitionColor;
+            default:
+                return chemoTransitionColor;
         }
     }
 

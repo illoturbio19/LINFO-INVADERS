@@ -190,7 +190,7 @@ public static class LinfoEnemySpriteIntegrator
         spriteRenderer.sprite = defaultSprite;
         spriteRenderer.color = Color.white;
 
-        enemy.transform.localScale = Vector3.one;
+        enemy.transform.localScale = new Vector3(0.72f, 0.72f, 1f);
 
         BoxCollider2D collider = enemy.GetComponent<BoxCollider2D>();
         if (collider != null)

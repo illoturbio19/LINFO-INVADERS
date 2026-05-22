@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  horizontalLimit: 7.35
+  horizontalLimit: 9.05
 --- !u!114 &8064654858066074000
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4.5
-  destroyY: -6.5
+  destroyY: -6.75
   placeholderColor: {r: 1, g: 0.2, b: 0.2, a: 1}
   usePlaceholderColor: 0
 --- !u!95 &2550225390144208922

@@ -111,11 +111,27 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator DamageFlashRoutine(EffectivenessType effectiveness)
     {
-        float strength = effectiveness == EffectivenessType.SuperEffective ? 1f : effectiveness == EffectivenessType.Normal ? 0.55f : 0.25f;
-        spriteRenderer.color = Color.Lerp(baseColor, Color.white, strength);
-        yield return new WaitForSeconds(0.08f);
+        Color flashColor = GetEffectivenessColor(effectiveness);
+        float scalePulse = effectiveness == EffectivenessType.SuperEffective ? 1.22f : effectiveness == EffectivenessType.Normal ? 1.1f : 0.92f;
+        float duration = effectiveness == EffectivenessType.SuperEffective ? 0.16f : 0.1f;
+        spriteRenderer.color = flashColor;
+        transform.localScale = baseScale * scalePulse;
+        yield return new WaitForSeconds(duration);
         spriteRenderer.color = baseColor;
         transform.localScale = baseScale;
+    }
+
+    private static Color GetEffectivenessColor(EffectivenessType effectiveness)
+    {
+        switch (effectiveness)
+        {
+            case EffectivenessType.SuperEffective:
+                return new Color(0.55f, 1f, 0.2f);
+            case EffectivenessType.Resistant:
+                return new Color(0.45f, 0.45f, 0.45f);
+            default:
+                return new Color(0.35f, 0.9f, 1f);
+        }
     }
 
     public void PlayShootFeedback()

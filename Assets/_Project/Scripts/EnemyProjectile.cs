@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField] private float speed = 4.5f;
-    [SerializeField] private float destroyY = -6.5f;
+    [SerializeField] private float destroyY = -6.75f;
     [SerializeField] private Color placeholderColor = new Color(1f, 0.2f, 0.2f);
     [SerializeField] private bool usePlaceholderColor = true;
 
