@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class ShieldBlock : MonoBehaviour
 {
-    [SerializeField] private int maxHits = 3;
+    [SerializeField] private int maxHits = 2;
     [SerializeField] private Color healthyColor = new Color(0.28f, 0.9f, 0.78f);
     [SerializeField] private Color damagedColor = new Color(0.9f, 0.7f, 0.25f);
     [SerializeField] private Color gridLineColor = new Color(0.02f, 0.08f, 0.08f, 0.95f);
@@ -29,10 +29,12 @@ public class ShieldBlock : MonoBehaviour
         remainingHits--;
         if (remainingHits <= 0)
         {
+            GameFeelEffects.PlayShieldHit(transform.position, true);
             Destroy(gameObject);
             return;
         }
 
+        GameFeelEffects.PlayShieldHit(transform.position, false);
         UpdateColor();
         if (flashRoutine != null)
         {
@@ -40,6 +42,13 @@ public class ShieldBlock : MonoBehaviour
         }
 
         flashRoutine = StartCoroutine(FlashRoutine());
+    }
+
+    public void ConfigureDurability(int hits)
+    {
+        maxHits = Mathf.Max(1, hits);
+        remainingHits = maxHits;
+        UpdateColor();
     }
 
     private void UpdateColor()

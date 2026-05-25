@@ -15,6 +15,7 @@ public static class LinfoInvadersPrototypeBuilder
     private const string PlaceholdersRoot = ProjectRoot + "/Placeholders";
     private const string ScenePath = ScenesRoot + "/SC_LINFO_Invaders_Prototype.unity";
     private const string SquareSpritePath = PlaceholdersRoot + "/SPR_PlaceholderSquare.png";
+    private const string MinecraftFontPath = ProjectRoot + "/Resources/Fonts/Minecraft.ttf";
 
     [MenuItem("LINFO Invaders/Build Prototype Scene")]
     public static void BuildPrototypeScene()
@@ -223,10 +224,11 @@ public static class LinfoInvadersPrototypeBuilder
         Camera camera = cameraObject.AddComponent<Camera>();
         camera.tag = "MainCamera";
         camera.orthographic = true;
-        camera.orthographicSize = 5.4f;
+        camera.orthographicSize = 5.25f;
         camera.clearFlags = CameraClearFlags.SolidColor;
         camera.backgroundColor = new Color(0.04f, 0.03f, 0.08f);
         camera.transform.position = new Vector3(0f, 0f, -10f);
+        cameraObject.AddComponent<ArcadeCameraFraming>();
         return camera;
     }
 
@@ -240,11 +242,11 @@ public static class LinfoInvadersPrototypeBuilder
 
     private static void CreateShieldBunkers(GameObject blockPrefab)
     {
-        float[] bunkerCenters = { -8.25f, -5.5f, -2.75f, 0f, 2.75f, 5.5f, 8.25f };
+        float[] bunkerCenters = { -3.15f, -1.05f, 1.05f, 3.15f };
         for (int i = 0; i < bunkerCenters.Length; i++)
         {
             GameObject root = new GameObject($"ShieldBunker_{i + 1}");
-            root.transform.position = new Vector3(bunkerCenters[i], -2.75f, 0f);
+            root.transform.position = new Vector3(bunkerCenters[i], -2.45f, 0f);
 
             for (int row = 0; row < 3; row++)
             {
@@ -259,7 +261,7 @@ public static class LinfoInvadersPrototypeBuilder
                     GameObject blockObject = (GameObject)PrefabUtility.InstantiatePrefab(blockPrefab, root.transform);
                     ShieldBlock block = blockObject.GetComponent<ShieldBlock>();
                     block.name = "ShieldBlock";
-                    block.transform.localPosition = new Vector3((column - 2.5f) * 0.28f, row * 0.23f, 0f);
+                    block.transform.localPosition = new Vector3((column - 2.5f) * 0.2f, row * 0.18f, 0f);
                 }
             }
         }
@@ -309,7 +311,8 @@ public static class LinfoInvadersPrototypeBuilder
         Button treatment = CreateClickButton(canvasObject.transform, "BTN_TreatmentCycle", "Treatment", new Vector2(-116f, 14f), true);
         UnityEventTools.AddPersistentListener(treatment.onClick, mobileControls.CycleTreatment);
 
-        Text instructions = CreateText(canvasObject.transform, "TXT_Instructions", "A/D o fletxes: moure   Espai: disparar   Q: tractament   E: enemigos", new Vector2(-18f, -18f), TextAnchor.UpperRight, 19);
+        Text instructions = CreateText(canvasObject.transform, "TXT_Instructions", string.Empty, new Vector2(-18f, -18f), TextAnchor.UpperRight, 19);
+        instructions.gameObject.SetActive(false);
         instructions.color = new Color(0.82f, 0.92f, 1f, 0.82f);
 
         return uiManager;
@@ -321,7 +324,12 @@ public static class LinfoInvadersPrototypeBuilder
         textObject.transform.SetParent(parent, false);
         Text text = textObject.AddComponent<Text>();
         text.text = value;
-        text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        text.font = AssetDatabase.LoadAssetAtPath<Font>(MinecraftFontPath);
+        if (text.font == null)
+        {
+            text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        }
+
         if (text.font == null)
         {
             text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
@@ -401,9 +409,9 @@ public static class LinfoInvadersPrototypeBuilder
         waves.ClearArray();
         waves.arraySize = 3;
 
-        ConfigureWave(waves.GetArrayElementAtIndex(0), 11, 0.32f, 2.25f, EnemyType.BasicCell, EnemyType.BasicCell, EnemyType.BasicCell);
-        ConfigureWave(waves.GetArrayElementAtIndex(1), 11, 0.38f, 1.95f, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.ArmoredCell, EnemyType.BasicCell);
-        ConfigureWave(waves.GetArrayElementAtIndex(2), 11, 0.45f, 1.7f, EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.MutatedCell, EnemyType.ArmoredCell);
+        ConfigureWave(waves.GetArrayElementAtIndex(0), 8, 0.32f, 2.25f, EnemyType.BasicCell, EnemyType.BasicCell, EnemyType.BasicCell, EnemyType.BasicCell, EnemyType.BasicCell);
+        ConfigureWave(waves.GetArrayElementAtIndex(1), 8, 0.38f, 1.95f, EnemyType.ArmoredCell, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.BasicCell, EnemyType.BasicCell);
+        ConfigureWave(waves.GetArrayElementAtIndex(2), 8, 0.45f, 1.7f, EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.MutatedCell, EnemyType.ArmoredCell);
 
         serializedObject.ApplyModifiedProperties();
     }

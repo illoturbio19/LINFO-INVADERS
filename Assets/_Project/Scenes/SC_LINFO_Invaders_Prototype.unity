@@ -2580,7 +2580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7665995057528671866, guid: 65d5f161b492e26448c5523bbe9cf57c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.55
+      value: -4.35
       objectReference: {fileID: 0}
     - target: {fileID: 7665995057528671866, guid: 65d5f161b492e26448c5523bbe9cf57c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2617,14 +2617,17 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5793833233656341696, guid: 65d5f161b492e26448c5523bbe9cf57c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1076579344}
   m_SourcePrefab: {fileID: 100100000, guid: 65d5f161b492e26448c5523bbe9cf57c, type: 3}
 --- !u!114 &724312443 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8064654858066074000, guid: 65d5f161b492e26448c5523bbe9cf57c, type: 3}
   m_PrefabInstance: {fileID: 724312442}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1076579337}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fae7e41bbc0738469693143cb3c0ebc, type: 3}
@@ -2635,7 +2638,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7758393725869032722, guid: 65d5f161b492e26448c5523bbe9cf57c, type: 3}
   m_PrefabInstance: {fileID: 724312442}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1076579337}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c70ac1696c693d0438e1b6334170d2a6, type: 3}
@@ -3450,20 +3453,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   formationManager: {fileID: 1601456637}
   waves:
-  - columns: 11
-    rowTypes: 000000000000000000000000
+  - columns: 8
+    rowTypes: 0000000000000000000000000000000000000000
     formationSpeed: 0.32
     enemyFireInterval: 2.25
-  - columns: 11
-    rowTypes: 01000000000000000100000000000000
+  - columns: 8
+    rowTypes: 0100000001000000000000000000000000000000
     formationSpeed: 0.38
     enemyFireInterval: 1.95
-  - columns: 11
+  - columns: 8
     rowTypes: 0200000001000000000000000200000001000000
     formationSpeed: 0.45
     enemyFireInterval: 1.7
   nextWaveDelay: 1.2
-  debugSpawnWaveKey: 101
 --- !u!4 &980192283
 Transform:
   m_ObjectHideFlags: 0
@@ -3588,6 +3590,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1146679529395449032, guid: 4ef8cf475bed4c94e97a649850af14ef, type: 3}
   m_PrefabInstance: {fileID: 1046861394}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1076579337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5793833233656341696, guid: 65d5f161b492e26448c5523bbe9cf57c, type: 3}
+  m_PrefabInstance: {fileID: 724312442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &1076579344
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076579337}
+  m_Enabled: 1
 --- !u!1001 &1124679294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4055,6 +4070,8 @@ MonoBehaviour:
   treatmentText: {fileID: 957849454}
   messageText: {fileID: 953377926}
   combatFeedbackText: {fileID: 685553838}
+  playerShooter: {fileID: 0}
+  forceMobileControlsInEditor: 0
 --- !u!224 &1210852629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4531,7 +4548,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'A/D o fletxes: moure   Espai: disparar   Q: tractament   E: enemigos'
+  m_Text: ''
 --- !u!222 &1299941903
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4593,7 +4610,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.4
+  orthographic size: 5.25
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -4647,7 +4664,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -5478,13 +5495,14 @@ MonoBehaviour:
   basicEnemyProjectilePrefab: {fileID: 2047040083741153100, guid: a4a33f6f6059935499d0ae39f90d38bc, type: 3}
   armoredEnemyProjectilePrefab: {fileID: 2047040083741153100, guid: 21b7da08d1b82da45b03e1bba5c4a3d5, type: 3}
   mutatedEnemyProjectilePrefab: {fileID: 2047040083741153100, guid: db5fc35ae195841448a945a7974730a4, type: 3}
-  startPosition: {x: -5.5, y: 3.95}
-  spacing: {x: 1.1, y: 0.62}
-  horizontalLimit: 9.1
-  downStep: 0.16
-  edgeSpeedIncrease: 0.005
-  maxRemainingSpeedMultiplier: 2.75
-  defeatY: -4.45
+  startPosition: {x: -2.75, y: 3.55}
+  spacing: {x: 0.78, y: 0.52}
+  horizontalLimit: 4.05
+  downStep: 0.22
+  edgeSpeedIncrease: 0.012
+  maxRemainingSpeedMultiplier: 7.25
+  remainingEnemySpeedCurve: 0.38
+  defeatY: -3.55
 --- !u!4 &1601456638
 Transform:
   m_ObjectHideFlags: 0
@@ -6155,11 +6173,12 @@ MonoBehaviour:
   waveManager: {fileID: 980192282}
   uiManager: {fileID: 1210852628}
   autoStartWaves: 1
+  playerHorizontalLimit: 4.05
   rebuildShieldBunkersOnStart: 1
-  shieldBunkerCount: 7
-  shieldBunkerSpacing: 2.75
-  shieldBunkerY: -2.75
-  shieldBlockSpacing: {x: 0.28, y: 0.23}
+  shieldBunkerCount: 4
+  shieldBunkerSpacing: 2.1
+  shieldBunkerY: -2.45
+  shieldBlockSpacing: {x: 0.2, y: 0.18}
   shieldColumns: 6
   shieldRows: 3
 --- !u!4 &2082731160

@@ -16,26 +16,15 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private EnemyFormationManager formationManager;
     [SerializeField] private List<WaveConfig> waves = new List<WaveConfig>();
     [SerializeField] private float nextWaveDelay = 1.2f;
-    [SerializeField] private KeyCode debugSpawnWaveKey = KeyCode.E;
 
     private int currentWaveIndex;
     private Coroutine waveRoutine;
-    private bool hasStarted;
 
     public int TotalWaves => waves.Count;
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(debugSpawnWaveKey))
-        {
-            SpawnDebugWave();
-        }
-    }
 
     public void Begin()
     {
         currentWaveIndex = 0;
-        hasStarted = true;
         if (waves.Count == 0)
         {
             Debug.LogWarning("No waves configured.");
@@ -54,30 +43,6 @@ public class WaveManager : MonoBehaviour
         }
 
         formationManager?.ClearFormation();
-    }
-
-    public void SpawnDebugWave()
-    {
-        if (waves.Count == 0)
-        {
-            Debug.LogWarning("No waves configured.");
-            return;
-        }
-
-        if (!hasStarted)
-        {
-            currentWaveIndex = 0;
-            hasStarted = true;
-        }
-
-        if (waveRoutine != null)
-        {
-            StopCoroutine(waveRoutine);
-            waveRoutine = null;
-        }
-
-        formationManager?.ClearFormation();
-        SpawnCurrentWave();
     }
 
     public void OnFormationCleared()

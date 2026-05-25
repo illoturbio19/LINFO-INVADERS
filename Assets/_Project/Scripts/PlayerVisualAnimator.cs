@@ -23,6 +23,7 @@ public class PlayerVisualAnimator : MonoBehaviour
     [SerializeField] private Color chemoTransitionColor = new Color(1f, 0.57f, 0.05f, 0.75f);
     [SerializeField] private Color immunoTransitionColor = new Color(0.25f, 0.88f, 1f, 0.75f);
     [SerializeField] private Color targetedTransitionColor = new Color(0.72f, 0.25f, 1f, 0.75f);
+    [SerializeField] private float muzzleForwardPadding = 0.03f;
 
     private static readonly int BankLeftHash = Animator.StringToHash("BankLeft");
     private static readonly int BankRightHash = Animator.StringToHash("BankRight");
@@ -115,8 +116,22 @@ public class PlayerVisualAnimator : MonoBehaviour
         animator.SetTrigger(ShootHash);
     }
 
+    public bool TryGetFirePosition(out Vector3 firePosition)
+    {
+        firePosition = transform.position;
+        if (spriteRenderer == null || spriteRenderer.sprite == null)
+        {
+            return false;
+        }
+
+        Bounds bounds = spriteRenderer.bounds;
+        firePosition = new Vector3(bounds.center.x, bounds.max.y + muzzleForwardPadding, transform.position.z);
+        return true;
+    }
+
     private void OnTreatmentChanged(TreatmentType treatmentType)
     {
+        AudioManager.Play(GameSfx.TreatmentChange, transform.position);
         ApplyTreatmentVisual(treatmentType, true);
     }
 

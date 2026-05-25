@@ -3,6 +3,7 @@ using UnityEngine;
 public class CombatFeedback : MonoBehaviour
 {
     [SerializeField] private FloatingText floatingTextPrefab;
+    [SerializeField] private bool useTextFeedback;
 
     public static CombatFeedback Instance { get; private set; }
 
@@ -13,9 +14,15 @@ public class CombatFeedback : MonoBehaviour
 
     public void ShowHitFeedback(Vector3 worldPosition, EffectivenessType effectiveness)
     {
-        string label = DamageResolver.GetFeedbackLabel(effectiveness);
         Color color = GetColor(effectiveness);
+        GameFeelEffects.PlayCombatHit(worldPosition, effectiveness);
 
+        if (!useTextFeedback)
+        {
+            return;
+        }
+
+        string label = DamageResolver.GetFeedbackLabel(effectiveness);
         if (floatingTextPrefab != null)
         {
             FloatingText text = Instantiate(floatingTextPrefab, worldPosition + Vector3.up * 0.55f, Quaternion.identity);

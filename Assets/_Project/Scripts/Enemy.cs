@@ -147,6 +147,8 @@ public class Enemy : MonoBehaviour
         }
 
         isDying = true;
+        AudioManager.Play(GameSfx.EnemyDeath, transform.position);
+        GameFeelEffects.ShowScorePopup(transform.position, scoreValue);
         Died?.Invoke(this);
         GameManager.Instance?.AddScore(scoreValue);
         Collider2D enemyCollider = GetComponent<Collider2D>();

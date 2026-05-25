@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,13 +10,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private WaveManager waveManager;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private bool autoStartWaves;
+    [SerializeField] private float playerHorizontalLimit = 4.05f;
     [SerializeField] private bool rebuildShieldBunkersOnStart = true;
-    [SerializeField] private int shieldBunkerCount = 7;
-    [SerializeField] private float shieldBunkerSpacing = 2.75f;
-    [SerializeField] private float shieldBunkerY = -2.75f;
-    [SerializeField] private Vector2 shieldBlockSpacing = new Vector2(0.28f, 0.23f);
+    [SerializeField] private int shieldBunkerCount = 4;
+    [SerializeField] private float shieldBunkerSpacing = 2.1f;
+    [SerializeField] private float shieldBunkerY = -2.45f;
+    [SerializeField] private Vector2 shieldBlockSpacing = new Vector2(0.2f, 0.18f);
     [SerializeField] private int shieldColumns = 6;
     [SerializeField] private int shieldRows = 3;
+    [SerializeField] private int shieldBlockHits = 2;
 
     private int score;
     private int lives;
@@ -33,13 +36,17 @@ public class GameManager : MonoBehaviour
         lives = startingLives;
         score = 0;
         gameOver = false;
+        ArcadeCameraFraming.EnsureSceneCamera();
+        PixelGalaxyBackground.EnsureSceneBackground();
+        playerController?.SetHorizontalLimit(playerHorizontalLimit);
         RebuildShieldBunkers();
         SetControlsEnabled(true);
         uiManager?.SetScore(score);
         uiManager?.SetLives(lives);
         uiManager?.SetWave(1, waveManager != null ? waveManager.TotalWaves : 3);
         uiManager?.SetSelectedTreatment(TreatmentType.ChemoShot);
-        uiManager?.ShowMessage(autoStartWaves ? "LINFO INVADERS" : "PULSA E: ENEMIGOS");
+        uiManager?.HideEndScreen();
+        AudioManager.EnsureMusic();
 
         if (autoStartWaves)
         {
@@ -67,7 +74,9 @@ public class GameManager : MonoBehaviour
 
         lives--;
         uiManager?.SetLives(lives);
-        uiManager?.ShowMessage(lives > 0 ? "LINFO DANYAT" : "DERROTA");
+        GameFeelEffects.PlayPlayerHit(
+            playerController != null ? playerController.transform.position : transform.position,
+            playerController != null ? playerController.GetComponent<SpriteRenderer>() : null);
 
         if (lives <= 0)
         {
@@ -88,7 +97,6 @@ public class GameManager : MonoBehaviour
     public void UpdateWave(int waveNumber, int totalWaves)
     {
         uiManager?.SetWave(waveNumber, totalWaves);
-        uiManager?.ShowMessage($"WAVE {waveNumber}");
     }
 
     public void Win()
@@ -101,6 +109,8 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         SetControlsEnabled(false);
         uiManager?.ShowMessage("VICTORIA");
+        uiManager?.ShowVictoryMenu();
+        AudioManager.Play(GameSfx.Victory, transform.position);
     }
 
     public void Lose(string message)
@@ -114,6 +124,19 @@ public class GameManager : MonoBehaviour
         SetControlsEnabled(false);
         waveManager?.StopWave();
         uiManager?.ShowMessage(message);
+        uiManager?.ShowGameOverMenu(score);
+        AudioManager.Play(GameSfx.Defeat, transform.position);
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        Scene activeScene = SceneManager.GetActiveScene();
+#if UNITY_EDITOR
+        UnityEditor.SceneManagement.EditorSceneManager.LoadScene(activeScene.path);
+#else
+        SceneManager.LoadScene(activeScene.name);
+#endif
     }
 
     private void SetControlsEnabled(bool enabled)
@@ -161,6 +184,12 @@ public class GameManager : MonoBehaviour
                         row * shieldBlockSpacing.y,
                         0f);
                     blockObject.transform.localRotation = Quaternion.identity;
+
+                    ShieldBlock block = blockObject.GetComponent<ShieldBlock>();
+                    if (block != null)
+                    {
+                        block.ConfigureDurability(shieldBlockHits);
+                    }
                 }
             }
         }

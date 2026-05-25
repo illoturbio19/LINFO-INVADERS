@@ -9,10 +9,12 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private Bullet targetedNanoPrefab;
     [SerializeField] private PlayerVisualAnimator visualAnimator;
     [SerializeField] private float shootCooldown = 0.25f;
+    [SerializeField] private float treatmentCycleCooldown = 0.2f;
     [SerializeField] private KeyCode cycleTreatmentKey = KeyCode.Q;
 
     private TreatmentType selectedTreatment = TreatmentType.ChemoShot;
     private float nextShootTime;
+    private float nextTreatmentCycleTime;
     private bool mobileShootHeld;
     private bool controlsEnabled = true;
     private Bullet activeBullet;
@@ -21,6 +23,10 @@ public class PlayerShooter : MonoBehaviour
     public event Action<TreatmentType> TreatmentChanged;
 
     public TreatmentType SelectedTreatment => selectedTreatment;
+    public bool CanShoot => controlsEnabled && Time.time >= nextShootTime && activeBullet == null;
+    public bool CanCycleTreatment => controlsEnabled && Time.time >= nextTreatmentCycleTime;
+    public float ShootAvailability01 => GetCooldownAvailability(nextShootTime, shootCooldown, activeBullet != null);
+    public float TreatmentCycleAvailability01 => GetCooldownAvailability(nextTreatmentCycleTime, treatmentCycleCooldown, false);
 
     private void Awake()
     {
@@ -50,6 +56,13 @@ public class PlayerShooter : MonoBehaviour
 
     public void CycleTreatment()
     {
+        if (!CanCycleTreatment)
+        {
+            return;
+        }
+
+        nextTreatmentCycleTime = Time.time + treatmentCycleCooldown;
+
         switch (selectedTreatment)
         {
             case TreatmentType.ChemoShot:
@@ -71,7 +84,7 @@ public class PlayerShooter : MonoBehaviour
 
     public void TryShoot()
     {
-        if (!controlsEnabled || Time.time < nextShootTime || activeBullet != null)
+        if (!CanShoot)
         {
             return;
         }
@@ -85,6 +98,7 @@ public class PlayerShooter : MonoBehaviour
 
         Vector3 firePosition = GetFirePosition();
         activeBullet = Instantiate(prefab, firePosition, Quaternion.identity);
+        AudioManager.Play(GameSfx.PlayerShoot, firePosition);
         ShotFired?.Invoke();
         nextShootTime = Time.time + shootCooldown;
     }
@@ -131,5 +145,20 @@ public class PlayerShooter : MonoBehaviour
 
         Transform origin = firePoint == null ? transform : firePoint;
         return origin.position;
+    }
+
+    private float GetCooldownAvailability(float nextReadyTime, float cooldown, bool blockedByActiveProjectile)
+    {
+        if (!controlsEnabled || blockedByActiveProjectile)
+        {
+            return 0f;
+        }
+
+        if (cooldown <= 0f)
+        {
+            return 1f;
+        }
+
+        return Mathf.Clamp01(1f - (nextReadyTime - Time.time) / cooldown);
     }
 }

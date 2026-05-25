@@ -11,13 +11,14 @@ public class EnemyFormationManager : MonoBehaviour
     [SerializeField] private EnemyProjectile basicEnemyProjectilePrefab;
     [SerializeField] private EnemyProjectile armoredEnemyProjectilePrefab;
     [SerializeField] private EnemyProjectile mutatedEnemyProjectilePrefab;
-    [SerializeField] private Vector2 startPosition = new Vector2(-5.5f, 3.95f);
-    [SerializeField] private Vector2 spacing = new Vector2(1.1f, 0.62f);
-    [SerializeField] private float horizontalLimit = 9.1f;
-    [SerializeField] private float downStep = 0.16f;
-    [SerializeField] private float edgeSpeedIncrease = 0.005f;
-    [SerializeField] private float maxRemainingSpeedMultiplier = 2.75f;
-    [SerializeField] private float defeatY = -4.45f;
+    [SerializeField] private Vector2 startPosition = new Vector2(-2.75f, 3.55f);
+    [SerializeField] private Vector2 spacing = new Vector2(0.78f, 0.52f);
+    [SerializeField] private float horizontalLimit = 4.05f;
+    [SerializeField] private float downStep = 0.22f;
+    [SerializeField] private float edgeSpeedIncrease = 0.012f;
+    [SerializeField] private float maxRemainingSpeedMultiplier = 7.25f;
+    [SerializeField, Range(0.1f, 1f)] private float remainingEnemySpeedCurve = 0.38f;
+    [SerializeField] private float defeatY = -3.55f;
 
     private readonly List<Enemy> aliveEnemies = new List<Enemy>();
     private WaveManager waveManager;
@@ -97,11 +98,13 @@ public class EnemyFormationManager : MonoBehaviour
 
         aliveEnemies.Clear();
         waveActive = false;
+        AudioManager.SetMusicPressure(0f);
     }
 
     private void MoveFormation()
     {
         formationRoot.position += Vector3.right * (direction * GetCurrentFormationSpeed() * Time.deltaTime);
+        AudioManager.SetMusicPressure(GetCurrentFormationPressure());
         GetHorizontalBounds(out float minX, out float maxX);
         if (maxX >= horizontalLimit || minX <= -horizontalLimit)
         {
@@ -113,14 +116,20 @@ public class EnemyFormationManager : MonoBehaviour
 
     private float GetCurrentFormationSpeed()
     {
+        float speedPressure = GetCurrentFormationPressure();
+        float speedMultiplier = Mathf.Lerp(1f, maxRemainingSpeedMultiplier, speedPressure);
+        return (speed + edgeSpeedBonus) * speedMultiplier;
+    }
+
+    private float GetCurrentFormationPressure()
+    {
         if (enemiesAtWaveStart <= 0)
         {
-            return speed + edgeSpeedBonus;
+            return 0f;
         }
 
-        float clearedProgress = 1f - aliveEnemies.Count / (float)enemiesAtWaveStart;
-        float speedMultiplier = Mathf.Lerp(1f, maxRemainingSpeedMultiplier, Mathf.Pow(clearedProgress, 1.25f));
-        return (speed + edgeSpeedBonus) * speedMultiplier;
+        float remainingRatio = Mathf.Clamp01(aliveEnemies.Count / (float)enemiesAtWaveStart);
+        return Mathf.Clamp01(1f - Mathf.Pow(remainingRatio, remainingEnemySpeedCurve));
     }
 
     private void TryEnemyFire()
@@ -142,6 +151,7 @@ public class EnemyFormationManager : MonoBehaviour
 
             shooter.PlayShootFeedback();
             Instantiate(projectilePrefab, shooter.transform.position + Vector3.down * 0.45f, Quaternion.identity);
+            AudioManager.Play(GameSfx.EnemyShoot, shooter.transform.position);
         }
     }
 
@@ -209,6 +219,7 @@ public class EnemyFormationManager : MonoBehaviour
         if (aliveEnemies.Count == 0 && waveActive)
         {
             waveActive = false;
+            AudioManager.SetMusicPressure(0f);
             waveManager?.OnFormationCleared();
         }
     }
