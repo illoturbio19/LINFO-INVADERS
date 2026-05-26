@@ -156,7 +156,7 @@ MonoBehaviour:
   regenRate: 0.28
   placeholderColor: {r: 1, g: 0.2, b: 0.28, a: 1}
   usePlaceholderColor: 0
-  deathAnimationDuration: 0.35
+  deathAnimationDuration: 1.05
 --- !u!95 &6243812725458427429
 Animator:
   serializedVersion: 7

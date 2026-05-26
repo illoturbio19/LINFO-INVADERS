@@ -43,6 +43,11 @@ public class GameFeelEffects : MonoBehaviour
         GetOrCreateInstance().PlayShieldHitInternal(worldPosition, destroyed);
     }
 
+    public static void PlayPlayerShot(Vector3 worldPosition, TreatmentType treatmentType)
+    {
+        GetOrCreateInstance().PlayPlayerShotInternal(worldPosition, treatmentType);
+    }
+
     public static void ShowScorePopup(Vector3 worldPosition, int scoreValue)
     {
         GetOrCreateInstance().ShowScorePopupInternal(worldPosition, scoreValue);
@@ -110,6 +115,13 @@ public class GameFeelEffects : MonoBehaviour
         {
             StartCoroutine(PlayerBlinkRoutine(playerRenderer));
         }
+    }
+
+    private void PlayPlayerShotInternal(Vector3 worldPosition, TreatmentType treatmentType)
+    {
+        Color color = GetTreatmentColor(treatmentType);
+        SpawnBurst(worldPosition + Vector3.up * 0.18f, color, 24, 1.65f, 0.22f, 0.022f);
+        StartChromaticAberration(0.14f, 0.08f);
     }
 
     private void PlayShieldHitInternal(Vector3 worldPosition, bool destroyed)
@@ -532,6 +544,19 @@ public class GameFeelEffects : MonoBehaviour
                 return new Color(0.85f, 0.85f, 0.85f, 1f);
             default:
                 return new Color(0.25f, 0.9f, 1f, 1f);
+        }
+    }
+
+    private static Color GetTreatmentColor(TreatmentType treatmentType)
+    {
+        switch (treatmentType)
+        {
+            case TreatmentType.ImmunoBeam:
+                return new Color(0.22f, 0.96f, 1f, 1f);
+            case TreatmentType.TargetedNano:
+                return new Color(0.86f, 0.32f, 1f, 1f);
+            default:
+                return new Color(1f, 0.62f, 0.12f, 1f);
         }
     }
 }

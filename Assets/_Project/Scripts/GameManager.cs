@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         SetControlsEnabled(false);
         uiManager?.ShowMessage("VICTORIA");
-        uiManager?.ShowVictoryMenu();
+        uiManager?.ShowVictoryMenu(score);
         AudioManager.Play(GameSfx.Victory, transform.position);
     }
 

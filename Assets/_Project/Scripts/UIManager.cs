@@ -44,6 +44,7 @@ public class UIManager : MonoBehaviour
     private Text rankingText;
     private Button restartButton;
     private Text restartButtonText;
+    private GameObject hudBackingObject;
     private bool mobileControlsVisible;
     private bool debugMobileControls;
     private bool awaitingInitials;
@@ -158,9 +159,10 @@ public class UIManager : MonoBehaviour
         StartInitialEntry(score);
     }
 
-    public void ShowVictoryMenu()
+    public void ShowVictoryMenu(int score)
     {
-        ShowEndScreen("VICTORY", "LINFO ha netejat la wave final", "PLAY AGAIN");
+        ShowEndScreen("VICTORY", $"SCORE {score:000000}", "PLAY AGAIN");
+        StartInitialEntry(score);
     }
 
     public void HideEndScreen()
@@ -211,6 +213,8 @@ public class UIManager : MonoBehaviour
             return;
         }
 
+        canvas.transform.localScale = Vector3.one;
+
         CanvasScaler scaler = canvas.GetComponent<CanvasScaler>();
         if (scaler == null)
         {
@@ -225,14 +229,17 @@ public class UIManager : MonoBehaviour
 
     private void ConfigureHudText()
     {
-        ConfigureHudLabel(scoreText, 26, TextAnchor.UpperLeft);
-        ConfigureHudLabel(livesText, 26, TextAnchor.UpperLeft);
-        ConfigureText(waveText, 36, TextAnchor.UpperLeft);
-        ConfigureText(treatmentText, 34, TextAnchor.UpperLeft);
-        ConfigureText(messageText, 48, TextAnchor.MiddleCenter);
-        ConfigureText(combatFeedbackText, 44, TextAnchor.MiddleCenter);
-        SetTextBox(scoreText, new Vector2(360f, 38f));
-        SetTextBox(livesText, new Vector2(220f, 38f));
+        ApplyReadableHudDefaults();
+        EnsureHudBacking();
+        ConfigureHudLabel(scoreText, 38, TextAnchor.UpperLeft);
+        ConfigureHudLabel(livesText, 34, TextAnchor.UpperLeft);
+        ConfigureStrongScoreStroke(scoreText);
+        ConfigureText(waveText, 44, TextAnchor.UpperLeft);
+        ConfigureText(treatmentText, 40, TextAnchor.UpperLeft);
+        ConfigureText(messageText, 58, TextAnchor.MiddleCenter);
+        ConfigureText(combatFeedbackText, 52, TextAnchor.MiddleCenter);
+        SetHudTextLayout(scoreText, new Vector2(34f, -26f), new Vector2(560f, 58f));
+        SetHudTextLayout(livesText, new Vector2(34f, -82f), new Vector2(180f, 50f));
         HideLegacyInstructions();
         EnsureHeartHud();
         RefreshHeartLives();
@@ -274,6 +281,7 @@ public class UIManager : MonoBehaviour
         text.verticalOverflow = VerticalWrapMode.Overflow;
         text.supportRichText = false;
         text.color = Color.white;
+        ConfigureTextStroke(text, new Color(0f, 0.01f, 0.04f, 0.98f), new Vector2(2.4f, -2.4f), true);
     }
 
     private static void ConfigureHudLabel(Text text, int fontSize, TextAnchor alignment)
@@ -286,7 +294,61 @@ public class UIManager : MonoBehaviour
 
         text.font = GetHudFont();
         text.fontStyle = FontStyle.Bold;
-        text.color = new Color(0.92f, 1f, 1f, 1f);
+        text.color = new Color(0.86f, 1f, 0.96f, 1f);
+        ConfigureTextStroke(text, new Color(0f, 0f, 0f, 1f), new Vector2(4f, -4f), true);
+    }
+
+    private static void ConfigureStrongScoreStroke(Text text)
+    {
+        if (text == null)
+        {
+            return;
+        }
+
+        text.color = new Color(0.58f, 1f, 0.92f, 1f);
+        ConfigureTextStroke(text, new Color(0f, 0f, 0f, 1f), new Vector2(5.8f, -5.8f), true);
+    }
+
+    private static void ConfigureTextStroke(Text text, Color color, Vector2 distance, bool includeShadow)
+    {
+        Outline outline = text.GetComponent<Outline>();
+        if (outline == null)
+        {
+            outline = text.gameObject.AddComponent<Outline>();
+        }
+
+        outline.effectColor = color;
+        outline.effectDistance = distance;
+        outline.useGraphicAlpha = false;
+
+        if (!includeShadow)
+        {
+            return;
+        }
+
+        Shadow shadow = GetStandaloneShadow(text);
+        if (shadow == null)
+        {
+            shadow = text.gameObject.AddComponent<Shadow>();
+        }
+
+        shadow.effectColor = new Color(0f, 0f, 0f, 0.92f);
+        shadow.effectDistance = new Vector2(distance.x * 0.55f, distance.y * 0.55f);
+        shadow.useGraphicAlpha = false;
+    }
+
+    private static Shadow GetStandaloneShadow(Text text)
+    {
+        Shadow[] shadows = text.GetComponents<Shadow>();
+        for (int i = 0; i < shadows.Length; i++)
+        {
+            if (!(shadows[i] is Outline))
+            {
+                return shadows[i];
+            }
+        }
+
+        return null;
     }
 
     private static void SetTextBox(Text text, Vector2 size)
@@ -301,6 +363,68 @@ public class UIManager : MonoBehaviour
         {
             rect.sizeDelta = size;
         }
+    }
+
+    private void ApplyReadableHudDefaults()
+    {
+        heartStartOffset = new Vector2(78f, -4f);
+        heartSize = new Vector2(34f, 34f);
+        heartSpacing = 40f;
+    }
+
+    private void EnsureHudBacking()
+    {
+        if (scoreText == null && livesText == null)
+        {
+            return;
+        }
+
+        Transform parent = scoreText != null ? scoreText.transform.parent : livesText.transform.parent;
+        if (parent == null)
+        {
+            return;
+        }
+
+        Transform existing = parent.Find("PNL_HudReadability");
+        hudBackingObject = existing != null ? existing.gameObject : new GameObject("PNL_HudReadability");
+        hudBackingObject.transform.SetParent(parent, false);
+        hudBackingObject.transform.SetAsFirstSibling();
+
+        RectTransform rect = EnsureRectTransform(hudBackingObject);
+        rect.anchorMin = new Vector2(0f, 1f);
+        rect.anchorMax = new Vector2(0f, 1f);
+        rect.pivot = new Vector2(0f, 1f);
+        rect.anchoredPosition = new Vector2(22f, -16f);
+        rect.sizeDelta = new Vector2(610f, 128f);
+
+        Image image = hudBackingObject.GetComponent<Image>();
+        if (image == null)
+        {
+            image = hudBackingObject.AddComponent<Image>();
+        }
+
+        image.raycastTarget = false;
+        image.color = new Color(0f, 0.02f, 0.045f, 0.68f);
+    }
+
+    private static void SetHudTextLayout(Text text, Vector2 anchoredPosition, Vector2 size)
+    {
+        if (text == null)
+        {
+            return;
+        }
+
+        RectTransform rect = text.GetComponent<RectTransform>();
+        if (rect == null)
+        {
+            return;
+        }
+
+        rect.anchorMin = new Vector2(0f, 1f);
+        rect.anchorMax = new Vector2(0f, 1f);
+        rect.pivot = new Vector2(0f, 1f);
+        rect.anchoredPosition = anchoredPosition;
+        rect.sizeDelta = size;
     }
 
     private static Font GetRuntimeFont()
@@ -331,13 +455,8 @@ public class UIManager : MonoBehaviour
             return hudFont;
         }
 
-        hudFont = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        if (hudFont == null)
-        {
-            hudFont = Resources.GetBuiltinResource<Font>("Arial.ttf");
-        }
-
-        return hudFont != null ? hudFont : GetRuntimeFont();
+        hudFont = GetRuntimeFont();
+        return hudFont;
     }
 
     private static void HideLegacyInstructions()
@@ -935,6 +1054,7 @@ public class UIManager : MonoBehaviour
             text.resizeTextMinSize = 16;
             text.resizeTextMaxSize = text.fontSize;
             text.color = new Color(0.75f, 1f, 1f, 1f);
+            ConfigureTextStroke(text, new Color(0f, 0f, 0f, 0.96f), new Vector2(3f, -3f), true);
         }
     }
 
@@ -1093,6 +1213,7 @@ public class UIManager : MonoBehaviour
         label.resizeTextMaxSize = 42;
         label.color = new Color(0.75f, 1f, 1f, 0.82f);
         label.raycastTarget = false;
+        ConfigureTextStroke(label, new Color(0f, 0f, 0f, 0.86f), new Vector2(2.6f, -2.6f), true);
 
         MobileVirtualPad pad = padObject.GetComponent<MobileVirtualPad>();
         if (pad == null)

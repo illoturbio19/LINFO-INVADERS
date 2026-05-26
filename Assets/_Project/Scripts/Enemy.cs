@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float regenRate = 0.35f;
     [SerializeField] private Color placeholderColor = Color.red;
     [SerializeField] private bool usePlaceholderColor = true;
-    [SerializeField] private float deathAnimationDuration = 0.35f;
+    [SerializeField] private float deathAnimationDuration = 1.05f;
 
     private SpriteRenderer spriteRenderer;
     private EnemyVisualAnimator visualAnimator;
@@ -149,8 +149,8 @@ public class Enemy : MonoBehaviour
         isDying = true;
         AudioManager.Play(GameSfx.EnemyDeath, transform.position);
         GameFeelEffects.ShowScorePopup(transform.position, scoreValue);
-        Died?.Invoke(this);
         GameManager.Instance?.AddScore(scoreValue);
+        Died?.Invoke(this);
         Collider2D enemyCollider = GetComponent<Collider2D>();
         if (enemyCollider != null)
         {
@@ -163,7 +163,33 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator DestroyAfterDeathRoutine()
     {
-        yield return new WaitForSeconds(deathAnimationDuration);
+        float elapsed = 0f;
+        float duration = Mathf.Max(0.05f, deathAnimationDuration);
+        Color startColor = spriteRenderer != null ? spriteRenderer.color : baseColor;
+        Vector3 startScale = transform.localScale;
+        Vector3 endScale = baseScale * 0.72f;
+        Vector3 startPosition = transform.position;
+        Vector3 endPosition = startPosition + Vector3.down * 0.08f;
+
+        while (elapsed < duration)
+        {
+            float t = elapsed / duration;
+            float settleT = Mathf.SmoothStep(0f, 1f, t);
+            transform.localScale = Vector3.Lerp(startScale, endScale, settleT);
+            transform.position = Vector3.Lerp(startPosition, endPosition, settleT);
+
+            if (spriteRenderer != null)
+            {
+                float fadeT = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.32f, 1f, t));
+                Color color = startColor;
+                color.a = Mathf.Lerp(startColor.a, 0f, fadeT);
+                spriteRenderer.color = color;
+            }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
         Destroy(gameObject);
     }
 }

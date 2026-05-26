@@ -216,7 +216,7 @@ public static class LinfoEnemySpriteIntegrator
         Enemy enemyLogic = enemy.GetComponent<Enemy>();
         SerializedObject serializedEnemy = new SerializedObject(enemyLogic);
         serializedEnemy.FindProperty("usePlaceholderColor").boolValue = false;
-        serializedEnemy.FindProperty("deathAnimationDuration").floatValue = 0.35f;
+        serializedEnemy.FindProperty("deathAnimationDuration").floatValue = 1.05f;
         serializedEnemy.ApplyModifiedProperties();
 
         PrefabUtility.SaveAsPrefabAsset(enemy, prefabPath);
