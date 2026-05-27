@@ -70,6 +70,14 @@ public class Bullet : MonoBehaviour
             return;
         }
 
+        BossController boss = other.GetComponent<BossController>();
+        if (boss != null)
+        {
+            boss.ApplyDirectDamage(treatmentType);
+            Destroy(gameObject);
+            return;
+        }
+
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy == null)
         {

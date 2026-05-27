@@ -11,7 +11,11 @@ public enum GameSfx
     PlayerHit,
     TreatmentChange,
     Victory,
-    Defeat
+    Defeat,
+    BossSpawn,
+    BossShoot,
+    BossHit,
+    BossDeath
 }
 
 public class AudioManager : MonoBehaviour
@@ -246,6 +250,14 @@ public class AudioManager : MonoBehaviour
                 return CreateTone("SFX_Victory", 0.32f, 520f, 1040f, Waveform.Sine, 0.22f);
             case GameSfx.Defeat:
                 return CreateTone("SFX_Defeat", 0.35f, 240f, 80f, Waveform.Saw, 0.26f);
+            case GameSfx.BossSpawn:
+                return CreateTone("SFX_BossSpawn", 0.34f, 110f, 280f, Waveform.Saw, 0.32f);
+            case GameSfx.BossShoot:
+                return CreateTone("SFX_BossShoot", 0.18f, 170f, 72f, Waveform.Square, 0.31f);
+            case GameSfx.BossHit:
+                return CreateTone("SFX_BossHit", 0.12f, 290f, 120f, Waveform.Noise, 0.24f);
+            case GameSfx.BossDeath:
+                return CreateTone("SFX_BossDeath", 0.8f, 165f, 34f, Waveform.Saw, 0.38f);
             default:
                 return null;
         }

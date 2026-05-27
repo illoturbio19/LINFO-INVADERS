@@ -45,6 +45,10 @@ public class UIManager : MonoBehaviour
     private Button restartButton;
     private Text restartButtonText;
     private GameObject hudBackingObject;
+    private GameObject bossHealthRoot;
+    private Image bossHealthFill;
+    private RectTransform bossHealthFillRect;
+    private Text bossHealthText;
     private bool mobileControlsVisible;
     private bool debugMobileControls;
     private bool awaitingInitials;
@@ -74,6 +78,7 @@ public class UIManager : MonoBehaviour
         FindAdaptiveInputReferences();
         BuildEndScreen();
         HideEndScreen();
+        HideBossHealth();
         ApplyInputMode();
     }
 
@@ -110,6 +115,33 @@ public class UIManager : MonoBehaviour
 
         EnsureHeartHud();
         RefreshHeartLives();
+    }
+
+    public void ShowBossHealth(float currentHealth, float maxHealth)
+    {
+        EnsureBossHealthHud();
+        if (bossHealthRoot == null)
+        {
+            return;
+        }
+
+        float normalizedHealth = maxHealth > 0f ? Mathf.Clamp01(currentHealth / maxHealth) : 0f;
+        bossHealthRoot.SetActive(true);
+        bossHealthFillRect.anchorMax = new Vector2(normalizedHealth, 1f);
+        bossHealthFillRect.offsetMax = new Vector2(Mathf.Lerp(4f, -4f, normalizedHealth), -4f);
+        bossHealthFill.color = Color.Lerp(
+            new Color(0.96f, 0.1f, 0.12f, 1f),
+            new Color(0.56f, 0.08f, 0.66f, 1f),
+            normalizedHealth);
+        bossHealthText.text = $"MALIGNANT CORE  {Mathf.CeilToInt(currentHealth):00}/{Mathf.CeilToInt(maxHealth):00}";
+    }
+
+    public void HideBossHealth()
+    {
+        if (bossHealthRoot != null)
+        {
+            bossHealthRoot.SetActive(false);
+        }
     }
 
     public void SetWave(int wave, int totalWaves)
@@ -263,6 +295,68 @@ public class UIManager : MonoBehaviour
         {
             combatFeedbackText.enabled = false;
         }
+    }
+
+    private void EnsureBossHealthHud()
+    {
+        if (bossHealthRoot != null)
+        {
+            return;
+        }
+
+        Canvas canvas = GetComponentInParent<Canvas>();
+        if (canvas == null)
+        {
+            return;
+        }
+
+        bossHealthRoot = new GameObject("HUD_BossHealth");
+        bossHealthRoot.transform.SetParent(canvas.transform, false);
+        RectTransform rootRect = bossHealthRoot.AddComponent<RectTransform>();
+        rootRect.anchorMin = new Vector2(0.5f, 1f);
+        rootRect.anchorMax = new Vector2(0.5f, 1f);
+        rootRect.pivot = new Vector2(0.5f, 1f);
+        rootRect.anchoredPosition = new Vector2(0f, -28f);
+        rootRect.sizeDelta = new Vector2(620f, 72f);
+
+        GameObject backdropObject = new GameObject("IMG_BossHealthBackground");
+        backdropObject.transform.SetParent(bossHealthRoot.transform, false);
+        RectTransform backdropRect = backdropObject.AddComponent<RectTransform>();
+        backdropRect.anchorMin = new Vector2(0f, 0f);
+        backdropRect.anchorMax = new Vector2(1f, 0f);
+        backdropRect.pivot = new Vector2(0.5f, 0f);
+        backdropRect.anchoredPosition = Vector2.zero;
+        backdropRect.sizeDelta = new Vector2(0f, 28f);
+        Image backdrop = backdropObject.AddComponent<Image>();
+        backdrop.color = new Color(0.04f, 0.01f, 0.07f, 0.94f);
+        backdrop.raycastTarget = false;
+
+        GameObject fillObject = new GameObject("IMG_BossHealthFill");
+        fillObject.transform.SetParent(backdropObject.transform, false);
+        bossHealthFillRect = fillObject.AddComponent<RectTransform>();
+        bossHealthFillRect.anchorMin = Vector2.zero;
+        bossHealthFillRect.anchorMax = Vector2.one;
+        bossHealthFillRect.offsetMin = new Vector2(4f, 4f);
+        bossHealthFillRect.offsetMax = new Vector2(-4f, -4f);
+        bossHealthFill = fillObject.AddComponent<Image>();
+        bossHealthFill.type = Image.Type.Simple;
+        bossHealthFill.raycastTarget = false;
+
+        GameObject labelObject = new GameObject("TXT_BossHealth");
+        labelObject.transform.SetParent(bossHealthRoot.transform, false);
+        RectTransform labelRect = labelObject.AddComponent<RectTransform>();
+        labelRect.anchorMin = new Vector2(0f, 1f);
+        labelRect.anchorMax = new Vector2(1f, 1f);
+        labelRect.pivot = new Vector2(0.5f, 1f);
+        labelRect.anchoredPosition = Vector2.zero;
+        labelRect.sizeDelta = new Vector2(0f, 38f);
+        bossHealthText = labelObject.AddComponent<Text>();
+        ConfigureText(bossHealthText, 28, TextAnchor.UpperCenter);
+        bossHealthText.fontStyle = FontStyle.Bold;
+        bossHealthText.color = new Color(1f, 0.82f, 0.92f, 1f);
+        bossHealthText.raycastTarget = false;
+
+        bossHealthRoot.transform.SetAsLastSibling();
     }
 
     private static void ConfigureText(Text text, int fontSize, TextAnchor alignment)

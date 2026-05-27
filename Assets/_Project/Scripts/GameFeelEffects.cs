@@ -48,6 +48,31 @@ public class GameFeelEffects : MonoBehaviour
         GetOrCreateInstance().PlayPlayerShotInternal(worldPosition, treatmentType);
     }
 
+    public static void PlayBossSpawn(Vector3 worldPosition)
+    {
+        GetOrCreateInstance().PlayBossSpawnInternal(worldPosition);
+    }
+
+    public static void PlayBossShot(Vector3 worldPosition)
+    {
+        GetOrCreateInstance().PlayBossShotInternal(worldPosition);
+    }
+
+    public static void PlayBossSummon(Vector3 worldPosition)
+    {
+        GetOrCreateInstance().PlayBossSummonInternal(worldPosition);
+    }
+
+    public static void PlayBossHit(Vector3 worldPosition, bool fromMinion)
+    {
+        GetOrCreateInstance().PlayBossHitInternal(worldPosition, fromMinion);
+    }
+
+    public static void PlayBossDefeated(Vector3 worldPosition)
+    {
+        GetOrCreateInstance().PlayBossDefeatedInternal(worldPosition);
+    }
+
     public static void ShowScorePopup(Vector3 worldPosition, int scoreValue)
     {
         GetOrCreateInstance().ShowScorePopupInternal(worldPosition, scoreValue);
@@ -134,6 +159,43 @@ public class GameFeelEffects : MonoBehaviour
             destroyed ? 2.4f : 1.45f,
             destroyed ? 0.42f : 0.24f,
             destroyed ? 0.034f : 0.024f);
+    }
+
+    private void PlayBossSpawnInternal(Vector3 worldPosition)
+    {
+        SpawnBurst(worldPosition, new Color(0.82f, 0.12f, 0.64f, 1f), 210, 3.6f, 0.72f, 0.07f);
+        StartScreenFlash(new Color(0.45f, 0.02f, 0.3f, 0.22f), 0.34f);
+        StartCameraShake(1.2f);
+        StartChromaticAberration(0.62f, 0.34f);
+    }
+
+    private void PlayBossShotInternal(Vector3 worldPosition)
+    {
+        SpawnBurst(worldPosition, new Color(0.95f, 0.14f, 0.35f, 1f), 42, 2.2f, 0.32f, 0.035f);
+        StartChromaticAberration(0.2f, 0.1f);
+    }
+
+    private void PlayBossSummonInternal(Vector3 worldPosition)
+    {
+        SpawnBurst(worldPosition, new Color(0.62f, 0.2f, 0.94f, 1f), 92, 2.5f, 0.48f, 0.045f);
+        StartCameraShake(0.6f);
+    }
+
+    private void PlayBossHitInternal(Vector3 worldPosition, bool fromMinion)
+    {
+        Color color = fromMinion ? new Color(0.35f, 1f, 0.38f, 1f) : new Color(1f, 0.25f, 0.2f, 1f);
+        SpawnBurst(worldPosition, color, fromMinion ? 120 : 62, fromMinion ? 3.3f : 2.45f, 0.44f, 0.045f);
+        StartCameraShake(fromMinion ? 0.82f : 0.5f);
+        StartChromaticAberration(fromMinion ? 0.4f : 0.25f, 0.16f);
+    }
+
+    private void PlayBossDefeatedInternal(Vector3 worldPosition)
+    {
+        SpawnBurst(worldPosition, new Color(1f, 0.18f, 0.3f, 1f), 340, 5f, 1.05f, 0.09f);
+        SpawnBurst(worldPosition, new Color(0.55f, 1f, 0.18f, 1f), 180, 3.6f, 0.9f, 0.065f);
+        StartScreenFlash(new Color(1f, 0.12f, 0.2f, 0.3f), 0.45f);
+        StartCameraShake(1.8f);
+        StartChromaticAberration(0.95f, 0.55f);
     }
 
     private void ShowScorePopupInternal(Vector3 worldPosition, int scoreValue)

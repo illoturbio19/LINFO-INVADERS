@@ -29,6 +29,7 @@ public class EnemyFormationManager : MonoBehaviour
     private float enemyFireInterval = 1.8f;
     private int enemiesAtWaveStart;
     private bool waveActive;
+    private BossController activeBoss;
 
     private void Awake()
     {
@@ -53,6 +54,7 @@ public class EnemyFormationManager : MonoBehaviour
     public void SpawnWave(WaveConfig wave, WaveManager owner)
     {
         ClearFormation();
+        activeBoss = null;
         waveManager = owner;
         direction = 1f;
         speed = wave.formationSpeed;
@@ -65,7 +67,7 @@ public class EnemyFormationManager : MonoBehaviour
         {
             for (int column = 0; column < wave.columns; column++)
             {
-                EnemyType enemyType = wave.rowTypes[row];
+                EnemyType enemyType = wave.GetEnemyType(row, column);
                 Enemy prefab = GetPrefab(enemyType);
                 if (prefab == null)
                 {
@@ -84,6 +86,54 @@ public class EnemyFormationManager : MonoBehaviour
 
         enemiesAtWaveStart = aliveEnemies.Count;
         waveActive = aliveEnemies.Count > 0;
+    }
+
+    public void BeginBossBattle(BossController boss)
+    {
+        ClearFormation();
+        activeBoss = boss;
+        direction = 1f;
+        speed = 0.4f;
+        edgeSpeedBonus = 0f;
+        enemyFireInterval = 2.15f;
+        nextEnemyFireTime = Time.time + enemyFireInterval;
+        enemiesAtWaveStart = 12;
+        formationRoot.position = Vector3.zero;
+    }
+
+    public void EndBossBattle()
+    {
+        ClearFormation();
+        activeBoss = null;
+    }
+
+    public void SpawnBossMinion(EnemyType enemyType, Vector3 position)
+    {
+        if (activeBoss == null)
+        {
+            return;
+        }
+
+        Enemy prefab = GetPrefab(enemyType);
+        if (prefab == null)
+        {
+            return;
+        }
+
+        Enemy enemy = Instantiate(prefab, position, Quaternion.identity, formationRoot);
+        enemy.Died += OnEnemyDied;
+        aliveEnemies.Add(enemy);
+        enemiesAtWaveStart = Mathf.Max(enemiesAtWaveStart, aliveEnemies.Count);
+        waveActive = true;
+    }
+
+    public void SpawnBossProjectile(Vector3 position)
+    {
+        EnemyProjectile projectilePrefab = GetProjectilePrefab(EnemyType.MutatedCell);
+        if (projectilePrefab != null)
+        {
+            Instantiate(projectilePrefab, position, Quaternion.identity);
+        }
     }
 
     public void ClearFormation()
@@ -215,6 +265,18 @@ public class EnemyFormationManager : MonoBehaviour
     {
         enemy.Died -= OnEnemyDied;
         aliveEnemies.Remove(enemy);
+
+        if (activeBoss != null)
+        {
+            activeBoss.OnSummonedEnemyDied(enemy);
+            if (aliveEnemies.Count == 0)
+            {
+                waveActive = false;
+                AudioManager.SetMusicPressure(0f);
+            }
+
+            return;
+        }
 
         if (aliveEnemies.Count == 0 && waveActive)
         {

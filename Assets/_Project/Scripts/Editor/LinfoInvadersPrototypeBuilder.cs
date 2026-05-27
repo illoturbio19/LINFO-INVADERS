@@ -407,11 +407,30 @@ public static class LinfoInvadersPrototypeBuilder
         SerializedObject serializedObject = new SerializedObject(waveManager);
         SerializedProperty waves = serializedObject.FindProperty("waves");
         waves.ClearArray();
-        waves.arraySize = 3;
+        waves.arraySize = 5;
 
         ConfigureWave(waves.GetArrayElementAtIndex(0), 8, 0.32f, 2.25f, EnemyType.BasicCell, EnemyType.BasicCell, EnemyType.BasicCell, EnemyType.BasicCell, EnemyType.BasicCell);
         ConfigureWave(waves.GetArrayElementAtIndex(1), 8, 0.38f, 1.95f, EnemyType.ArmoredCell, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.BasicCell, EnemyType.BasicCell);
         ConfigureWave(waves.GetArrayElementAtIndex(2), 8, 0.45f, 1.7f, EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.MutatedCell, EnemyType.ArmoredCell);
+        ConfigureMixedWave(
+            waves.GetArrayElementAtIndex(3),
+            8,
+            0.52f,
+            1.42f,
+            new[]
+            {
+                EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.MutatedCell, EnemyType.ArmoredCell,
+                EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.ArmoredCell, EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.ArmoredCell, EnemyType.MutatedCell,
+                EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.ArmoredCell, EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.ArmoredCell,
+                EnemyType.ArmoredCell, EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.BasicCell, EnemyType.ArmoredCell, EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.BasicCell,
+                EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.MutatedCell, EnemyType.ArmoredCell, EnemyType.MutatedCell, EnemyType.ArmoredCell
+            },
+            EnemyType.MutatedCell,
+            EnemyType.ArmoredCell,
+            EnemyType.MutatedCell,
+            EnemyType.ArmoredCell,
+            EnemyType.MutatedCell);
+        ConfigureBossWave(waves.GetArrayElementAtIndex(4));
 
         serializedObject.ApplyModifiedProperties();
     }
@@ -427,6 +446,26 @@ public static class LinfoInvadersPrototypeBuilder
         {
             rowTypes.GetArrayElementAtIndex(i).enumValueIndex = (int)rows[i];
         }
+
+        wave.FindPropertyRelative("cellTypes").ClearArray();
+        wave.FindPropertyRelative("isBossWave").boolValue = false;
+    }
+
+    private static void ConfigureMixedWave(SerializedProperty wave, int columns, float speed, float fireInterval, EnemyType[] cells, params EnemyType[] fallbackRows)
+    {
+        ConfigureWave(wave, columns, speed, fireInterval, fallbackRows);
+        SerializedProperty cellTypes = wave.FindPropertyRelative("cellTypes");
+        cellTypes.arraySize = cells.Length;
+        for (int i = 0; i < cells.Length; i++)
+        {
+            cellTypes.GetArrayElementAtIndex(i).enumValueIndex = (int)cells[i];
+        }
+    }
+
+    private static void ConfigureBossWave(SerializedProperty wave)
+    {
+        ConfigureWave(wave, 0, 0f, 0f, EnemyType.BasicCell);
+        wave.FindPropertyRelative("isBossWave").boolValue = true;
     }
 
     private static void AddSceneToBuildSettings(string scenePath)

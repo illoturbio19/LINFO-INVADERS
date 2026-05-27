@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         uiManager?.SetWave(1, waveManager != null ? waveManager.TotalWaves : 3);
         uiManager?.SetSelectedTreatment(TreatmentType.ChemoShot);
         uiManager?.HideEndScreen();
+        uiManager?.HideBossHealth();
         AudioManager.EnsureMusic();
 
         if (autoStartWaves)
@@ -108,6 +109,7 @@ public class GameManager : MonoBehaviour
 
         gameOver = true;
         SetControlsEnabled(false);
+        uiManager?.HideBossHealth();
         uiManager?.ShowMessage("VICTORIA");
         uiManager?.ShowVictoryMenu(score);
         AudioManager.Play(GameSfx.Victory, transform.position);
@@ -123,6 +125,7 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         SetControlsEnabled(false);
         waveManager?.StopWave();
+        uiManager?.HideBossHealth();
         uiManager?.ShowMessage(message);
         uiManager?.ShowGameOverMenu(score);
         AudioManager.Play(GameSfx.Defeat, transform.position);
