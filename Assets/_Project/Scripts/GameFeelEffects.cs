@@ -19,12 +19,19 @@ public class GameFeelEffects : MonoBehaviour
     private Coroutine cameraShakeRoutine;
     private Coroutine screenFlashRoutine;
     private Coroutine chromaticAberrationRoutine;
+    private RectTransform playfieldOverlayRootRect;
     private Image flashImage;
+    private RectTransform styleEdgeGlowRootRect;
+    private Image styleEdgeGlowImage;
     private Material particleMaterial;
     private Texture2D sparkleTexture;
+    private Sprite styleEdgeGlowSprite;
     private Volume postProcessVolume;
     private ChromaticAberration chromaticAberration;
     private Font scorePopupFont;
+    private float targetComboStyleIntensity;
+    private float currentComboStyleIntensity;
+    private Color comboStyleColor = Color.clear;
 
     public static GameFeelEffects Instance => GetOrCreateInstance();
 
@@ -78,6 +85,16 @@ public class GameFeelEffects : MonoBehaviour
         GetOrCreateInstance().ShowScorePopupInternal(worldPosition, scoreValue);
     }
 
+    public static void SetComboStyle(float intensity, Color color)
+    {
+        GetOrCreateInstance().SetComboStyleInternal(intensity, color);
+    }
+
+    public static void PlayComboRankPulse(int gradeIndex, Color color)
+    {
+        GetOrCreateInstance().PlayComboRankPulseInternal(gradeIndex, color);
+    }
+
     private static GameFeelEffects GetOrCreateInstance()
     {
         if (instance != null)
@@ -118,6 +135,11 @@ public class GameFeelEffects : MonoBehaviour
         EnsurePostProcessing();
     }
 
+    private void Update()
+    {
+        ApplyComboStyle();
+    }
+
     private void PlayCombatHitInternal(Vector3 worldPosition, EffectivenessType effectiveness)
     {
         Color color = GetEffectColor(effectiveness);
@@ -136,10 +158,6 @@ public class GameFeelEffects : MonoBehaviour
         StartCameraShake(1.45f);
         StartChromaticAberration(hitChromaticPeak, hitChromaticDuration + 0.08f);
 
-        if (playerRenderer != null)
-        {
-            StartCoroutine(PlayerBlinkRoutine(playerRenderer));
-        }
     }
 
     private void PlayPlayerShotInternal(Vector3 worldPosition, TreatmentType treatmentType)
@@ -196,6 +214,44 @@ public class GameFeelEffects : MonoBehaviour
         StartScreenFlash(new Color(1f, 0.12f, 0.2f, 0.3f), 0.45f);
         StartCameraShake(1.8f);
         StartChromaticAberration(0.95f, 0.55f);
+    }
+
+    private void SetComboStyleInternal(float intensity, Color color)
+    {
+        EnsureScreenOverlay();
+        float clampedIntensity = Mathf.Clamp01(intensity);
+        bool wasActive = targetComboStyleIntensity > 0.02f;
+        bool isActive = clampedIntensity > 0.02f;
+
+        if (!wasActive && isActive)
+        {
+            AudioManager.Play(GameSfx.ComboStart, Vector3.zero);
+        }
+        else if (wasActive && !isActive)
+        {
+            AudioManager.Play(GameSfx.ComboBreak, Vector3.zero);
+        }
+
+        targetComboStyleIntensity = clampedIntensity;
+        if (color.a > 0.01f)
+        {
+            comboStyleColor = color;
+        }
+    }
+
+    private void PlayComboRankPulseInternal(int gradeIndex, Color color)
+    {
+        EnsureScreenOverlay();
+        float intensity = Mathf.InverseLerp(0f, 6f, gradeIndex);
+        targetComboStyleIntensity = Mathf.Max(targetComboStyleIntensity, intensity);
+        if (color.a > 0.01f)
+        {
+            comboStyleColor = color;
+        }
+
+        AudioManager.Play(GameSfx.ComboRankUp, Vector3.zero);
+        StartCameraShake(0.34f + intensity * 0.72f);
+        StartChromaticAberration(0.18f + intensity * 0.48f, 0.14f + intensity * 0.12f);
     }
 
     private void ShowScorePopupInternal(Vector3 worldPosition, int scoreValue)
@@ -466,9 +522,23 @@ public class GameFeelEffects : MonoBehaviour
 
     private void EnsureScreenOverlay()
     {
-        if (flashImage != null)
+        if (flashImage != null && styleEdgeGlowImage != null && playfieldOverlayRootRect != null)
         {
             return;
+        }
+
+        if ((flashImage != null || styleEdgeGlowImage != null) && playfieldOverlayRootRect == null)
+        {
+            Canvas oldCanvas = flashImage != null
+                ? flashImage.GetComponentInParent<Canvas>()
+                : styleEdgeGlowImage.GetComponentInParent<Canvas>();
+            flashImage = null;
+            styleEdgeGlowImage = null;
+            styleEdgeGlowRootRect = null;
+            if (oldCanvas != null && oldCanvas.name == "FX_PostProcessOverlay")
+            {
+                Destroy(oldCanvas.gameObject);
+            }
         }
 
         GameObject canvasObject = new GameObject("FX_PostProcessOverlay");
@@ -484,7 +554,29 @@ public class GameFeelEffects : MonoBehaviour
 
         canvasObject.AddComponent<GraphicRaycaster>();
 
-        flashImage = CreateFullScreenImage(canvasObject.transform, "IMG_DamageFlash", Color.clear);
+        GameObject playfieldOverlayRootObject = new GameObject("PANEL_PlayfieldOverlayClip");
+        playfieldOverlayRootObject.transform.SetParent(canvasObject.transform, false);
+        playfieldOverlayRootRect = playfieldOverlayRootObject.AddComponent<RectTransform>();
+        playfieldOverlayRootRect.anchorMin = Vector2.zero;
+        playfieldOverlayRootRect.anchorMax = Vector2.one;
+        playfieldOverlayRootRect.offsetMin = Vector2.zero;
+        playfieldOverlayRootRect.offsetMax = Vector2.zero;
+        playfieldOverlayRootObject.AddComponent<RectMask2D>();
+
+        GameObject glowRootObject = new GameObject("PANEL_ComboEdgeGlowClip");
+        glowRootObject.transform.SetParent(playfieldOverlayRootObject.transform, false);
+        styleEdgeGlowRootRect = glowRootObject.AddComponent<RectTransform>();
+        styleEdgeGlowRootRect.anchorMin = Vector2.zero;
+        styleEdgeGlowRootRect.anchorMax = Vector2.one;
+        styleEdgeGlowRootRect.offsetMin = Vector2.zero;
+        styleEdgeGlowRootRect.offsetMax = Vector2.zero;
+        glowRootObject.AddComponent<RectMask2D>();
+
+        styleEdgeGlowImage = CreateFullScreenImage(glowRootObject.transform, "IMG_ComboEdgeGlow", Color.clear);
+        styleEdgeGlowImage.sprite = GetStyleEdgeGlowSprite();
+        styleEdgeGlowImage.enabled = false;
+
+        flashImage = CreateFullScreenImage(playfieldOverlayRootObject.transform, "IMG_DamageFlash", Color.clear);
     }
 
     private static Image CreateFullScreenImage(Transform parent, string objectName, Color color)
@@ -504,9 +596,121 @@ public class GameFeelEffects : MonoBehaviour
         return image;
     }
 
+    private Sprite GetStyleEdgeGlowSprite()
+    {
+        if (styleEdgeGlowSprite != null)
+        {
+            return styleEdgeGlowSprite;
+        }
+
+        const int size = 96;
+        Texture2D texture = new Texture2D(size, size, TextureFormat.RGBA32, false);
+        texture.name = "TEX_Runtime_ComboEdgeGlow";
+        texture.filterMode = FilterMode.Bilinear;
+        texture.wrapMode = TextureWrapMode.Clamp;
+
+        for (int y = 0; y < size; y++)
+        {
+            for (int x = 0; x < size; x++)
+            {
+                float distanceToEdge = Mathf.Min(Mathf.Min(x, y), Mathf.Min(size - 1 - x, size - 1 - y));
+                float edge01 = 1f - Mathf.Clamp01(distanceToEdge / (size * 0.34f));
+                float alpha = edge01 * edge01;
+                texture.SetPixel(x, y, new Color(1f, 1f, 1f, alpha));
+            }
+        }
+
+        texture.Apply(false, true);
+        styleEdgeGlowSprite = Sprite.Create(texture, new Rect(0f, 0f, size, size), new Vector2(0.5f, 0.5f), size);
+        return styleEdgeGlowSprite;
+    }
+
+    private void ApplyComboStyle()
+    {
+        float speed = targetComboStyleIntensity > currentComboStyleIntensity ? 5.8f : 4.2f;
+        currentComboStyleIntensity = Mathf.MoveTowards(
+            currentComboStyleIntensity,
+            targetComboStyleIntensity,
+            Time.deltaTime * speed);
+
+        if (styleEdgeGlowImage != null)
+        {
+            bool visible = currentComboStyleIntensity > 0.01f;
+            styleEdgeGlowImage.enabled = visible;
+            if (visible)
+            {
+                UpdatePlayfieldOverlayRect();
+                float pulse = 0.85f + Mathf.Sin(Time.time * 8f) * 0.15f;
+                Color edgeColor = comboStyleColor.a > 0.01f ? comboStyleColor : new Color(1f, 0.78f, 0.1f, 1f);
+                edgeColor = Color.Lerp(edgeColor, new Color(1f, 0.82f, 0.08f, 1f), currentComboStyleIntensity * 0.7f);
+                edgeColor.a = Mathf.Clamp01((0.07f + currentComboStyleIntensity * 0.18f) * pulse);
+                styleEdgeGlowImage.color = edgeColor;
+            }
+            else
+            {
+                styleEdgeGlowImage.color = Color.clear;
+            }
+        }
+
+        if (chromaticAberration != null && chromaticAberrationRoutine == null)
+        {
+            chromaticAberration.intensity.value = currentComboStyleIntensity * 0.18f;
+        }
+    }
+
+    private void UpdatePlayfieldOverlayRect()
+    {
+        if (playfieldOverlayRootRect == null)
+        {
+            return;
+        }
+
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+
+        if (mainCamera == null)
+        {
+            playfieldOverlayRootRect.anchorMin = Vector2.zero;
+            playfieldOverlayRootRect.anchorMax = Vector2.one;
+            playfieldOverlayRootRect.offsetMin = Vector2.zero;
+            playfieldOverlayRootRect.offsetMax = Vector2.zero;
+            return;
+        }
+
+        Rect cameraRect = mainCamera.pixelRect;
+        float minX = Mathf.Clamp(cameraRect.xMin, 0f, Screen.width);
+        float maxX = Mathf.Clamp(cameraRect.xMax, 0f, Screen.width);
+        float minY = Mathf.Clamp(cameraRect.yMin, 0f, Screen.height);
+        float maxY = Mathf.Clamp(cameraRect.yMax, 0f, Screen.height);
+
+        if (maxX <= minX || maxY <= minY)
+        {
+            playfieldOverlayRootRect.anchorMin = Vector2.zero;
+            playfieldOverlayRootRect.anchorMax = Vector2.zero;
+        }
+        else
+        {
+            playfieldOverlayRootRect.anchorMin = new Vector2(minX / Screen.width, minY / Screen.height);
+            playfieldOverlayRootRect.anchorMax = new Vector2(maxX / Screen.width, maxY / Screen.height);
+        }
+
+        playfieldOverlayRootRect.offsetMin = Vector2.zero;
+        playfieldOverlayRootRect.offsetMax = Vector2.zero;
+        if (styleEdgeGlowRootRect != null)
+        {
+            styleEdgeGlowRootRect.anchorMin = Vector2.zero;
+            styleEdgeGlowRootRect.anchorMax = Vector2.one;
+            styleEdgeGlowRootRect.offsetMin = Vector2.zero;
+            styleEdgeGlowRootRect.offsetMax = Vector2.zero;
+        }
+    }
+
     private void StartScreenFlash(Color color, float duration)
     {
         EnsureScreenOverlay();
+        UpdatePlayfieldOverlayRect();
         if (screenFlashRoutine != null)
         {
             StopCoroutine(screenFlashRoutine);
@@ -611,14 +815,6 @@ public class GameFeelEffects : MonoBehaviour
 
     private static Color GetTreatmentColor(TreatmentType treatmentType)
     {
-        switch (treatmentType)
-        {
-            case TreatmentType.ImmunoBeam:
-                return new Color(0.22f, 0.96f, 1f, 1f);
-            case TreatmentType.TargetedNano:
-                return new Color(0.86f, 0.32f, 1f, 1f);
-            default:
-                return new Color(1f, 0.62f, 0.12f, 1f);
-        }
+        return TreatmentPalette.GetTreatmentColor(treatmentType);
     }
 }

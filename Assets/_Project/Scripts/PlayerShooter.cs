@@ -100,6 +100,7 @@ public class PlayerShooter : MonoBehaviour
         activeBullet = Instantiate(prefab, firePosition, Quaternion.identity);
         AudioManager.Play(GameSfx.PlayerShoot, firePosition);
         GameFeelEffects.PlayPlayerShot(firePosition, selectedTreatment);
+        ComboManager.Instance.RegisterShotFired();
         ShotFired?.Invoke();
         nextShootTime = Time.time + shootCooldown;
     }

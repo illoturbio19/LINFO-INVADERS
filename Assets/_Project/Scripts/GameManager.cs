@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,10 +20,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int shieldColumns = 6;
     [SerializeField] private int shieldRows = 3;
     [SerializeField] private int shieldBlockHits = 2;
+    [SerializeField] private int extraLifeScoreInterval = 5000;
+    [SerializeField] private float playerInvulnerabilityDuration = 2f;
+    [SerializeField] private Color invulnerabilityAuraColor = new Color(0.55f, 1f, 1f, 0.36f);
 
     private int score;
     private int lives;
+    private int nextExtraLifeScore;
     private bool gameOver;
+    private bool playerInvulnerable;
+    private Coroutine invulnerabilityRoutine;
+    private SpriteRenderer playerAuraRenderer;
 
     public static GameManager Instance { get; private set; }
 
@@ -35,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         lives = startingLives;
         score = 0;
+        nextExtraLifeScore = Mathf.Max(1, extraLifeScoreInterval);
         gameOver = false;
         ArcadeCameraFraming.EnsureSceneCamera();
         PixelGalaxyBackground.EnsureSceneBackground();
@@ -47,6 +56,7 @@ public class GameManager : MonoBehaviour
         uiManager?.SetSelectedTreatment(TreatmentType.ChemoShot);
         uiManager?.HideEndScreen();
         uiManager?.HideBossHealth();
+        ComboManager.Instance.ResetCombo();
         AudioManager.EnsureMusic();
 
         if (autoStartWaves)
@@ -64,11 +74,12 @@ public class GameManager : MonoBehaviour
 
         score += amount;
         uiManager?.SetScore(score);
+        AwardScoreLivesIfNeeded();
     }
 
     public void PlayerHit()
     {
-        if (gameOver)
+        if (gameOver || playerInvulnerable)
         {
             return;
         }
@@ -82,7 +93,10 @@ public class GameManager : MonoBehaviour
         if (lives <= 0)
         {
             Lose("DERROTA");
+            return;
         }
+
+        StartPlayerInvulnerability();
     }
 
     public void EnemiesReachedBottom()
@@ -98,6 +112,20 @@ public class GameManager : MonoBehaviour
     public void UpdateWave(int waveNumber, int totalWaves)
     {
         uiManager?.SetWave(waveNumber, totalWaves);
+    }
+
+    private void AwardScoreLivesIfNeeded()
+    {
+        int interval = Mathf.Max(1, extraLifeScoreInterval);
+        while (score >= nextExtraLifeScore)
+        {
+            lives++;
+            uiManager?.SetLives(lives);
+            AudioManager.Play(
+                GameSfx.ExtraLife,
+                playerController != null ? playerController.transform.position : transform.position);
+            nextExtraLifeScore += interval;
+        }
     }
 
     public void Win()
@@ -146,6 +174,97 @@ public class GameManager : MonoBehaviour
     {
         playerController?.SetControlsEnabled(enabled);
         playerShooter?.SetControlsEnabled(enabled);
+    }
+
+    private void StartPlayerInvulnerability()
+    {
+        if (invulnerabilityRoutine != null)
+        {
+            StopCoroutine(invulnerabilityRoutine);
+        }
+
+        invulnerabilityRoutine = StartCoroutine(PlayerInvulnerabilityRoutine());
+    }
+
+    private IEnumerator PlayerInvulnerabilityRoutine()
+    {
+        playerInvulnerable = true;
+        SpriteRenderer playerRenderer = playerController != null ? playerController.GetComponent<SpriteRenderer>() : null;
+        SpriteRenderer auraRenderer = EnsurePlayerAura(playerRenderer);
+        Color originalColor = playerRenderer != null ? playerRenderer.color : Color.white;
+        float elapsed = 0f;
+
+        while (elapsed < playerInvulnerabilityDuration)
+        {
+            float pulse = 0.5f + Mathf.Sin(Time.time * 18f) * 0.5f;
+            if (playerRenderer != null)
+            {
+                Color blinkColor = originalColor;
+                blinkColor.a = Mathf.Lerp(0.32f, 1f, pulse);
+                playerRenderer.color = blinkColor;
+            }
+
+            if (auraRenderer != null && playerRenderer != null)
+            {
+                auraRenderer.enabled = true;
+                auraRenderer.sprite = playerRenderer.sprite;
+                auraRenderer.flipX = playerRenderer.flipX;
+                Color auraColor = invulnerabilityAuraColor;
+                auraColor.a *= Mathf.Lerp(0.45f, 1f, pulse);
+                auraRenderer.color = auraColor;
+                auraRenderer.transform.localScale = Vector3.one * Mathf.Lerp(1.2f, 1.48f, pulse);
+            }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        if (playerRenderer != null)
+        {
+            Color restoredColor = originalColor;
+            restoredColor.a = 1f;
+            playerRenderer.color = restoredColor;
+        }
+
+        if (auraRenderer != null)
+        {
+            auraRenderer.enabled = false;
+        }
+
+        playerInvulnerable = false;
+        invulnerabilityRoutine = null;
+    }
+
+    private SpriteRenderer EnsurePlayerAura(SpriteRenderer playerRenderer)
+    {
+        if (playerRenderer == null)
+        {
+            return null;
+        }
+
+        if (playerAuraRenderer != null)
+        {
+            return playerAuraRenderer;
+        }
+
+        Transform existing = playerRenderer.transform.Find("FX_PlayerInvulnerabilityAura");
+        GameObject auraObject = existing != null ? existing.gameObject : new GameObject("FX_PlayerInvulnerabilityAura");
+        auraObject.transform.SetParent(playerRenderer.transform, false);
+        auraObject.transform.localPosition = Vector3.zero;
+        auraObject.transform.localRotation = Quaternion.identity;
+        auraObject.transform.localScale = Vector3.one;
+
+        playerAuraRenderer = auraObject.GetComponent<SpriteRenderer>();
+        if (playerAuraRenderer == null)
+        {
+            playerAuraRenderer = auraObject.AddComponent<SpriteRenderer>();
+        }
+
+        playerAuraRenderer.enabled = false;
+        playerAuraRenderer.sortingLayerID = playerRenderer.sortingLayerID;
+        playerAuraRenderer.sortingOrder = playerRenderer.sortingOrder - 1;
+        playerAuraRenderer.color = invulnerabilityAuraColor;
+        return playerAuraRenderer;
     }
 
     private void RebuildShieldBunkers()

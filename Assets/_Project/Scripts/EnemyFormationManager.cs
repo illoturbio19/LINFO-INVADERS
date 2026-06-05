@@ -136,6 +136,38 @@ public class EnemyFormationManager : MonoBehaviour
         }
     }
 
+    public List<Enemy> GetAdjacentEnemies(Enemy source, float horizontalRange, float verticalRange)
+    {
+        List<Enemy> adjacentEnemies = new List<Enemy>();
+        if (source == null)
+        {
+            return adjacentEnemies;
+        }
+
+        Vector3 sourcePosition = source.transform.position;
+        for (int i = 0; i < aliveEnemies.Count; i++)
+        {
+            Enemy candidate = aliveEnemies[i];
+            if (candidate == null || candidate == source || !candidate.IsAlive)
+            {
+                continue;
+            }
+
+            Vector3 candidatePosition = candidate.transform.position;
+            float deltaX = Mathf.Abs(candidatePosition.x - sourcePosition.x);
+            float deltaY = Mathf.Abs(candidatePosition.y - sourcePosition.y);
+            if (deltaX <= horizontalRange && deltaY <= verticalRange)
+            {
+                adjacentEnemies.Add(candidate);
+            }
+        }
+
+        adjacentEnemies.Sort((left, right) =>
+            Mathf.Abs(left.transform.position.x - sourcePosition.x)
+                .CompareTo(Mathf.Abs(right.transform.position.x - sourcePosition.x)));
+        return adjacentEnemies;
+    }
+
     public void ClearFormation()
     {
         for (int i = aliveEnemies.Count - 1; i >= 0; i--)

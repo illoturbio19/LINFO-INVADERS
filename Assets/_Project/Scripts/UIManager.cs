@@ -49,6 +49,13 @@ public class UIManager : MonoBehaviour
     private Image bossHealthFill;
     private RectTransform bossHealthFillRect;
     private Text bossHealthText;
+    private GameObject comboRoot;
+    private CanvasGroup comboCanvasGroup;
+    private Text comboGradeText;
+    private Text comboMultiplierText;
+    private Image comboTimerBack;
+    private Image comboTimerFill;
+    private RectTransform comboTimerFillRect;
     private bool mobileControlsVisible;
     private bool debugMobileControls;
     private bool awaitingInitials;
@@ -141,6 +148,147 @@ public class UIManager : MonoBehaviour
         if (bossHealthRoot != null)
         {
             bossHealthRoot.SetActive(false);
+        }
+    }
+
+    public void SetCombo(string grade, float multiplier, float timer01, bool godlike, bool visible)
+    {
+        EnsureComboHud();
+        if (comboRoot == null)
+        {
+            return;
+        }
+
+        if (!visible || string.IsNullOrEmpty(grade))
+        {
+            HideComboImmediate();
+            return;
+        }
+
+        comboRoot.SetActive(true);
+        comboRoot.transform.localScale = Vector3.one;
+        if (comboCanvasGroup != null)
+        {
+            comboCanvasGroup.alpha = 1f;
+            comboCanvasGroup.interactable = false;
+            comboCanvasGroup.blocksRaycasts = false;
+        }
+
+        SetComboHudGraphicsVisible(true);
+
+        Color comboColor = GetComboGradeColor(grade, godlike);
+        comboGradeText.fontSize = godlike ? 30 : 42;
+        comboGradeText.lineSpacing = godlike ? 0.82f : 1f;
+        comboGradeText.text = godlike ? $"{grade}\nGODLIKE" : grade;
+        comboGradeText.color = comboColor;
+        comboMultiplierText.text = $"x{multiplier:0.0}";
+        comboMultiplierText.color = comboColor;
+
+        if (comboTimerFillRect != null)
+        {
+            comboTimerFillRect.anchorMax = new Vector2(Mathf.Clamp01(timer01), 1f);
+        }
+
+        if (comboTimerFill != null)
+        {
+            comboTimerFill.color = comboColor;
+        }
+    }
+
+    public void HideComboImmediate()
+    {
+        ClearComboHud();
+        if (comboRoot != null)
+        {
+            comboRoot.transform.localScale = Vector3.zero;
+            comboRoot.SetActive(false);
+            Destroy(comboRoot);
+        }
+
+        HideAllComboHudRoots();
+        comboRoot = null;
+        comboCanvasGroup = null;
+        comboGradeText = null;
+        comboMultiplierText = null;
+        comboTimerBack = null;
+        comboTimerFill = null;
+        comboTimerFillRect = null;
+    }
+
+    private void ClearComboHud()
+    {
+        if (comboGradeText != null)
+        {
+            comboGradeText.text = string.Empty;
+        }
+
+        if (comboMultiplierText != null)
+        {
+            comboMultiplierText.text = string.Empty;
+        }
+
+        if (comboTimerFillRect != null)
+        {
+            comboTimerFillRect.anchorMax = new Vector2(0f, 1f);
+            comboTimerFillRect.anchorMin = Vector2.zero;
+            comboTimerFillRect.offsetMin = Vector2.zero;
+            comboTimerFillRect.offsetMax = Vector2.zero;
+        }
+
+        if (comboTimerFill != null)
+        {
+            comboTimerFill.color = Color.clear;
+        }
+
+        SetComboHudGraphicsVisible(false);
+    }
+
+    private void SetComboHudGraphicsVisible(bool visible)
+    {
+        if (comboGradeText != null)
+        {
+            comboGradeText.enabled = visible;
+        }
+
+        if (comboMultiplierText != null)
+        {
+            comboMultiplierText.enabled = visible;
+        }
+
+        if (comboTimerBack != null)
+        {
+            comboTimerBack.enabled = visible;
+        }
+
+        if (comboTimerFill != null)
+        {
+            comboTimerFill.enabled = visible;
+        }
+    }
+
+    private static Color GetComboGradeColor(string grade, bool godlike)
+    {
+        if (godlike || grade == "SSS")
+        {
+            return new Color(1f, 0.86f, 0.08f, 1f);
+        }
+
+        switch (grade)
+        {
+            case "D":
+                return new Color(0.74f, 0.82f, 0.94f, 1f);
+            case "C":
+                return new Color(0.32f, 0.92f, 1f, 1f);
+            case "B":
+                return new Color(0.08f, 0.5f, 1f, 1f);
+            case "A":
+                return new Color(0.9f, 0.97f, 1f, 1f);
+            case "S":
+                return new Color(1f, 0.48f, 0.12f, 1f);
+            case "SS":
+                return new Color(1f, 0.68f, 0.06f, 1f);
+            default:
+                return new Color(0.8f, 1f, 0.95f, 1f);
         }
     }
 
@@ -489,7 +637,7 @@ public class UIManager : MonoBehaviour
         rect.anchorMax = new Vector2(0f, 1f);
         rect.pivot = new Vector2(0f, 1f);
         rect.anchoredPosition = new Vector2(22f, -16f);
-        rect.sizeDelta = new Vector2(610f, 128f);
+        rect.sizeDelta = new Vector2(610f, 220f);
 
         Image image = hudBackingObject.GetComponent<Image>();
         if (image == null)
@@ -519,6 +667,122 @@ public class UIManager : MonoBehaviour
         rect.pivot = new Vector2(0f, 1f);
         rect.anchoredPosition = anchoredPosition;
         rect.sizeDelta = size;
+    }
+
+    private void EnsureComboHud()
+    {
+        if (comboRoot != null)
+        {
+            return;
+        }
+
+        Canvas canvas = GetComponentInParent<Canvas>();
+        if (canvas == null)
+        {
+            return;
+        }
+
+        Transform existingRoot = canvas.transform.Find("HUD_Combo");
+        if (existingRoot != null)
+        {
+            Destroy(existingRoot.gameObject);
+        }
+
+        comboRoot = new GameObject("HUD_Combo");
+        comboRoot.transform.SetParent(canvas.transform, false);
+        comboCanvasGroup = comboRoot.AddComponent<CanvasGroup>();
+        comboCanvasGroup.interactable = false;
+        comboCanvasGroup.blocksRaycasts = false;
+
+        RectTransform rootRect = EnsureRectTransform(comboRoot);
+        rootRect.anchorMin = new Vector2(0f, 1f);
+        rootRect.anchorMax = new Vector2(0f, 1f);
+        rootRect.pivot = new Vector2(0f, 1f);
+        rootRect.anchoredPosition = new Vector2(34f, -142f);
+        rootRect.sizeDelta = new Vector2(300f, 112f);
+
+        GameObject gradeObject = new GameObject("TXT_ComboGrade");
+        gradeObject.transform.SetParent(comboRoot.transform, false);
+        RectTransform gradeRect = gradeObject.AddComponent<RectTransform>();
+        gradeRect.anchorMin = new Vector2(0f, 1f);
+        gradeRect.anchorMax = new Vector2(0f, 1f);
+        gradeRect.pivot = new Vector2(0f, 1f);
+        gradeRect.anchoredPosition = Vector2.zero;
+        gradeRect.sizeDelta = new Vector2(290f, 72f);
+        comboGradeText = gradeObject.AddComponent<Text>();
+        ConfigureText(comboGradeText, 42, TextAnchor.UpperLeft);
+        comboGradeText.fontStyle = FontStyle.Bold;
+        comboGradeText.raycastTarget = false;
+
+        GameObject multiplierObject = new GameObject("TXT_ComboMultiplier");
+        multiplierObject.transform.SetParent(comboRoot.transform, false);
+        RectTransform multiplierRect = multiplierObject.AddComponent<RectTransform>();
+        multiplierRect.anchorMin = new Vector2(0f, 1f);
+        multiplierRect.anchorMax = new Vector2(0f, 1f);
+        multiplierRect.pivot = new Vector2(0f, 1f);
+        multiplierRect.anchoredPosition = new Vector2(0f, -74f);
+        multiplierRect.sizeDelta = new Vector2(140f, 32f);
+        comboMultiplierText = multiplierObject.AddComponent<Text>();
+        ConfigureText(comboMultiplierText, 26, TextAnchor.UpperLeft);
+        comboMultiplierText.fontStyle = FontStyle.Bold;
+        comboMultiplierText.raycastTarget = false;
+
+        GameObject timerBackObject = new GameObject("IMG_ComboTimerBack");
+        timerBackObject.transform.SetParent(comboRoot.transform, false);
+        RectTransform timerBackRect = timerBackObject.AddComponent<RectTransform>();
+        timerBackRect.anchorMin = new Vector2(0f, 0f);
+        timerBackRect.anchorMax = new Vector2(1f, 0f);
+        timerBackRect.pivot = new Vector2(0.5f, 0f);
+        timerBackRect.anchoredPosition = Vector2.zero;
+        timerBackRect.sizeDelta = new Vector2(0f, 9f);
+        comboTimerBack = timerBackObject.AddComponent<Image>();
+        comboTimerBack.color = new Color(0f, 0f, 0f, 0.72f);
+        comboTimerBack.raycastTarget = false;
+
+        GameObject timerFillObject = new GameObject("IMG_ComboTimerFill");
+        timerFillObject.transform.SetParent(timerBackObject.transform, false);
+        comboTimerFillRect = timerFillObject.AddComponent<RectTransform>();
+        comboTimerFillRect.anchorMin = Vector2.zero;
+        comboTimerFillRect.anchorMax = Vector2.one;
+        comboTimerFillRect.offsetMin = Vector2.zero;
+        comboTimerFillRect.offsetMax = Vector2.zero;
+        comboTimerFill = timerFillObject.AddComponent<Image>();
+        comboTimerFill.raycastTarget = false;
+
+        ClearComboHud();
+        comboRoot.transform.localScale = Vector3.zero;
+        comboRoot.SetActive(false);
+    }
+
+    private void HideAllComboHudRoots()
+    {
+        RectTransform[] rectTransforms = FindObjectsByType<RectTransform>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        for (int i = 0; i < rectTransforms.Length; i++)
+        {
+            RectTransform rectTransform = rectTransforms[i];
+            if (rectTransform == null || !rectTransform.gameObject.scene.isLoaded)
+            {
+                continue;
+            }
+
+            if (!IsComboHudObject(rectTransform.name))
+            {
+                continue;
+            }
+
+            rectTransform.localScale = Vector3.zero;
+            rectTransform.gameObject.SetActive(false);
+            Destroy(rectTransform.gameObject);
+        }
+    }
+
+    private static bool IsComboHudObject(string objectName)
+    {
+        return objectName == "HUD_Combo" ||
+            objectName == "TXT_ComboGrade" ||
+            objectName == "TXT_ComboMultiplier" ||
+            objectName == "IMG_ComboTimerBack" ||
+            objectName == "IMG_ComboTimerFill";
     }
 
     private static Font GetRuntimeFont()
@@ -1104,8 +1368,8 @@ public class UIManager : MonoBehaviour
 
         mobilePadObject = CreateMobilePad();
 
-        ConfigureMobileButton(shootButtonObject, "\u25B2", new Vector2(-158f, 112f), new Vector2(148f, 148f), new Vector2(1f, 0f), new Vector2(1f, 0f));
-        ConfigureMobileButton(treatmentButtonObject, "\u21BB", new Vector2(-330f, 112f), new Vector2(132f, 132f), new Vector2(1f, 0f), new Vector2(1f, 0f));
+        ConfigureMobileButton(shootButtonObject, "\u25CF", new Vector2(-44f, 44f), new Vector2(118f, 118f), new Vector2(1f, 0f), new Vector2(1f, 0f));
+        ConfigureMobileButton(treatmentButtonObject, "\u21BB", new Vector2(-178f, 52f), new Vector2(104f, 104f), new Vector2(1f, 0f), new Vector2(1f, 0f));
 
         shootCooldownOverlay = CreateCooldownOverlay(shootButtonObject, "IMG_ShootCooldown");
         treatmentCooldownOverlay = CreateCooldownOverlay(treatmentButtonObject, "IMG_TreatmentCooldown");
@@ -1142,7 +1406,7 @@ public class UIManager : MonoBehaviour
         {
             text.font = GetRuntimeFont();
             text.text = label;
-            text.fontSize = label.Length <= 1 ? 64 : 34;
+            text.fontSize = label.Length <= 1 ? 58 : 34;
             text.alignment = TextAnchor.MiddleCenter;
             text.resizeTextForBestFit = true;
             text.resizeTextMinSize = 16;
@@ -1248,8 +1512,8 @@ public class UIManager : MonoBehaviour
         rect.anchorMin = Vector2.zero;
         rect.anchorMax = Vector2.zero;
         rect.pivot = new Vector2(0f, 0f);
-        rect.anchoredPosition = new Vector2(38f, 44f);
-        rect.sizeDelta = new Vector2(390f, 190f);
+        rect.anchoredPosition = new Vector2(28f, 32f);
+        rect.sizeDelta = new Vector2(270f, 156f);
 
         Image image = padObject.GetComponent<Image>();
         if (image == null)
@@ -1257,7 +1521,7 @@ public class UIManager : MonoBehaviour
             image = padObject.AddComponent<Image>();
         }
 
-        image.color = new Color(0.02f, 0.08f, 0.11f, 0.42f);
+        image.color = new Color(0.02f, 0.08f, 0.11f, 0.52f);
         image.raycastTarget = true;
 
         Transform knobExisting = padObject.transform.Find("Knob");
@@ -1274,7 +1538,7 @@ public class UIManager : MonoBehaviour
         knobRect.anchorMax = new Vector2(0.5f, 0.5f);
         knobRect.pivot = new Vector2(0.5f, 0.5f);
         knobRect.anchoredPosition = Vector2.zero;
-        knobRect.sizeDelta = new Vector2(92f, 92f);
+        knobRect.sizeDelta = new Vector2(74f, 74f);
 
         Image knobImage = knobObject.GetComponent<Image>();
         if (knobImage == null)
@@ -1298,7 +1562,7 @@ public class UIManager : MonoBehaviour
             label = labelObject.AddComponent<Text>();
         }
 
-        label.text = "<     >";
+        label.text = string.Empty;
         label.font = GetRuntimeFont();
         label.alignment = TextAnchor.MiddleCenter;
         label.fontSize = 42;

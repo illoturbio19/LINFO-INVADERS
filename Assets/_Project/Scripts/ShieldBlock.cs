@@ -24,8 +24,14 @@ public class ShieldBlock : MonoBehaviour
         UpdateColor();
     }
 
-    public void TakeHit()
+    public void TakeHit(bool fromPlayerShot = false)
     {
+        if (fromPlayerShot)
+        {
+            ComboManager.Instance.RegisterShotMiss();
+            UIManager.Instance?.HideComboImmediate();
+        }
+
         remainingHits--;
         if (remainingHits <= 0)
         {

@@ -15,7 +15,11 @@ public enum GameSfx
     BossSpawn,
     BossShoot,
     BossHit,
-    BossDeath
+    BossDeath,
+    ComboStart,
+    ComboRankUp,
+    ComboBreak,
+    ExtraLife
 }
 
 public class AudioManager : MonoBehaviour
@@ -40,6 +44,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip treatmentChangeClip;
     [SerializeField] private AudioClip victoryClip;
     [SerializeField] private AudioClip defeatClip;
+    [SerializeField] private AudioClip extraLifeClip;
 
     private const int SampleRate = 44100;
     private static AudioManager instance;
@@ -223,6 +228,8 @@ public class AudioManager : MonoBehaviour
                 return victoryClip;
             case GameSfx.Defeat:
                 return defeatClip;
+            case GameSfx.ExtraLife:
+                return extraLifeClip;
             default:
                 return null;
         }
@@ -258,6 +265,14 @@ public class AudioManager : MonoBehaviour
                 return CreateTone("SFX_BossHit", 0.12f, 290f, 120f, Waveform.Noise, 0.24f);
             case GameSfx.BossDeath:
                 return CreateTone("SFX_BossDeath", 0.8f, 165f, 34f, Waveform.Saw, 0.38f);
+            case GameSfx.ComboStart:
+                return CreateEchoTone("SFX_ComboStart", 0.24f, 620f, 980f, Waveform.Sine, 0.18f, 3);
+            case GameSfx.ComboRankUp:
+                return CreateEchoTone("SFX_ComboRankUp", 0.34f, 860f, 1560f, Waveform.Square, 0.2f, 4);
+            case GameSfx.ComboBreak:
+                return CreateTone("SFX_ComboBreak", 0.16f, 360f, 130f, Waveform.Saw, 0.18f);
+            case GameSfx.ExtraLife:
+                return CreateArpeggio("SFX_ExtraLife", 0.46f, new[] { 660f, 880f, 1320f, 1760f }, Waveform.Square, 0.18f);
             default:
                 return null;
         }
@@ -314,6 +329,60 @@ public class AudioManager : MonoBehaviour
             float frequency = Mathf.Lerp(startFrequency, endFrequency, t);
             float phase = 2f * Mathf.PI * frequency * i / SampleRate;
             float envelope = Mathf.Sin(Mathf.PI * t);
+            samples[i] = GetWaveSample(waveform, phase, ref noiseState) * envelope * volume;
+        }
+
+        AudioClip clip = AudioClip.Create(name, sampleCount, 1, SampleRate, false);
+        clip.SetData(samples, 0);
+        return clip;
+    }
+
+    private static AudioClip CreateEchoTone(string name, float duration, float startFrequency, float endFrequency, Waveform waveform, float volume, int echoCount)
+    {
+        int sampleCount = Mathf.Max(1, Mathf.RoundToInt(duration * SampleRate));
+        float[] samples = new float[sampleCount];
+        uint noiseState = 33333u;
+
+        for (int echo = 0; echo < echoCount; echo++)
+        {
+            int delaySamples = Mathf.RoundToInt(echo * 0.045f * SampleRate);
+            float echoVolume = volume * Mathf.Pow(0.54f, echo);
+
+            for (int i = delaySamples; i < sampleCount; i++)
+            {
+                float localT = (i - delaySamples) / (float)Mathf.Max(1, sampleCount - delaySamples);
+                float frequency = Mathf.Lerp(startFrequency, endFrequency, localT);
+                float phase = 2f * Mathf.PI * frequency * (i - delaySamples) / SampleRate;
+                float envelope = Mathf.Sin(Mathf.PI * localT) * (1f - localT * 0.25f);
+                samples[i] += GetWaveSample(waveform, phase, ref noiseState) * envelope * echoVolume;
+            }
+        }
+
+        for (int i = 0; i < samples.Length; i++)
+        {
+            samples[i] = Mathf.Clamp(samples[i], -1f, 1f);
+        }
+
+        AudioClip clip = AudioClip.Create(name, sampleCount, 1, SampleRate, false);
+        clip.SetData(samples, 0);
+        return clip;
+    }
+
+    private static AudioClip CreateArpeggio(string name, float duration, float[] frequencies, Waveform waveform, float volume)
+    {
+        int sampleCount = Mathf.Max(1, Mathf.RoundToInt(duration * SampleRate));
+        float[] samples = new float[sampleCount];
+        uint noiseState = 44444u;
+        int noteCount = Mathf.Max(1, frequencies.Length);
+
+        for (int i = 0; i < sampleCount; i++)
+        {
+            float t = i / (float)sampleCount;
+            int noteIndex = Mathf.Min(noteCount - 1, Mathf.FloorToInt(t * noteCount));
+            float localT = (t * noteCount) - noteIndex;
+            float frequency = frequencies[noteIndex];
+            float phase = 2f * Mathf.PI * frequency * i / SampleRate;
+            float envelope = Mathf.Sin(Mathf.PI * localT) * Mathf.Lerp(1f, 0.75f, t);
             samples[i] = GetWaveSample(waveform, phase, ref noiseState) * envelope * volume;
         }
 

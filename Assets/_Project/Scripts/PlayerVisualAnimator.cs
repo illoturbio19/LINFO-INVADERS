@@ -20,6 +20,7 @@ public class PlayerVisualAnimator : MonoBehaviour
     [SerializeField] private float formTransitionDuration = 0.32f;
     [SerializeField] private float formTransitionPulseScale = 1.18f;
     [SerializeField] private float formTransitionHaloScale = 1.7f;
+    [SerializeField] private bool tintShipByTreatment = true;
     [SerializeField] private Color chemoTransitionColor = new Color(1f, 0.57f, 0.05f, 0.75f);
     [SerializeField] private Color immunoTransitionColor = new Color(0.25f, 0.88f, 1f, 0.75f);
     [SerializeField] private Color targetedTransitionColor = new Color(0.72f, 0.25f, 1f, 0.75f);
@@ -152,6 +153,8 @@ public class PlayerVisualAnimator : MonoBehaviour
         if (spriteRenderer != null && form.defaultSprite != null)
         {
             spriteRenderer.sprite = form.defaultSprite;
+            baseSpriteColor = tintShipByTreatment ? TreatmentPalette.GetShipTint(treatmentType) : Color.white;
+            spriteRenderer.color = baseSpriteColor;
         }
 
         if (playTransition)
@@ -250,15 +253,8 @@ public class PlayerVisualAnimator : MonoBehaviour
 
     private Color GetTransitionColor(TreatmentType treatmentType)
     {
-        switch (treatmentType)
-        {
-            case TreatmentType.ImmunoBeam:
-                return immunoTransitionColor;
-            case TreatmentType.TargetedNano:
-                return targetedTransitionColor;
-            default:
-                return chemoTransitionColor;
-        }
+        Color treatmentColor = TreatmentPalette.GetTreatmentColor(treatmentType);
+        return new Color(treatmentColor.r, treatmentColor.g, treatmentColor.b, 0.75f);
     }
 
     private PlayerShipFormVisual GetForm(TreatmentType treatmentType)

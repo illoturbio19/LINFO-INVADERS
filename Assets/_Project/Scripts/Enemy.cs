@@ -75,14 +75,14 @@ public class Enemy : MonoBehaviour
         visualAnimator?.SetCombatState(currentHealth < maxHealth, true);
     }
 
-    public void ApplyDamage(DamageResult result, TreatmentType treatmentType)
+    public bool ApplyDamage(DamageResult result, TreatmentType treatmentType, bool forceKill = false)
     {
         if (!IsAlive)
         {
-            return;
+            return false;
         }
 
-        float damage = DamageResolver.GetArcadeDamage(result.Effectiveness, currentHealth, maxHealth);
+        float damage = forceKill ? currentHealth : DamageResolver.GetArcadeDamage(result.Effectiveness, currentHealth, maxHealth);
         currentHealth = Mathf.Max(0f, currentHealth - damage);
         if (result.Effectiveness == EffectivenessType.SuperEffective)
         {
@@ -96,7 +96,25 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0f)
         {
             Die();
+            return true;
         }
+
+        return false;
+    }
+
+    public bool KillByGodlikeChain(TreatmentType treatmentType)
+    {
+        if (!IsAlive)
+        {
+            return false;
+        }
+
+        currentHealth = 0f;
+        CombatFeedback.Instance?.ShowHitFeedback(transform.position, EffectivenessType.SuperEffective);
+        visualAnimator?.SetCombatState(true, false);
+        PlayDamageFlash(EffectivenessType.SuperEffective);
+        Die();
+        return true;
     }
 
     private void PlayDamageFlash(EffectivenessType effectiveness)
@@ -148,8 +166,6 @@ public class Enemy : MonoBehaviour
 
         isDying = true;
         AudioManager.Play(GameSfx.EnemyDeath, transform.position);
-        GameFeelEffects.ShowScorePopup(transform.position, scoreValue);
-        GameManager.Instance?.AddScore(scoreValue);
         Died?.Invoke(this);
         Collider2D enemyCollider = GetComponent<Collider2D>();
         if (enemyCollider != null)

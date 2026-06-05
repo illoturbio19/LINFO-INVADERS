@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float destroyY = 6.75f;
     [SerializeField] private float reflectedSpeedMultiplier = 0.85f;
     [SerializeField] private float reflectedDestroyY = -6.75f;
+    [SerializeField, Range(0f, 1f)] private float resistantReflectChance = 0.4f;
     [SerializeField] private Color placeholderColor = Color.white;
     [SerializeField] private bool usePlaceholderColor = true;
 
@@ -23,6 +24,8 @@ public class Bullet : MonoBehaviour
     private Vector3 baseScale;
     private Color treatmentColor;
     private float spawnTime;
+    private bool shotResolved;
+    private bool godlikeProjectile;
 
     public TreatmentType TreatmentType => treatmentType;
 
@@ -32,8 +35,16 @@ public class Bullet : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         baseScale = transform.localScale;
         spawnTime = Time.time;
-        treatmentColor = GetTreatmentColor(treatmentType);
-        spriteRenderer.color = usePlaceholderColor ? placeholderColor : Color.white;
+        treatmentColor = TreatmentPalette.GetTreatmentColor(treatmentType);
+        godlikeProjectile = ComboManager.IsGodlikeActive;
+        if (godlikeProjectile)
+        {
+            baseScale *= 1.34f;
+            transform.localScale = baseScale;
+            speed *= 1.16f;
+        }
+
+        spriteRenderer.color = usePlaceholderColor ? treatmentColor : treatmentColor;
         spriteRenderer.sortingOrder = Mathf.Max(spriteRenderer.sortingOrder, 35);
         EnsureProjectileFx(treatmentColor);
     }
@@ -53,7 +64,8 @@ public class Bullet : MonoBehaviour
     {
         if (other.TryGetComponent(out ShieldBlock shieldBlock))
         {
-            shieldBlock.TakeHit();
+            shotResolved = true;
+            shieldBlock.TakeHit(true);
             Destroy(gameObject);
             return;
         }
@@ -65,6 +77,7 @@ public class Bullet : MonoBehaviour
                 return;
             }
 
+            shotResolved = true;
             GameManager.Instance?.PlayerHit();
             Destroy(gameObject);
             return;
@@ -73,6 +86,7 @@ public class Bullet : MonoBehaviour
         BossController boss = other.GetComponent<BossController>();
         if (boss != null)
         {
+            shotResolved = true;
             boss.ApplyDirectDamage(treatmentType);
             Destroy(gameObject);
             return;
@@ -85,12 +99,29 @@ public class Bullet : MonoBehaviour
         }
 
         DamageResult result = DamageResolver.Resolve(treatmentType, enemy.EnemyType, baseDamage);
-        enemy.ApplyDamage(result, treatmentType);
+        bool forceGodlikeKill = godlikeProjectile && result.Effectiveness == EffectivenessType.Normal;
+        bool killed = enemy.ApplyDamage(result, treatmentType, forceGodlikeKill);
+        shotResolved = true;
 
         if (result.Effectiveness == EffectivenessType.Resistant)
         {
-            ReflectBack();
+            ComboManager.Instance.RegisterShotFailed();
+            if (Random.value <= resistantReflectChance)
+            {
+                ReflectBack();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
             return;
+        }
+
+        ComboManager.Instance.RegisterEnemyHit(enemy, result.Effectiveness, killed);
+        if (killed && result.Effectiveness == EffectivenessType.SuperEffective)
+        {
+            ComboManager.Instance.TryTriggerGodlikeChain(enemy, treatmentType);
         }
 
         if (enemy.IsAlive)
@@ -99,6 +130,14 @@ public class Bullet : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        if (!shotResolved && !isReflected && gameObject.scene.isLoaded)
+        {
+            ComboManager.Instance.RegisterShotMiss();
+        }
     }
 
     private void ReflectBack()
@@ -234,19 +273,6 @@ public class Bullet : MonoBehaviour
         sharedTrailMaterial = new Material(shader);
         sharedTrailMaterial.name = "MAT_Runtime_ProjectileTrail";
         return sharedTrailMaterial;
-    }
-
-    private static Color GetTreatmentColor(TreatmentType treatment)
-    {
-        switch (treatment)
-        {
-            case TreatmentType.ImmunoBeam:
-                return new Color(0.22f, 0.96f, 1f, 1f);
-            case TreatmentType.TargetedNano:
-                return new Color(0.86f, 0.32f, 1f, 1f);
-            default:
-                return new Color(1f, 0.62f, 0.12f, 1f);
-        }
     }
 
     private static float GetTrailTime(TreatmentType treatment)
