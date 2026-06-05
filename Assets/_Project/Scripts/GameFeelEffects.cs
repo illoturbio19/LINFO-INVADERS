@@ -1,0 +1,820 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
+
+public class GameFeelEffects : MonoBehaviour
+{
+    [SerializeField] private float cameraShakeDuration = 0.18f;
+    [SerializeField] private float cameraShakeMagnitude = 0.12f;
+    [SerializeField] private float hitChromaticDuration = 0.22f;
+    [SerializeField, Range(0f, 1f)] private float hitChromaticPeak = 0.72f;
+    [SerializeField] private Color damageFlashColor = new Color(1f, 0.05f, 0.08f, 0.28f);
+
+    private static GameFeelEffects instance;
+
+    private Camera mainCamera;
+    private Vector3 cameraBasePosition;
+    private Coroutine cameraShakeRoutine;
+    private Coroutine screenFlashRoutine;
+    private Coroutine chromaticAberrationRoutine;
+    private RectTransform playfieldOverlayRootRect;
+    private Image flashImage;
+    private RectTransform styleEdgeGlowRootRect;
+    private Image styleEdgeGlowImage;
+    private Material particleMaterial;
+    private Texture2D sparkleTexture;
+    private Sprite styleEdgeGlowSprite;
+    private Volume postProcessVolume;
+    private ChromaticAberration chromaticAberration;
+    private Font scorePopupFont;
+    private float targetComboStyleIntensity;
+    private float currentComboStyleIntensity;
+    private Color comboStyleColor = Color.clear;
+
+    public static GameFeelEffects Instance => GetOrCreateInstance();
+
+    public static void PlayCombatHit(Vector3 worldPosition, EffectivenessType effectiveness)
+    {
+        GetOrCreateInstance().PlayCombatHitInternal(worldPosition, effectiveness);
+    }
+
+    public static void PlayPlayerHit(Vector3 worldPosition, SpriteRenderer playerRenderer)
+    {
+        GetOrCreateInstance().PlayPlayerHitInternal(worldPosition, playerRenderer);
+    }
+
+    public static void PlayShieldHit(Vector3 worldPosition, bool destroyed)
+    {
+        GetOrCreateInstance().PlayShieldHitInternal(worldPosition, destroyed);
+    }
+
+    public static void PlayPlayerShot(Vector3 worldPosition, TreatmentType treatmentType)
+    {
+        GetOrCreateInstance().PlayPlayerShotInternal(worldPosition, treatmentType);
+    }
+
+    public static void PlayBossSpawn(Vector3 worldPosition)
+    {
+        GetOrCreateInstance().PlayBossSpawnInternal(worldPosition);
+    }
+
+    public static void PlayBossShot(Vector3 worldPosition)
+    {
+        GetOrCreateInstance().PlayBossShotInternal(worldPosition);
+    }
+
+    public static void PlayBossSummon(Vector3 worldPosition)
+    {
+        GetOrCreateInstance().PlayBossSummonInternal(worldPosition);
+    }
+
+    public static void PlayBossHit(Vector3 worldPosition, bool fromMinion)
+    {
+        GetOrCreateInstance().PlayBossHitInternal(worldPosition, fromMinion);
+    }
+
+    public static void PlayBossDefeated(Vector3 worldPosition)
+    {
+        GetOrCreateInstance().PlayBossDefeatedInternal(worldPosition);
+    }
+
+    public static void ShowScorePopup(Vector3 worldPosition, int scoreValue)
+    {
+        GetOrCreateInstance().ShowScorePopupInternal(worldPosition, scoreValue);
+    }
+
+    public static void SetComboStyle(float intensity, Color color)
+    {
+        GetOrCreateInstance().SetComboStyleInternal(intensity, color);
+    }
+
+    public static void PlayComboRankPulse(int gradeIndex, Color color)
+    {
+        GetOrCreateInstance().PlayComboRankPulseInternal(gradeIndex, color);
+    }
+
+    private static GameFeelEffects GetOrCreateInstance()
+    {
+        if (instance != null)
+        {
+            return instance;
+        }
+
+        GameFeelEffects existing = FindFirstObjectByType<GameFeelEffects>();
+        if (existing != null)
+        {
+            instance = existing;
+            return instance;
+        }
+
+        GameObject effectsObject = new GameObject("GameFeelEffects");
+        instance = effectsObject.AddComponent<GameFeelEffects>();
+        DontDestroyOnLoad(effectsObject);
+        return instance;
+    }
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+        mainCamera = Camera.main;
+        if (mainCamera != null)
+        {
+            cameraBasePosition = mainCamera.transform.position;
+        }
+
+        EnsureScreenOverlay();
+        EnsurePostProcessing();
+    }
+
+    private void Update()
+    {
+        ApplyComboStyle();
+    }
+
+    private void PlayCombatHitInternal(Vector3 worldPosition, EffectivenessType effectiveness)
+    {
+        Color color = GetEffectColor(effectiveness);
+        int count = effectiveness == EffectivenessType.SuperEffective ? 160 : effectiveness == EffectivenessType.Normal ? 95 : 58;
+        float speed = effectiveness == EffectivenessType.SuperEffective ? 4.2f : effectiveness == EffectivenessType.Normal ? 2.9f : 1.8f;
+        float lifetime = effectiveness == EffectivenessType.SuperEffective ? 0.62f : effectiveness == EffectivenessType.Normal ? 0.48f : 0.36f;
+        SpawnBurst(worldPosition, color, count, speed, lifetime, effectiveness == EffectivenessType.Resistant ? 0.035f : 0.055f);
+        StartCameraShake(effectiveness == EffectivenessType.SuperEffective ? 1.25f : 0.85f);
+        StartChromaticAberration(effectiveness == EffectivenessType.SuperEffective ? hitChromaticPeak : hitChromaticPeak * 0.72f, hitChromaticDuration);
+    }
+
+    private void PlayPlayerHitInternal(Vector3 worldPosition, SpriteRenderer playerRenderer)
+    {
+        SpawnBurst(worldPosition, new Color(1f, 0.08f, 0.08f, 1f), 130, 3.6f, 0.52f, 0.052f);
+        AudioManager.Play(GameSfx.PlayerHit, worldPosition);
+        StartCameraShake(1.45f);
+        StartChromaticAberration(hitChromaticPeak, hitChromaticDuration + 0.08f);
+
+    }
+
+    private void PlayPlayerShotInternal(Vector3 worldPosition, TreatmentType treatmentType)
+    {
+        Color color = GetTreatmentColor(treatmentType);
+        SpawnBurst(worldPosition + Vector3.up * 0.18f, color, 24, 1.65f, 0.22f, 0.022f);
+        StartChromaticAberration(0.14f, 0.08f);
+    }
+
+    private void PlayShieldHitInternal(Vector3 worldPosition, bool destroyed)
+    {
+        Color color = destroyed ? new Color(0.45f, 1f, 0.9f, 1f) : new Color(0.25f, 0.95f, 0.8f, 1f);
+        SpawnBurst(
+            worldPosition,
+            color,
+            destroyed ? 64 : 28,
+            destroyed ? 2.4f : 1.45f,
+            destroyed ? 0.42f : 0.24f,
+            destroyed ? 0.034f : 0.024f);
+    }
+
+    private void PlayBossSpawnInternal(Vector3 worldPosition)
+    {
+        SpawnBurst(worldPosition, new Color(0.82f, 0.12f, 0.64f, 1f), 210, 3.6f, 0.72f, 0.07f);
+        StartScreenFlash(new Color(0.45f, 0.02f, 0.3f, 0.22f), 0.34f);
+        StartCameraShake(1.2f);
+        StartChromaticAberration(0.62f, 0.34f);
+    }
+
+    private void PlayBossShotInternal(Vector3 worldPosition)
+    {
+        SpawnBurst(worldPosition, new Color(0.95f, 0.14f, 0.35f, 1f), 42, 2.2f, 0.32f, 0.035f);
+        StartChromaticAberration(0.2f, 0.1f);
+    }
+
+    private void PlayBossSummonInternal(Vector3 worldPosition)
+    {
+        SpawnBurst(worldPosition, new Color(0.62f, 0.2f, 0.94f, 1f), 92, 2.5f, 0.48f, 0.045f);
+        StartCameraShake(0.6f);
+    }
+
+    private void PlayBossHitInternal(Vector3 worldPosition, bool fromMinion)
+    {
+        Color color = fromMinion ? new Color(0.35f, 1f, 0.38f, 1f) : new Color(1f, 0.25f, 0.2f, 1f);
+        SpawnBurst(worldPosition, color, fromMinion ? 120 : 62, fromMinion ? 3.3f : 2.45f, 0.44f, 0.045f);
+        StartCameraShake(fromMinion ? 0.82f : 0.5f);
+        StartChromaticAberration(fromMinion ? 0.4f : 0.25f, 0.16f);
+    }
+
+    private void PlayBossDefeatedInternal(Vector3 worldPosition)
+    {
+        SpawnBurst(worldPosition, new Color(1f, 0.18f, 0.3f, 1f), 340, 5f, 1.05f, 0.09f);
+        SpawnBurst(worldPosition, new Color(0.55f, 1f, 0.18f, 1f), 180, 3.6f, 0.9f, 0.065f);
+        StartScreenFlash(new Color(1f, 0.12f, 0.2f, 0.3f), 0.45f);
+        StartCameraShake(1.8f);
+        StartChromaticAberration(0.95f, 0.55f);
+    }
+
+    private void SetComboStyleInternal(float intensity, Color color)
+    {
+        EnsureScreenOverlay();
+        float clampedIntensity = Mathf.Clamp01(intensity);
+        bool wasActive = targetComboStyleIntensity > 0.02f;
+        bool isActive = clampedIntensity > 0.02f;
+
+        if (!wasActive && isActive)
+        {
+            AudioManager.Play(GameSfx.ComboStart, Vector3.zero);
+        }
+        else if (wasActive && !isActive)
+        {
+            AudioManager.Play(GameSfx.ComboBreak, Vector3.zero);
+        }
+
+        targetComboStyleIntensity = clampedIntensity;
+        if (color.a > 0.01f)
+        {
+            comboStyleColor = color;
+        }
+    }
+
+    private void PlayComboRankPulseInternal(int gradeIndex, Color color)
+    {
+        EnsureScreenOverlay();
+        float intensity = Mathf.InverseLerp(0f, 6f, gradeIndex);
+        targetComboStyleIntensity = Mathf.Max(targetComboStyleIntensity, intensity);
+        if (color.a > 0.01f)
+        {
+            comboStyleColor = color;
+        }
+
+        AudioManager.Play(GameSfx.ComboRankUp, Vector3.zero);
+        StartCameraShake(0.34f + intensity * 0.72f);
+        StartChromaticAberration(0.18f + intensity * 0.48f, 0.14f + intensity * 0.12f);
+    }
+
+    private void ShowScorePopupInternal(Vector3 worldPosition, int scoreValue)
+    {
+        GameObject popupObject = new GameObject("FX_ScorePopup");
+        popupObject.transform.position = worldPosition + new Vector3(0f, 0.28f, 0f);
+
+        TextMesh textMesh = popupObject.AddComponent<TextMesh>();
+        textMesh.text = $"+{scoreValue}";
+        textMesh.font = GetScorePopupFont();
+        textMesh.fontSize = 42;
+        textMesh.characterSize = 0.075f;
+        textMesh.anchor = TextAnchor.MiddleCenter;
+        textMesh.alignment = TextAlignment.Center;
+        textMesh.color = new Color(1f, 0.95f, 0.25f, 1f);
+
+        MeshRenderer renderer = popupObject.GetComponent<MeshRenderer>();
+        if (renderer != null)
+        {
+            renderer.sortingOrder = 80;
+            if (textMesh.font != null && textMesh.font.material != null)
+            {
+                renderer.sharedMaterial = textMesh.font.material;
+            }
+        }
+
+        FloatingText floatingText = popupObject.AddComponent<FloatingText>();
+        floatingText.Initialize(textMesh.text, textMesh.color);
+    }
+
+    private Font GetScorePopupFont()
+    {
+        if (scorePopupFont != null)
+        {
+            return scorePopupFont;
+        }
+
+        scorePopupFont = Resources.Load<Font>("Fonts/Minecraft");
+        if (scorePopupFont == null)
+        {
+            scorePopupFont = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        }
+
+        if (scorePopupFont == null)
+        {
+            scorePopupFont = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        }
+
+        return scorePopupFont;
+    }
+
+    private void SpawnBurst(Vector3 worldPosition, Color color, int particleCount, float speed, float lifetime, float size)
+    {
+        GameObject particleObject = new GameObject("FX_ParticleBurst");
+        particleObject.transform.position = worldPosition;
+
+        ParticleSystem particles = particleObject.AddComponent<ParticleSystem>();
+        particles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+        ParticleSystem.MainModule main = particles.main;
+        main.playOnAwake = false;
+        main.duration = 0.12f;
+        main.loop = false;
+        main.startLifetime = lifetime;
+        main.startSpeed = new ParticleSystem.MinMaxCurve(speed * 0.65f, speed * 1.18f);
+        main.startSize = new ParticleSystem.MinMaxCurve(size * 0.65f, size * 1.25f);
+        main.startRotation = new ParticleSystem.MinMaxCurve(-Mathf.PI, Mathf.PI);
+        main.startColor = color;
+        main.simulationSpace = ParticleSystemSimulationSpace.World;
+
+        ParticleSystem.EmissionModule emission = particles.emission;
+        emission.rateOverTime = 0f;
+        emission.SetBursts(new[] { new ParticleSystem.Burst(0f, (short)particleCount) });
+
+        ParticleSystem.ShapeModule shape = particles.shape;
+        shape.shapeType = ParticleSystemShapeType.Circle;
+        shape.radius = 0.035f;
+        shape.arc = 360f;
+
+        ParticleSystem.TextureSheetAnimationModule textureSheet = particles.textureSheetAnimation;
+        textureSheet.enabled = true;
+        textureSheet.mode = ParticleSystemAnimationMode.Grid;
+        textureSheet.numTilesX = 2;
+        textureSheet.numTilesY = 2;
+        textureSheet.animation = ParticleSystemAnimationType.WholeSheet;
+        textureSheet.frameOverTime = new ParticleSystem.MinMaxCurve(1f, AnimationCurve.Linear(0f, 0f, 1f, 1f));
+        textureSheet.cycleCount = 1;
+
+        ParticleSystemRenderer renderer = particleObject.GetComponent<ParticleSystemRenderer>();
+        renderer.renderMode = ParticleSystemRenderMode.Billboard;
+        renderer.sortingOrder = 40;
+        renderer.sharedMaterial = GetParticleMaterial();
+
+        particles.Play();
+        Destroy(particleObject, lifetime + 0.35f);
+    }
+
+    private Material GetParticleMaterial()
+    {
+        if (particleMaterial != null)
+        {
+            return particleMaterial;
+        }
+
+        Shader shader = Shader.Find("Universal Render Pipeline/Particles/Unlit");
+        if (shader == null)
+        {
+            shader = Shader.Find("Particles/Standard Unlit");
+        }
+
+        if (shader == null)
+        {
+            shader = Shader.Find("Sprites/Default");
+        }
+
+        if (shader == null)
+        {
+            return null;
+        }
+
+        particleMaterial = new Material(shader);
+        particleMaterial.name = "MAT_Runtime_Particle_Unlit";
+        Texture2D texture = GetSparkleTexture();
+        particleMaterial.mainTexture = texture;
+        if (particleMaterial.HasProperty("_MainTex"))
+        {
+            particleMaterial.SetTexture("_MainTex", texture);
+        }
+
+        if (particleMaterial.HasProperty("_BaseMap"))
+        {
+            particleMaterial.SetTexture("_BaseMap", texture);
+        }
+
+        return particleMaterial;
+    }
+
+    private Texture2D GetSparkleTexture()
+    {
+        if (sparkleTexture != null)
+        {
+            return sparkleTexture;
+        }
+
+        const int cellSize = 32;
+        sparkleTexture = new Texture2D(cellSize * 2, cellSize * 2, TextureFormat.RGBA32, false);
+        sparkleTexture.name = "TEX_Runtime_WhiteSparkles_2x2";
+        sparkleTexture.filterMode = FilterMode.Point;
+        sparkleTexture.wrapMode = TextureWrapMode.Clamp;
+
+        Color clear = new Color(1f, 1f, 1f, 0f);
+        Color[] pixels = new Color[sparkleTexture.width * sparkleTexture.height];
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            pixels[i] = clear;
+        }
+
+        sparkleTexture.SetPixels(pixels);
+        DrawSparkleFrame(0, 1, 8, 2);
+        DrawSparkleFrame(1, 1, 9, 3);
+        DrawSparkleFrame(0, 0, 7, 2);
+        DrawSparkleFrame(1, 0, 10, 2);
+        sparkleTexture.Apply(false, true);
+        return sparkleTexture;
+    }
+
+    private void DrawSparkleFrame(int tileX, int tileY, int armLength, int thickness)
+    {
+        const int cellSize = 32;
+        int originX = tileX * cellSize;
+        int originY = tileY * cellSize;
+        int centerX = originX + cellSize / 2;
+        int centerY = originY + cellSize / 2;
+
+        DrawPixelRect(centerX - thickness, centerY - thickness, thickness * 2 + 1, thickness * 2 + 1, Color.white);
+        DrawPixelRect(centerX - thickness / 2, centerY - armLength, thickness + 1, armLength * 2 + 1, Color.white);
+        DrawPixelRect(centerX - armLength, centerY - thickness / 2, armLength * 2 + 1, thickness + 1, Color.white);
+
+        Color faint = new Color(1f, 1f, 1f, 0.72f);
+        for (int i = 3; i <= armLength; i += 3)
+        {
+            SetSparklePixel(centerX + i, centerY + i, faint);
+            SetSparklePixel(centerX - i, centerY + i, faint);
+            SetSparklePixel(centerX + i, centerY - i, faint);
+            SetSparklePixel(centerX - i, centerY - i, faint);
+        }
+    }
+
+    private void DrawPixelRect(int x, int y, int width, int height, Color color)
+    {
+        for (int px = x; px < x + width; px++)
+        {
+            for (int py = y; py < y + height; py++)
+            {
+                SetSparklePixel(px, py, color);
+            }
+        }
+    }
+
+    private void SetSparklePixel(int x, int y, Color color)
+    {
+        if (sparkleTexture == null || x < 0 || y < 0 || x >= sparkleTexture.width || y >= sparkleTexture.height)
+        {
+            return;
+        }
+
+        sparkleTexture.SetPixel(x, y, color);
+    }
+
+    private void StartCameraShake(float strengthMultiplier = 1f)
+    {
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+
+        if (cameraShakeRoutine != null)
+        {
+            if (mainCamera != null)
+            {
+                mainCamera.transform.position = cameraBasePosition;
+            }
+
+            StopCoroutine(cameraShakeRoutine);
+        }
+
+        cameraShakeRoutine = StartCoroutine(CameraShakeRoutine(strengthMultiplier));
+    }
+
+    private IEnumerator CameraShakeRoutine(float strengthMultiplier)
+    {
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+
+        if (mainCamera == null)
+        {
+            yield break;
+        }
+
+        cameraBasePosition = mainCamera.transform.position;
+        float elapsed = 0f;
+        while (elapsed < cameraShakeDuration)
+        {
+            float strength = 1f - elapsed / cameraShakeDuration;
+            Vector2 offset = Random.insideUnitCircle * (cameraShakeMagnitude * strength * strengthMultiplier);
+            mainCamera.transform.position = cameraBasePosition + new Vector3(offset.x, offset.y, 0f);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        mainCamera.transform.position = cameraBasePosition;
+        cameraShakeRoutine = null;
+    }
+
+    private IEnumerator PlayerBlinkRoutine(SpriteRenderer playerRenderer)
+    {
+        Color originalColor = playerRenderer.color;
+        for (int i = 0; i < 5; i++)
+        {
+            playerRenderer.color = new Color(1f, 0.15f, 0.15f, 1f);
+            yield return new WaitForSeconds(0.045f);
+            playerRenderer.color = originalColor;
+            yield return new WaitForSeconds(0.045f);
+        }
+    }
+
+    private void EnsureScreenOverlay()
+    {
+        if (flashImage != null && styleEdgeGlowImage != null && playfieldOverlayRootRect != null)
+        {
+            return;
+        }
+
+        if ((flashImage != null || styleEdgeGlowImage != null) && playfieldOverlayRootRect == null)
+        {
+            Canvas oldCanvas = flashImage != null
+                ? flashImage.GetComponentInParent<Canvas>()
+                : styleEdgeGlowImage.GetComponentInParent<Canvas>();
+            flashImage = null;
+            styleEdgeGlowImage = null;
+            styleEdgeGlowRootRect = null;
+            if (oldCanvas != null && oldCanvas.name == "FX_PostProcessOverlay")
+            {
+                Destroy(oldCanvas.gameObject);
+            }
+        }
+
+        GameObject canvasObject = new GameObject("FX_PostProcessOverlay");
+        canvasObject.transform.SetParent(transform, false);
+
+        Canvas canvas = canvasObject.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.sortingOrder = 500;
+
+        CanvasScaler scaler = canvasObject.AddComponent<CanvasScaler>();
+        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        scaler.referenceResolution = new Vector2(1920f, 1080f);
+
+        canvasObject.AddComponent<GraphicRaycaster>();
+
+        GameObject playfieldOverlayRootObject = new GameObject("PANEL_PlayfieldOverlayClip");
+        playfieldOverlayRootObject.transform.SetParent(canvasObject.transform, false);
+        playfieldOverlayRootRect = playfieldOverlayRootObject.AddComponent<RectTransform>();
+        playfieldOverlayRootRect.anchorMin = Vector2.zero;
+        playfieldOverlayRootRect.anchorMax = Vector2.one;
+        playfieldOverlayRootRect.offsetMin = Vector2.zero;
+        playfieldOverlayRootRect.offsetMax = Vector2.zero;
+        playfieldOverlayRootObject.AddComponent<RectMask2D>();
+
+        GameObject glowRootObject = new GameObject("PANEL_ComboEdgeGlowClip");
+        glowRootObject.transform.SetParent(playfieldOverlayRootObject.transform, false);
+        styleEdgeGlowRootRect = glowRootObject.AddComponent<RectTransform>();
+        styleEdgeGlowRootRect.anchorMin = Vector2.zero;
+        styleEdgeGlowRootRect.anchorMax = Vector2.one;
+        styleEdgeGlowRootRect.offsetMin = Vector2.zero;
+        styleEdgeGlowRootRect.offsetMax = Vector2.zero;
+        glowRootObject.AddComponent<RectMask2D>();
+
+        styleEdgeGlowImage = CreateFullScreenImage(glowRootObject.transform, "IMG_ComboEdgeGlow", Color.clear);
+        styleEdgeGlowImage.sprite = GetStyleEdgeGlowSprite();
+        styleEdgeGlowImage.enabled = false;
+
+        flashImage = CreateFullScreenImage(playfieldOverlayRootObject.transform, "IMG_DamageFlash", Color.clear);
+    }
+
+    private static Image CreateFullScreenImage(Transform parent, string objectName, Color color)
+    {
+        GameObject imageObject = new GameObject(objectName);
+        imageObject.transform.SetParent(parent, false);
+
+        RectTransform rect = imageObject.AddComponent<RectTransform>();
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+
+        Image image = imageObject.AddComponent<Image>();
+        image.raycastTarget = false;
+        image.color = color;
+        return image;
+    }
+
+    private Sprite GetStyleEdgeGlowSprite()
+    {
+        if (styleEdgeGlowSprite != null)
+        {
+            return styleEdgeGlowSprite;
+        }
+
+        const int size = 96;
+        Texture2D texture = new Texture2D(size, size, TextureFormat.RGBA32, false);
+        texture.name = "TEX_Runtime_ComboEdgeGlow";
+        texture.filterMode = FilterMode.Bilinear;
+        texture.wrapMode = TextureWrapMode.Clamp;
+
+        for (int y = 0; y < size; y++)
+        {
+            for (int x = 0; x < size; x++)
+            {
+                float distanceToEdge = Mathf.Min(Mathf.Min(x, y), Mathf.Min(size - 1 - x, size - 1 - y));
+                float edge01 = 1f - Mathf.Clamp01(distanceToEdge / (size * 0.34f));
+                float alpha = edge01 * edge01;
+                texture.SetPixel(x, y, new Color(1f, 1f, 1f, alpha));
+            }
+        }
+
+        texture.Apply(false, true);
+        styleEdgeGlowSprite = Sprite.Create(texture, new Rect(0f, 0f, size, size), new Vector2(0.5f, 0.5f), size);
+        return styleEdgeGlowSprite;
+    }
+
+    private void ApplyComboStyle()
+    {
+        float speed = targetComboStyleIntensity > currentComboStyleIntensity ? 5.8f : 4.2f;
+        currentComboStyleIntensity = Mathf.MoveTowards(
+            currentComboStyleIntensity,
+            targetComboStyleIntensity,
+            Time.deltaTime * speed);
+
+        if (styleEdgeGlowImage != null)
+        {
+            bool visible = currentComboStyleIntensity > 0.01f;
+            styleEdgeGlowImage.enabled = visible;
+            if (visible)
+            {
+                UpdatePlayfieldOverlayRect();
+                float pulse = 0.85f + Mathf.Sin(Time.time * 8f) * 0.15f;
+                Color edgeColor = comboStyleColor.a > 0.01f ? comboStyleColor : new Color(1f, 0.78f, 0.1f, 1f);
+                edgeColor = Color.Lerp(edgeColor, new Color(1f, 0.82f, 0.08f, 1f), currentComboStyleIntensity * 0.7f);
+                edgeColor.a = Mathf.Clamp01((0.07f + currentComboStyleIntensity * 0.18f) * pulse);
+                styleEdgeGlowImage.color = edgeColor;
+            }
+            else
+            {
+                styleEdgeGlowImage.color = Color.clear;
+            }
+        }
+
+        if (chromaticAberration != null && chromaticAberrationRoutine == null)
+        {
+            chromaticAberration.intensity.value = currentComboStyleIntensity * 0.18f;
+        }
+    }
+
+    private void UpdatePlayfieldOverlayRect()
+    {
+        if (playfieldOverlayRootRect == null)
+        {
+            return;
+        }
+
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+
+        if (mainCamera == null)
+        {
+            playfieldOverlayRootRect.anchorMin = Vector2.zero;
+            playfieldOverlayRootRect.anchorMax = Vector2.one;
+            playfieldOverlayRootRect.offsetMin = Vector2.zero;
+            playfieldOverlayRootRect.offsetMax = Vector2.zero;
+            return;
+        }
+
+        Rect cameraRect = mainCamera.pixelRect;
+        float minX = Mathf.Clamp(cameraRect.xMin, 0f, Screen.width);
+        float maxX = Mathf.Clamp(cameraRect.xMax, 0f, Screen.width);
+        float minY = Mathf.Clamp(cameraRect.yMin, 0f, Screen.height);
+        float maxY = Mathf.Clamp(cameraRect.yMax, 0f, Screen.height);
+
+        if (maxX <= minX || maxY <= minY)
+        {
+            playfieldOverlayRootRect.anchorMin = Vector2.zero;
+            playfieldOverlayRootRect.anchorMax = Vector2.zero;
+        }
+        else
+        {
+            playfieldOverlayRootRect.anchorMin = new Vector2(minX / Screen.width, minY / Screen.height);
+            playfieldOverlayRootRect.anchorMax = new Vector2(maxX / Screen.width, maxY / Screen.height);
+        }
+
+        playfieldOverlayRootRect.offsetMin = Vector2.zero;
+        playfieldOverlayRootRect.offsetMax = Vector2.zero;
+        if (styleEdgeGlowRootRect != null)
+        {
+            styleEdgeGlowRootRect.anchorMin = Vector2.zero;
+            styleEdgeGlowRootRect.anchorMax = Vector2.one;
+            styleEdgeGlowRootRect.offsetMin = Vector2.zero;
+            styleEdgeGlowRootRect.offsetMax = Vector2.zero;
+        }
+    }
+
+    private void StartScreenFlash(Color color, float duration)
+    {
+        EnsureScreenOverlay();
+        UpdatePlayfieldOverlayRect();
+        if (screenFlashRoutine != null)
+        {
+            StopCoroutine(screenFlashRoutine);
+        }
+
+        screenFlashRoutine = StartCoroutine(ScreenFlashRoutine(color, duration));
+    }
+
+    private IEnumerator ScreenFlashRoutine(Color color, float duration)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            float t = elapsed / duration;
+            Color current = color;
+            current.a *= 1f - t;
+            flashImage.color = current;
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        flashImage.color = Color.clear;
+        screenFlashRoutine = null;
+    }
+
+    private void EnsurePostProcessing()
+    {
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+
+        if (mainCamera != null)
+        {
+            UniversalAdditionalCameraData cameraData = mainCamera.GetUniversalAdditionalCameraData();
+            if (cameraData != null)
+            {
+                cameraData.renderPostProcessing = true;
+            }
+        }
+
+        if (postProcessVolume != null && chromaticAberration != null)
+        {
+            return;
+        }
+
+        GameObject volumeObject = new GameObject("FX_HitPostProcessVolume");
+        volumeObject.transform.SetParent(transform, false);
+
+        postProcessVolume = volumeObject.AddComponent<Volume>();
+        postProcessVolume.isGlobal = true;
+        postProcessVolume.priority = 80f;
+        postProcessVolume.profile = ScriptableObject.CreateInstance<VolumeProfile>();
+        chromaticAberration = postProcessVolume.profile.Add<ChromaticAberration>(true);
+        chromaticAberration.intensity.overrideState = true;
+        chromaticAberration.intensity.value = 0f;
+    }
+
+    private void StartChromaticAberration(float peakIntensity, float duration)
+    {
+        EnsurePostProcessing();
+        if (chromaticAberration == null)
+        {
+            return;
+        }
+
+        if (chromaticAberrationRoutine != null)
+        {
+            StopCoroutine(chromaticAberrationRoutine);
+        }
+
+        chromaticAberrationRoutine = StartCoroutine(ChromaticAberrationRoutine(Mathf.Clamp01(peakIntensity), duration));
+    }
+
+    private IEnumerator ChromaticAberrationRoutine(float peakIntensity, float duration)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            float t = elapsed / duration;
+            chromaticAberration.intensity.value = Mathf.Lerp(peakIntensity, 0f, t * t);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        chromaticAberration.intensity.value = 0f;
+        chromaticAberrationRoutine = null;
+    }
+
+    private static Color GetEffectColor(EffectivenessType effectiveness)
+    {
+        switch (effectiveness)
+        {
+            case EffectivenessType.SuperEffective:
+                return new Color(0.45f, 1f, 0.18f, 1f);
+            case EffectivenessType.Resistant:
+                return new Color(0.85f, 0.85f, 0.85f, 1f);
+            default:
+                return new Color(0.25f, 0.9f, 1f, 1f);
+        }
+    }
+
+    private static Color GetTreatmentColor(TreatmentType treatmentType)
+    {
+        return TreatmentPalette.GetTreatmentColor(treatmentType);
+    }
+}

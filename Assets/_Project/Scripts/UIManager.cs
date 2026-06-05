@@ -1,0 +1,1623 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class UIManager : MonoBehaviour
+{
+    [Header("HUD")]
+    [SerializeField] private Text scoreText;
+    [SerializeField] private Text livesText;
+    [SerializeField] private Text waveText;
+    [SerializeField] private Text treatmentText;
+    [SerializeField] private Text messageText;
+    [SerializeField] private Text combatFeedbackText;
+
+    [Header("Adaptive input")]
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private PlayerShooter playerShooter;
+    [SerializeField] private bool forceMobileControlsInEditor;
+    [SerializeField] private KeyCode debugToggleMobileKey = KeyCode.F3;
+
+    [Header("HUD hearts")]
+    [SerializeField] private Color heartTint = new Color(0.25f, 1f, 1f, 1f);
+    [SerializeField] private Vector2 heartStartOffset = new Vector2(58f, -2f);
+    [SerializeField] private Vector2 heartSize = new Vector2(24f, 24f);
+    [SerializeField] private float heartSpacing = 28f;
+
+    private Coroutine messageRoutine;
+    private Coroutine feedbackRoutine;
+    private Button shootButton;
+    private Button treatmentButton;
+    private GameObject leftButtonObject;
+    private GameObject rightButtonObject;
+    private GameObject shootButtonObject;
+    private GameObject treatmentButtonObject;
+    private GameObject mobilePadObject;
+    private Image shootCooldownOverlay;
+    private Image treatmentCooldownOverlay;
+    private GameObject endScreenRoot;
+    private Text endTitleText;
+    private Text endSubtitleText;
+    private Text initialsText;
+    private Text rankingText;
+    private Button restartButton;
+    private Text restartButtonText;
+    private GameObject hudBackingObject;
+    private GameObject bossHealthRoot;
+    private Image bossHealthFill;
+    private RectTransform bossHealthFillRect;
+    private Text bossHealthText;
+    private GameObject comboRoot;
+    private CanvasGroup comboCanvasGroup;
+    private Text comboGradeText;
+    private Text comboMultiplierText;
+    private Image comboTimerBack;
+    private Image comboTimerFill;
+    private RectTransform comboTimerFillRect;
+    private bool mobileControlsVisible;
+    private bool debugMobileControls;
+    private bool awaitingInitials;
+    private int pendingGameOverScore;
+    private int selectedInitialIndex;
+    private static Font runtimeFont;
+    private static Font hudFont;
+    private readonly List<Image> heartImages = new List<Image>();
+    private RectTransform heartContainer;
+    private Sprite heartSprite;
+    private int displayedLives = -1;
+    private readonly char[] currentInitials = { 'A', 'A', 'A' };
+    private const int RankingSize = 5;
+    private const string RankingPrefsPrefix = "LINFO_INVADERS_RANK_";
+
+    public static UIManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        ConfigureCanvas();
+        ConfigureHudText();
+        FindAdaptiveInputReferences();
+        BuildEndScreen();
+        HideEndScreen();
+        HideBossHealth();
+        ApplyInputMode();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(debugToggleMobileKey))
+        {
+            debugMobileControls = !debugMobileControls;
+            ApplyInputMode();
+            ShowMessage(debugMobileControls ? "DEBUG MOBILE ON" : "DEBUG MOBILE OFF");
+        }
+
+        RefreshInputMode();
+        RefreshCooldownButton(shootButton, shootCooldownOverlay, playerShooter != null ? playerShooter.ShootAvailability01 : 1f);
+        RefreshCooldownButton(treatmentButton, treatmentCooldownOverlay, playerShooter != null ? playerShooter.TreatmentCycleAvailability01 : 1f);
+        HandleInitialsInput();
+    }
+
+    public void SetScore(int score)
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = $"SCORE {score:000000}";
+        }
+    }
+
+    public void SetLives(int lives)
+    {
+        displayedLives = Mathf.Max(0, lives);
+        if (livesText != null)
+        {
+            livesText.text = "HP:";
+        }
+
+        EnsureHeartHud();
+        RefreshHeartLives();
+    }
+
+    public void ShowBossHealth(float currentHealth, float maxHealth)
+    {
+        EnsureBossHealthHud();
+        if (bossHealthRoot == null)
+        {
+            return;
+        }
+
+        float normalizedHealth = maxHealth > 0f ? Mathf.Clamp01(currentHealth / maxHealth) : 0f;
+        bossHealthRoot.SetActive(true);
+        bossHealthFillRect.anchorMax = new Vector2(normalizedHealth, 1f);
+        bossHealthFillRect.offsetMax = new Vector2(Mathf.Lerp(4f, -4f, normalizedHealth), -4f);
+        bossHealthFill.color = Color.Lerp(
+            new Color(0.96f, 0.1f, 0.12f, 1f),
+            new Color(0.56f, 0.08f, 0.66f, 1f),
+            normalizedHealth);
+        bossHealthText.text = $"MALIGNANT CORE  {Mathf.CeilToInt(currentHealth):00}/{Mathf.CeilToInt(maxHealth):00}";
+    }
+
+    public void HideBossHealth()
+    {
+        if (bossHealthRoot != null)
+        {
+            bossHealthRoot.SetActive(false);
+        }
+    }
+
+    public void SetCombo(string grade, float multiplier, float timer01, bool godlike, bool visible)
+    {
+        EnsureComboHud();
+        if (comboRoot == null)
+        {
+            return;
+        }
+
+        if (!visible || string.IsNullOrEmpty(grade))
+        {
+            HideComboImmediate();
+            return;
+        }
+
+        comboRoot.SetActive(true);
+        comboRoot.transform.localScale = Vector3.one;
+        if (comboCanvasGroup != null)
+        {
+            comboCanvasGroup.alpha = 1f;
+            comboCanvasGroup.interactable = false;
+            comboCanvasGroup.blocksRaycasts = false;
+        }
+
+        SetComboHudGraphicsVisible(true);
+
+        Color comboColor = GetComboGradeColor(grade, godlike);
+        comboGradeText.fontSize = godlike ? 30 : 42;
+        comboGradeText.lineSpacing = godlike ? 0.82f : 1f;
+        comboGradeText.text = godlike ? $"{grade}\nGODLIKE" : grade;
+        comboGradeText.color = comboColor;
+        comboMultiplierText.text = $"x{multiplier:0.0}";
+        comboMultiplierText.color = comboColor;
+
+        if (comboTimerFillRect != null)
+        {
+            comboTimerFillRect.anchorMax = new Vector2(Mathf.Clamp01(timer01), 1f);
+        }
+
+        if (comboTimerFill != null)
+        {
+            comboTimerFill.color = comboColor;
+        }
+    }
+
+    public void HideComboImmediate()
+    {
+        ClearComboHud();
+        if (comboRoot != null)
+        {
+            comboRoot.transform.localScale = Vector3.zero;
+            comboRoot.SetActive(false);
+            Destroy(comboRoot);
+        }
+
+        HideAllComboHudRoots();
+        comboRoot = null;
+        comboCanvasGroup = null;
+        comboGradeText = null;
+        comboMultiplierText = null;
+        comboTimerBack = null;
+        comboTimerFill = null;
+        comboTimerFillRect = null;
+    }
+
+    private void ClearComboHud()
+    {
+        if (comboGradeText != null)
+        {
+            comboGradeText.text = string.Empty;
+        }
+
+        if (comboMultiplierText != null)
+        {
+            comboMultiplierText.text = string.Empty;
+        }
+
+        if (comboTimerFillRect != null)
+        {
+            comboTimerFillRect.anchorMax = new Vector2(0f, 1f);
+            comboTimerFillRect.anchorMin = Vector2.zero;
+            comboTimerFillRect.offsetMin = Vector2.zero;
+            comboTimerFillRect.offsetMax = Vector2.zero;
+        }
+
+        if (comboTimerFill != null)
+        {
+            comboTimerFill.color = Color.clear;
+        }
+
+        SetComboHudGraphicsVisible(false);
+    }
+
+    private void SetComboHudGraphicsVisible(bool visible)
+    {
+        if (comboGradeText != null)
+        {
+            comboGradeText.enabled = visible;
+        }
+
+        if (comboMultiplierText != null)
+        {
+            comboMultiplierText.enabled = visible;
+        }
+
+        if (comboTimerBack != null)
+        {
+            comboTimerBack.enabled = visible;
+        }
+
+        if (comboTimerFill != null)
+        {
+            comboTimerFill.enabled = visible;
+        }
+    }
+
+    private static Color GetComboGradeColor(string grade, bool godlike)
+    {
+        if (godlike || grade == "SSS")
+        {
+            return new Color(1f, 0.86f, 0.08f, 1f);
+        }
+
+        switch (grade)
+        {
+            case "D":
+                return new Color(0.74f, 0.82f, 0.94f, 1f);
+            case "C":
+                return new Color(0.32f, 0.92f, 1f, 1f);
+            case "B":
+                return new Color(0.08f, 0.5f, 1f, 1f);
+            case "A":
+                return new Color(0.9f, 0.97f, 1f, 1f);
+            case "S":
+                return new Color(1f, 0.48f, 0.12f, 1f);
+            case "SS":
+                return new Color(1f, 0.68f, 0.06f, 1f);
+            default:
+                return new Color(0.8f, 1f, 0.95f, 1f);
+        }
+    }
+
+    public void SetWave(int wave, int totalWaves)
+    {
+        if (waveText != null)
+        {
+            waveText.text = string.Empty;
+            waveText.enabled = false;
+        }
+    }
+
+    public void SetSelectedTreatment(TreatmentType treatmentType)
+    {
+        if (treatmentText != null)
+        {
+            treatmentText.text = string.Empty;
+            treatmentText.enabled = false;
+        }
+    }
+
+    public void ShowMessage(string message)
+    {
+        if (messageText == null)
+        {
+            return;
+        }
+
+        if (messageRoutine != null)
+        {
+            StopCoroutine(messageRoutine);
+        }
+
+        messageRoutine = StartCoroutine(MessageRoutine(message));
+    }
+
+    public void ShowCombatFeedback(string label, Color color)
+    {
+        if (combatFeedbackText != null)
+        {
+            combatFeedbackText.enabled = false;
+        }
+    }
+
+    public void ShowGameOverMenu(int score)
+    {
+        ShowEndScreen("GAME OVER", $"SCORE {score:000000}", "RESTART");
+        StartInitialEntry(score);
+    }
+
+    public void ShowVictoryMenu(int score)
+    {
+        ShowEndScreen("VICTORY", $"SCORE {score:000000}", "PLAY AGAIN");
+        StartInitialEntry(score);
+    }
+
+    public void HideEndScreen()
+    {
+        if (endScreenRoot != null)
+        {
+            endScreenRoot.SetActive(false);
+        }
+
+        awaitingInitials = false;
+    }
+
+    private IEnumerator MessageRoutine(string message)
+    {
+        messageText.text = message;
+        messageText.enabled = true;
+        yield return new WaitForSeconds(1.4f);
+        messageText.enabled = false;
+    }
+
+    private IEnumerator FeedbackRoutine(string label, Color color)
+    {
+        combatFeedbackText.text = label;
+        combatFeedbackText.color = color;
+        combatFeedbackText.enabled = true;
+        yield return new WaitForSeconds(0.6f);
+        combatFeedbackText.enabled = false;
+    }
+
+    private static string GetTreatmentLabel(TreatmentType treatmentType)
+    {
+        switch (treatmentType)
+        {
+            case TreatmentType.ImmunoBeam:
+                return "Immuno Beam";
+            case TreatmentType.TargetedNano:
+                return "Targeted Nano";
+            default:
+                return "Chemo Shot";
+        }
+    }
+
+    private void ConfigureCanvas()
+    {
+        Canvas canvas = GetComponentInParent<Canvas>();
+        if (canvas == null)
+        {
+            return;
+        }
+
+        canvas.transform.localScale = Vector3.one;
+
+        CanvasScaler scaler = canvas.GetComponent<CanvasScaler>();
+        if (scaler == null)
+        {
+            scaler = canvas.gameObject.AddComponent<CanvasScaler>();
+        }
+
+        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        scaler.referenceResolution = new Vector2(1920f, 1080f);
+        scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+        scaler.matchWidthOrHeight = 0.5f;
+    }
+
+    private void ConfigureHudText()
+    {
+        ApplyReadableHudDefaults();
+        EnsureHudBacking();
+        ConfigureHudLabel(scoreText, 38, TextAnchor.UpperLeft);
+        ConfigureHudLabel(livesText, 34, TextAnchor.UpperLeft);
+        ConfigureStrongScoreStroke(scoreText);
+        ConfigureText(waveText, 44, TextAnchor.UpperLeft);
+        ConfigureText(treatmentText, 40, TextAnchor.UpperLeft);
+        ConfigureText(messageText, 58, TextAnchor.MiddleCenter);
+        ConfigureText(combatFeedbackText, 52, TextAnchor.MiddleCenter);
+        SetHudTextLayout(scoreText, new Vector2(34f, -26f), new Vector2(560f, 58f));
+        SetHudTextLayout(livesText, new Vector2(34f, -82f), new Vector2(180f, 50f));
+        HideLegacyInstructions();
+        EnsureHeartHud();
+        RefreshHeartLives();
+
+        if (waveText != null)
+        {
+            waveText.enabled = false;
+        }
+
+        if (treatmentText != null)
+        {
+            treatmentText.enabled = false;
+        }
+
+        if (messageText != null)
+        {
+            messageText.enabled = false;
+        }
+
+        if (combatFeedbackText != null)
+        {
+            combatFeedbackText.enabled = false;
+        }
+    }
+
+    private void EnsureBossHealthHud()
+    {
+        if (bossHealthRoot != null)
+        {
+            return;
+        }
+
+        Canvas canvas = GetComponentInParent<Canvas>();
+        if (canvas == null)
+        {
+            return;
+        }
+
+        bossHealthRoot = new GameObject("HUD_BossHealth");
+        bossHealthRoot.transform.SetParent(canvas.transform, false);
+        RectTransform rootRect = bossHealthRoot.AddComponent<RectTransform>();
+        rootRect.anchorMin = new Vector2(0.5f, 1f);
+        rootRect.anchorMax = new Vector2(0.5f, 1f);
+        rootRect.pivot = new Vector2(0.5f, 1f);
+        rootRect.anchoredPosition = new Vector2(0f, -28f);
+        rootRect.sizeDelta = new Vector2(620f, 72f);
+
+        GameObject backdropObject = new GameObject("IMG_BossHealthBackground");
+        backdropObject.transform.SetParent(bossHealthRoot.transform, false);
+        RectTransform backdropRect = backdropObject.AddComponent<RectTransform>();
+        backdropRect.anchorMin = new Vector2(0f, 0f);
+        backdropRect.anchorMax = new Vector2(1f, 0f);
+        backdropRect.pivot = new Vector2(0.5f, 0f);
+        backdropRect.anchoredPosition = Vector2.zero;
+        backdropRect.sizeDelta = new Vector2(0f, 28f);
+        Image backdrop = backdropObject.AddComponent<Image>();
+        backdrop.color = new Color(0.04f, 0.01f, 0.07f, 0.94f);
+        backdrop.raycastTarget = false;
+
+        GameObject fillObject = new GameObject("IMG_BossHealthFill");
+        fillObject.transform.SetParent(backdropObject.transform, false);
+        bossHealthFillRect = fillObject.AddComponent<RectTransform>();
+        bossHealthFillRect.anchorMin = Vector2.zero;
+        bossHealthFillRect.anchorMax = Vector2.one;
+        bossHealthFillRect.offsetMin = new Vector2(4f, 4f);
+        bossHealthFillRect.offsetMax = new Vector2(-4f, -4f);
+        bossHealthFill = fillObject.AddComponent<Image>();
+        bossHealthFill.type = Image.Type.Simple;
+        bossHealthFill.raycastTarget = false;
+
+        GameObject labelObject = new GameObject("TXT_BossHealth");
+        labelObject.transform.SetParent(bossHealthRoot.transform, false);
+        RectTransform labelRect = labelObject.AddComponent<RectTransform>();
+        labelRect.anchorMin = new Vector2(0f, 1f);
+        labelRect.anchorMax = new Vector2(1f, 1f);
+        labelRect.pivot = new Vector2(0.5f, 1f);
+        labelRect.anchoredPosition = Vector2.zero;
+        labelRect.sizeDelta = new Vector2(0f, 38f);
+        bossHealthText = labelObject.AddComponent<Text>();
+        ConfigureText(bossHealthText, 28, TextAnchor.UpperCenter);
+        bossHealthText.fontStyle = FontStyle.Bold;
+        bossHealthText.color = new Color(1f, 0.82f, 0.92f, 1f);
+        bossHealthText.raycastTarget = false;
+
+        bossHealthRoot.transform.SetAsLastSibling();
+    }
+
+    private static void ConfigureText(Text text, int fontSize, TextAnchor alignment)
+    {
+        if (text == null)
+        {
+            return;
+        }
+
+        text.font = GetRuntimeFont();
+        text.fontSize = fontSize;
+        text.alignment = alignment;
+        text.resizeTextForBestFit = false;
+        text.fontStyle = FontStyle.Normal;
+        text.horizontalOverflow = HorizontalWrapMode.Overflow;
+        text.verticalOverflow = VerticalWrapMode.Overflow;
+        text.supportRichText = false;
+        text.color = Color.white;
+        ConfigureTextStroke(text, new Color(0f, 0.01f, 0.04f, 0.98f), new Vector2(2.4f, -2.4f), true);
+    }
+
+    private static void ConfigureHudLabel(Text text, int fontSize, TextAnchor alignment)
+    {
+        ConfigureText(text, fontSize, alignment);
+        if (text == null)
+        {
+            return;
+        }
+
+        text.font = GetHudFont();
+        text.fontStyle = FontStyle.Bold;
+        text.color = new Color(0.86f, 1f, 0.96f, 1f);
+        ConfigureTextStroke(text, new Color(0f, 0f, 0f, 1f), new Vector2(4f, -4f), true);
+    }
+
+    private static void ConfigureStrongScoreStroke(Text text)
+    {
+        if (text == null)
+        {
+            return;
+        }
+
+        text.color = new Color(0.58f, 1f, 0.92f, 1f);
+        ConfigureTextStroke(text, new Color(0f, 0f, 0f, 1f), new Vector2(5.8f, -5.8f), true);
+    }
+
+    private static void ConfigureTextStroke(Text text, Color color, Vector2 distance, bool includeShadow)
+    {
+        Outline outline = text.GetComponent<Outline>();
+        if (outline == null)
+        {
+            outline = text.gameObject.AddComponent<Outline>();
+        }
+
+        outline.effectColor = color;
+        outline.effectDistance = distance;
+        outline.useGraphicAlpha = false;
+
+        if (!includeShadow)
+        {
+            return;
+        }
+
+        Shadow shadow = GetStandaloneShadow(text);
+        if (shadow == null)
+        {
+            shadow = text.gameObject.AddComponent<Shadow>();
+        }
+
+        shadow.effectColor = new Color(0f, 0f, 0f, 0.92f);
+        shadow.effectDistance = new Vector2(distance.x * 0.55f, distance.y * 0.55f);
+        shadow.useGraphicAlpha = false;
+    }
+
+    private static Shadow GetStandaloneShadow(Text text)
+    {
+        Shadow[] shadows = text.GetComponents<Shadow>();
+        for (int i = 0; i < shadows.Length; i++)
+        {
+            if (!(shadows[i] is Outline))
+            {
+                return shadows[i];
+            }
+        }
+
+        return null;
+    }
+
+    private static void SetTextBox(Text text, Vector2 size)
+    {
+        if (text == null)
+        {
+            return;
+        }
+
+        RectTransform rect = text.GetComponent<RectTransform>();
+        if (rect != null)
+        {
+            rect.sizeDelta = size;
+        }
+    }
+
+    private void ApplyReadableHudDefaults()
+    {
+        heartStartOffset = new Vector2(78f, -4f);
+        heartSize = new Vector2(34f, 34f);
+        heartSpacing = 40f;
+    }
+
+    private void EnsureHudBacking()
+    {
+        if (scoreText == null && livesText == null)
+        {
+            return;
+        }
+
+        Transform parent = scoreText != null ? scoreText.transform.parent : livesText.transform.parent;
+        if (parent == null)
+        {
+            return;
+        }
+
+        Transform existing = parent.Find("PNL_HudReadability");
+        hudBackingObject = existing != null ? existing.gameObject : new GameObject("PNL_HudReadability");
+        hudBackingObject.transform.SetParent(parent, false);
+        hudBackingObject.transform.SetAsFirstSibling();
+
+        RectTransform rect = EnsureRectTransform(hudBackingObject);
+        rect.anchorMin = new Vector2(0f, 1f);
+        rect.anchorMax = new Vector2(0f, 1f);
+        rect.pivot = new Vector2(0f, 1f);
+        rect.anchoredPosition = new Vector2(22f, -16f);
+        rect.sizeDelta = new Vector2(610f, 220f);
+
+        Image image = hudBackingObject.GetComponent<Image>();
+        if (image == null)
+        {
+            image = hudBackingObject.AddComponent<Image>();
+        }
+
+        image.raycastTarget = false;
+        image.color = new Color(0f, 0.02f, 0.045f, 0.68f);
+    }
+
+    private static void SetHudTextLayout(Text text, Vector2 anchoredPosition, Vector2 size)
+    {
+        if (text == null)
+        {
+            return;
+        }
+
+        RectTransform rect = text.GetComponent<RectTransform>();
+        if (rect == null)
+        {
+            return;
+        }
+
+        rect.anchorMin = new Vector2(0f, 1f);
+        rect.anchorMax = new Vector2(0f, 1f);
+        rect.pivot = new Vector2(0f, 1f);
+        rect.anchoredPosition = anchoredPosition;
+        rect.sizeDelta = size;
+    }
+
+    private void EnsureComboHud()
+    {
+        if (comboRoot != null)
+        {
+            return;
+        }
+
+        Canvas canvas = GetComponentInParent<Canvas>();
+        if (canvas == null)
+        {
+            return;
+        }
+
+        Transform existingRoot = canvas.transform.Find("HUD_Combo");
+        if (existingRoot != null)
+        {
+            Destroy(existingRoot.gameObject);
+        }
+
+        comboRoot = new GameObject("HUD_Combo");
+        comboRoot.transform.SetParent(canvas.transform, false);
+        comboCanvasGroup = comboRoot.AddComponent<CanvasGroup>();
+        comboCanvasGroup.interactable = false;
+        comboCanvasGroup.blocksRaycasts = false;
+
+        RectTransform rootRect = EnsureRectTransform(comboRoot);
+        rootRect.anchorMin = new Vector2(0f, 1f);
+        rootRect.anchorMax = new Vector2(0f, 1f);
+        rootRect.pivot = new Vector2(0f, 1f);
+        rootRect.anchoredPosition = new Vector2(34f, -142f);
+        rootRect.sizeDelta = new Vector2(300f, 112f);
+
+        GameObject gradeObject = new GameObject("TXT_ComboGrade");
+        gradeObject.transform.SetParent(comboRoot.transform, false);
+        RectTransform gradeRect = gradeObject.AddComponent<RectTransform>();
+        gradeRect.anchorMin = new Vector2(0f, 1f);
+        gradeRect.anchorMax = new Vector2(0f, 1f);
+        gradeRect.pivot = new Vector2(0f, 1f);
+        gradeRect.anchoredPosition = Vector2.zero;
+        gradeRect.sizeDelta = new Vector2(290f, 72f);
+        comboGradeText = gradeObject.AddComponent<Text>();
+        ConfigureText(comboGradeText, 42, TextAnchor.UpperLeft);
+        comboGradeText.fontStyle = FontStyle.Bold;
+        comboGradeText.raycastTarget = false;
+
+        GameObject multiplierObject = new GameObject("TXT_ComboMultiplier");
+        multiplierObject.transform.SetParent(comboRoot.transform, false);
+        RectTransform multiplierRect = multiplierObject.AddComponent<RectTransform>();
+        multiplierRect.anchorMin = new Vector2(0f, 1f);
+        multiplierRect.anchorMax = new Vector2(0f, 1f);
+        multiplierRect.pivot = new Vector2(0f, 1f);
+        multiplierRect.anchoredPosition = new Vector2(0f, -74f);
+        multiplierRect.sizeDelta = new Vector2(140f, 32f);
+        comboMultiplierText = multiplierObject.AddComponent<Text>();
+        ConfigureText(comboMultiplierText, 26, TextAnchor.UpperLeft);
+        comboMultiplierText.fontStyle = FontStyle.Bold;
+        comboMultiplierText.raycastTarget = false;
+
+        GameObject timerBackObject = new GameObject("IMG_ComboTimerBack");
+        timerBackObject.transform.SetParent(comboRoot.transform, false);
+        RectTransform timerBackRect = timerBackObject.AddComponent<RectTransform>();
+        timerBackRect.anchorMin = new Vector2(0f, 0f);
+        timerBackRect.anchorMax = new Vector2(1f, 0f);
+        timerBackRect.pivot = new Vector2(0.5f, 0f);
+        timerBackRect.anchoredPosition = Vector2.zero;
+        timerBackRect.sizeDelta = new Vector2(0f, 9f);
+        comboTimerBack = timerBackObject.AddComponent<Image>();
+        comboTimerBack.color = new Color(0f, 0f, 0f, 0.72f);
+        comboTimerBack.raycastTarget = false;
+
+        GameObject timerFillObject = new GameObject("IMG_ComboTimerFill");
+        timerFillObject.transform.SetParent(timerBackObject.transform, false);
+        comboTimerFillRect = timerFillObject.AddComponent<RectTransform>();
+        comboTimerFillRect.anchorMin = Vector2.zero;
+        comboTimerFillRect.anchorMax = Vector2.one;
+        comboTimerFillRect.offsetMin = Vector2.zero;
+        comboTimerFillRect.offsetMax = Vector2.zero;
+        comboTimerFill = timerFillObject.AddComponent<Image>();
+        comboTimerFill.raycastTarget = false;
+
+        ClearComboHud();
+        comboRoot.transform.localScale = Vector3.zero;
+        comboRoot.SetActive(false);
+    }
+
+    private void HideAllComboHudRoots()
+    {
+        RectTransform[] rectTransforms = FindObjectsByType<RectTransform>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        for (int i = 0; i < rectTransforms.Length; i++)
+        {
+            RectTransform rectTransform = rectTransforms[i];
+            if (rectTransform == null || !rectTransform.gameObject.scene.isLoaded)
+            {
+                continue;
+            }
+
+            if (!IsComboHudObject(rectTransform.name))
+            {
+                continue;
+            }
+
+            rectTransform.localScale = Vector3.zero;
+            rectTransform.gameObject.SetActive(false);
+            Destroy(rectTransform.gameObject);
+        }
+    }
+
+    private static bool IsComboHudObject(string objectName)
+    {
+        return objectName == "HUD_Combo" ||
+            objectName == "TXT_ComboGrade" ||
+            objectName == "TXT_ComboMultiplier" ||
+            objectName == "IMG_ComboTimerBack" ||
+            objectName == "IMG_ComboTimerFill";
+    }
+
+    private static Font GetRuntimeFont()
+    {
+        if (runtimeFont != null)
+        {
+            return runtimeFont;
+        }
+
+        runtimeFont = Resources.Load<Font>("Fonts/Minecraft");
+        if (runtimeFont == null)
+        {
+            runtimeFont = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        }
+
+        if (runtimeFont == null)
+        {
+            runtimeFont = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        }
+
+        return runtimeFont;
+    }
+
+    private static Font GetHudFont()
+    {
+        if (hudFont != null)
+        {
+            return hudFont;
+        }
+
+        hudFont = GetRuntimeFont();
+        return hudFont;
+    }
+
+    private static void HideLegacyInstructions()
+    {
+        GameObject instructions = GameObject.Find("TXT_Instructions");
+        if (instructions != null)
+        {
+            instructions.SetActive(false);
+        }
+    }
+
+    private void EnsureHeartHud()
+    {
+        if (livesText == null || heartContainer != null)
+        {
+            return;
+        }
+
+        Transform parent = livesText.transform.parent;
+        if (parent == null)
+        {
+            return;
+        }
+
+        Transform existing = parent.Find("HUD_HeartLives");
+        GameObject heartObject = existing != null ? existing.gameObject : new GameObject("HUD_HeartLives");
+        heartObject.transform.SetParent(parent, false);
+
+        heartContainer = EnsureRectTransform(heartObject);
+        RectTransform livesRect = livesText.GetComponent<RectTransform>();
+        if (livesRect != null)
+        {
+            heartContainer.anchorMin = livesRect.anchorMin;
+            heartContainer.anchorMax = livesRect.anchorMax;
+            heartContainer.pivot = livesRect.pivot;
+            heartContainer.anchoredPosition = livesRect.anchoredPosition + heartStartOffset;
+        }
+        else
+        {
+            heartContainer.anchorMin = new Vector2(0f, 1f);
+            heartContainer.anchorMax = new Vector2(0f, 1f);
+            heartContainer.pivot = new Vector2(0f, 1f);
+            heartContainer.anchoredPosition = new Vector2(88f, -54f);
+        }
+
+        heartContainer.sizeDelta = new Vector2(260f, heartSize.y);
+    }
+
+    private void RefreshHeartLives()
+    {
+        if (displayedLives < 0 || heartContainer == null)
+        {
+            return;
+        }
+
+        while (heartImages.Count < displayedLives)
+        {
+            heartImages.Add(CreateHeartImage(heartImages.Count));
+        }
+
+        for (int i = 0; i < heartImages.Count; i++)
+        {
+            Image heart = heartImages[i];
+            if (heart == null)
+            {
+                continue;
+            }
+
+            bool active = i < displayedLives;
+            heart.gameObject.SetActive(active);
+            heart.color = heartTint;
+        }
+    }
+
+    private Image CreateHeartImage(int index)
+    {
+        GameObject heartObject = new GameObject($"IMG_Heart_{index + 1}");
+        heartObject.transform.SetParent(heartContainer, false);
+
+        RectTransform rect = EnsureRectTransform(heartObject);
+        rect.anchorMin = new Vector2(0f, 0.5f);
+        rect.anchorMax = new Vector2(0f, 0.5f);
+        rect.pivot = new Vector2(0f, 0.5f);
+        rect.anchoredPosition = new Vector2(index * heartSpacing, 0f);
+        rect.sizeDelta = heartSize;
+
+        Image image = heartObject.AddComponent<Image>();
+        image.sprite = GetHeartSprite();
+        image.preserveAspect = true;
+        image.raycastTarget = false;
+        image.color = heartTint;
+        return image;
+    }
+
+    private Sprite GetHeartSprite()
+    {
+        if (heartSprite != null)
+        {
+            return heartSprite;
+        }
+
+        Texture2D texture = new Texture2D(16, 16, TextureFormat.RGBA32, false);
+        texture.name = "TEX_Runtime_TintableHeart";
+        texture.filterMode = FilterMode.Point;
+        texture.wrapMode = TextureWrapMode.Clamp;
+
+        Color clear = new Color(1f, 1f, 1f, 0f);
+        Color[] pixels = new Color[16 * 16];
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            pixels[i] = clear;
+        }
+
+        texture.SetPixels(pixels);
+        string[] rows =
+        {
+            "0000000000000000",
+            "0001100001100000",
+            "0011110011110000",
+            "0111111111111000",
+            "0111111111111000",
+            "0111111111111000",
+            "0011111111110000",
+            "0001111111100000",
+            "0000111111000000",
+            "0000011110000000",
+            "0000001100000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000"
+        };
+
+        for (int y = 0; y < rows.Length; y++)
+        {
+            string row = rows[y];
+            int textureY = rows.Length - 1 - y;
+            for (int x = 0; x < row.Length; x++)
+            {
+                if (row[x] == '1')
+                {
+                    texture.SetPixel(x, textureY, Color.white);
+                }
+            }
+        }
+
+        texture.Apply(false, true);
+        heartSprite = Sprite.Create(texture, new Rect(0f, 0f, 16f, 16f), new Vector2(0.5f, 0.5f), 16f);
+        heartSprite.name = "SPR_Runtime_TintableHeart";
+        return heartSprite;
+    }
+
+    private void BuildEndScreen()
+    {
+        Canvas canvas = GetComponentInParent<Canvas>();
+        if (canvas == null)
+        {
+            return;
+        }
+
+        Transform existing = canvas.transform.Find("PNL_EndScreen");
+        endScreenRoot = existing != null ? existing.gameObject : new GameObject("PNL_EndScreen");
+        endScreenRoot.transform.SetParent(canvas.transform, false);
+
+        RectTransform rootRect = EnsureRectTransform(endScreenRoot);
+        rootRect.anchorMin = Vector2.zero;
+        rootRect.anchorMax = Vector2.one;
+        rootRect.offsetMin = Vector2.zero;
+        rootRect.offsetMax = Vector2.zero;
+
+        Image background = endScreenRoot.GetComponent<Image>();
+        if (background == null)
+        {
+            background = endScreenRoot.AddComponent<Image>();
+        }
+
+        background.raycastTarget = true;
+        background.color = Color.black;
+
+        endTitleText = CreateEndScreenText("TXT_EndTitle", new Vector2(0f, 270f), new Vector2(760f, 100f), 58, TextAnchor.MiddleCenter);
+        endSubtitleText = CreateEndScreenText("TXT_EndSubtitle", new Vector2(0f, 196f), new Vector2(840f, 52f), 28, TextAnchor.MiddleCenter);
+        initialsText = CreateEndScreenText("TXT_Initials", new Vector2(0f, 116f), new Vector2(900f, 92f), 28, TextAnchor.MiddleCenter);
+        rankingText = CreateEndScreenText("TXT_Ranking", new Vector2(0f, -72f), new Vector2(900f, 250f), 22, TextAnchor.UpperCenter);
+        restartButton = CreateRestartButton();
+        restartButtonText = restartButton != null ? restartButton.GetComponentInChildren<Text>(true) : null;
+
+        endScreenRoot.transform.SetAsLastSibling();
+    }
+
+    private Text CreateEndScreenText(string objectName, Vector2 position, Vector2 size, int fontSize, TextAnchor alignment)
+    {
+        Transform existing = endScreenRoot.transform.Find(objectName);
+        GameObject textObject = existing != null ? existing.gameObject : new GameObject(objectName);
+        textObject.transform.SetParent(endScreenRoot.transform, false);
+
+        RectTransform rect = EnsureRectTransform(textObject);
+        rect.anchorMin = new Vector2(0.5f, 0.5f);
+        rect.anchorMax = new Vector2(0.5f, 0.5f);
+        rect.pivot = new Vector2(0.5f, 0.5f);
+        rect.anchoredPosition = position;
+        rect.sizeDelta = size;
+
+        Text text = textObject.GetComponent<Text>();
+        if (text == null)
+        {
+            text = textObject.AddComponent<Text>();
+        }
+
+        ConfigureText(text, fontSize, alignment);
+        text.raycastTarget = false;
+        return text;
+    }
+
+    private Button CreateRestartButton()
+    {
+        Transform existing = endScreenRoot.transform.Find("BTN_Restart");
+        GameObject buttonObject = existing != null ? existing.gameObject : new GameObject("BTN_Restart");
+        buttonObject.transform.SetParent(endScreenRoot.transform, false);
+
+        RectTransform rect = EnsureRectTransform(buttonObject);
+        rect.anchorMin = new Vector2(0.5f, 0.5f);
+        rect.anchorMax = new Vector2(0.5f, 0.5f);
+        rect.pivot = new Vector2(0.5f, 0.5f);
+        rect.anchoredPosition = new Vector2(0f, -350f);
+        rect.sizeDelta = new Vector2(300f, 72f);
+
+        Image image = buttonObject.GetComponent<Image>();
+        if (image == null)
+        {
+            image = buttonObject.AddComponent<Image>();
+        }
+
+        image.color = new Color(0.02f, 0.5f, 0.58f, 0.94f);
+
+        Button button = buttonObject.GetComponent<Button>();
+        if (button == null)
+        {
+            button = buttonObject.AddComponent<Button>();
+        }
+
+        button.targetGraphic = image;
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(OnRestartButtonClicked);
+
+        Transform labelExisting = buttonObject.transform.Find("Text");
+        GameObject labelObject = labelExisting != null ? labelExisting.gameObject : new GameObject("Text");
+        labelObject.transform.SetParent(buttonObject.transform, false);
+
+        RectTransform labelRect = EnsureRectTransform(labelObject);
+        labelRect.anchorMin = Vector2.zero;
+        labelRect.anchorMax = Vector2.one;
+        labelRect.offsetMin = Vector2.zero;
+        labelRect.offsetMax = Vector2.zero;
+
+        Text label = labelObject.GetComponent<Text>();
+        if (label == null)
+        {
+            label = labelObject.AddComponent<Text>();
+        }
+
+        ConfigureText(label, 28, TextAnchor.MiddleCenter);
+        label.color = Color.white;
+        label.raycastTarget = false;
+
+        return button;
+    }
+
+    private void ShowEndScreen(string title, string subtitle, string buttonLabel)
+    {
+        if (endScreenRoot == null)
+        {
+            BuildEndScreen();
+        }
+
+        if (endScreenRoot == null)
+        {
+            return;
+        }
+
+        if (messageRoutine != null)
+        {
+            StopCoroutine(messageRoutine);
+            messageRoutine = null;
+        }
+
+        if (messageText != null)
+        {
+            messageText.enabled = false;
+        }
+
+        if (endTitleText != null)
+        {
+            endTitleText.text = title;
+        }
+
+        if (endSubtitleText != null)
+        {
+            endSubtitleText.text = subtitle;
+        }
+
+        if (restartButtonText != null)
+        {
+            restartButtonText.text = buttonLabel;
+        }
+
+        SetEndTextVisible(initialsText, false);
+        SetEndTextVisible(rankingText, false);
+        endScreenRoot.SetActive(true);
+        endScreenRoot.transform.SetAsLastSibling();
+    }
+
+    private void StartInitialEntry(int score)
+    {
+        pendingGameOverScore = score;
+        selectedInitialIndex = 0;
+        currentInitials[0] = 'A';
+        currentInitials[1] = 'A';
+        currentInitials[2] = 'A';
+        awaitingInitials = true;
+        SetEndTextVisible(initialsText, true);
+        SetEndTextVisible(rankingText, true);
+        UpdateInitialsPrompt();
+        UpdateRankingText(false);
+    }
+
+    private void HandleInitialsInput()
+    {
+        if (!awaitingInitials || endScreenRoot == null || !endScreenRoot.activeInHierarchy)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            selectedInitialIndex = Mathf.Max(0, selectedInitialIndex - 1);
+            UpdateInitialsPrompt();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            selectedInitialIndex = Mathf.Min(currentInitials.Length - 1, selectedInitialIndex + 1);
+            UpdateInitialsPrompt();
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            CycleSelectedInitial(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            CycleSelectedInitial(-1);
+        }
+
+        string typed = Input.inputString;
+        for (int i = 0; i < typed.Length; i++)
+        {
+            char typedChar = char.ToUpperInvariant(typed[i]);
+            if (typedChar < 'A' || typedChar > 'Z')
+            {
+                continue;
+            }
+
+            currentInitials[selectedInitialIndex] = typedChar;
+            selectedInitialIndex = Mathf.Min(currentInitials.Length - 1, selectedInitialIndex + 1);
+            UpdateInitialsPrompt();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            currentInitials[selectedInitialIndex] = 'A';
+            selectedInitialIndex = Mathf.Max(0, selectedInitialIndex - 1);
+            UpdateInitialsPrompt();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            SubmitRankingEntry();
+        }
+    }
+
+    private void CycleSelectedInitial(int delta)
+    {
+        int offset = currentInitials[selectedInitialIndex] - 'A';
+        offset = (offset + delta + 26) % 26;
+        currentInitials[selectedInitialIndex] = (char)('A' + offset);
+        UpdateInitialsPrompt();
+    }
+
+    private void UpdateInitialsPrompt()
+    {
+        if (initialsText == null)
+        {
+            return;
+        }
+
+        string initials = string.Empty;
+        for (int i = 0; i < currentInitials.Length; i++)
+        {
+            initials += i == selectedInitialIndex ? $"[{currentInitials[i]}]" : $" {currentInitials[i]} ";
+        }
+
+        initialsText.text = $"ENTER INITIALS\n{initials}";
+    }
+
+    private void SubmitRankingEntry()
+    {
+        awaitingInitials = false;
+        string initials = new string(currentInitials);
+        List<ScoreEntry> entries = LoadRanking();
+        entries.Add(new ScoreEntry(initials, pendingGameOverScore));
+        entries.Sort((a, b) => b.Score.CompareTo(a.Score));
+        while (entries.Count > RankingSize)
+        {
+            entries.RemoveAt(entries.Count - 1);
+        }
+
+        SaveRanking(entries);
+        if (initialsText != null)
+        {
+            initialsText.text = $"SAVED: {initials}  {pendingGameOverScore:000000}";
+        }
+
+        UpdateRankingText(true);
+    }
+
+    private void UpdateRankingText(bool saved)
+    {
+        if (rankingText == null)
+        {
+            return;
+        }
+
+        List<ScoreEntry> entries = LoadRanking();
+        string text = saved ? "RANKING\n" : "LOCAL RANKING\n";
+        if (entries.Count == 0)
+        {
+            text += "1  ---  000000\n2  ---  000000\n3  ---  000000\n";
+        }
+        else
+        {
+            for (int i = 0; i < Mathf.Min(RankingSize, entries.Count); i++)
+            {
+                text += $"{i + 1}  {entries[i].Name}  {entries[i].Score:000000}\n";
+            }
+        }
+
+        if (!saved)
+        {
+            text += "\nENTER TO SAVE";
+        }
+
+        rankingText.text = text;
+    }
+
+    private static List<ScoreEntry> LoadRanking()
+    {
+        List<ScoreEntry> entries = new List<ScoreEntry>();
+        for (int i = 0; i < RankingSize; i++)
+        {
+            string scoreKey = $"{RankingPrefsPrefix}SCORE_{i}";
+            if (!PlayerPrefs.HasKey(scoreKey))
+            {
+                continue;
+            }
+
+            string name = PlayerPrefs.GetString($"{RankingPrefsPrefix}NAME_{i}", "---");
+            int score = PlayerPrefs.GetInt(scoreKey, 0);
+            entries.Add(new ScoreEntry(name, score));
+        }
+
+        return entries;
+    }
+
+    private static void SaveRanking(List<ScoreEntry> entries)
+    {
+        for (int i = 0; i < RankingSize; i++)
+        {
+            if (i < entries.Count)
+            {
+                PlayerPrefs.SetString($"{RankingPrefsPrefix}NAME_{i}", entries[i].Name);
+                PlayerPrefs.SetInt($"{RankingPrefsPrefix}SCORE_{i}", entries[i].Score);
+            }
+            else
+            {
+                PlayerPrefs.DeleteKey($"{RankingPrefsPrefix}NAME_{i}");
+                PlayerPrefs.DeleteKey($"{RankingPrefsPrefix}SCORE_{i}");
+            }
+        }
+
+        PlayerPrefs.Save();
+    }
+
+    private static void SetEndTextVisible(Text text, bool visible)
+    {
+        if (text != null)
+        {
+            text.gameObject.SetActive(visible);
+        }
+    }
+
+    private readonly struct ScoreEntry
+    {
+        public ScoreEntry(string name, int score)
+        {
+            Name = string.IsNullOrWhiteSpace(name) ? "---" : name;
+            Score = score;
+        }
+
+        public string Name { get; }
+
+        public int Score { get; }
+    }
+
+    private void OnRestartButtonClicked()
+    {
+        GameManager.Instance?.RestartGame();
+    }
+
+    private static RectTransform EnsureRectTransform(GameObject target)
+    {
+        RectTransform rect = target.GetComponent<RectTransform>();
+        if (rect == null)
+        {
+            rect = target.AddComponent<RectTransform>();
+        }
+
+        return rect;
+    }
+
+    private void FindAdaptiveInputReferences()
+    {
+        if (playerController == null)
+        {
+            playerController = FindFirstObjectByType<PlayerController>();
+        }
+
+        if (playerShooter == null)
+        {
+            playerShooter = FindFirstObjectByType<PlayerShooter>();
+        }
+
+        leftButtonObject = GameObject.Find("BTN_Left");
+        rightButtonObject = GameObject.Find("BTN_Right");
+        shootButtonObject = GameObject.Find("BTN_Shoot");
+        treatmentButtonObject = GameObject.Find("BTN_TreatmentCycle");
+
+        shootButton = shootButtonObject != null ? shootButtonObject.GetComponent<Button>() : null;
+        treatmentButton = treatmentButtonObject != null ? treatmentButtonObject.GetComponent<Button>() : null;
+
+        mobilePadObject = CreateMobilePad();
+
+        ConfigureMobileButton(shootButtonObject, "\u25CF", new Vector2(-44f, 44f), new Vector2(118f, 118f), new Vector2(1f, 0f), new Vector2(1f, 0f));
+        ConfigureMobileButton(treatmentButtonObject, "\u21BB", new Vector2(-178f, 52f), new Vector2(104f, 104f), new Vector2(1f, 0f), new Vector2(1f, 0f));
+
+        shootCooldownOverlay = CreateCooldownOverlay(shootButtonObject, "IMG_ShootCooldown");
+        treatmentCooldownOverlay = CreateCooldownOverlay(treatmentButtonObject, "IMG_TreatmentCooldown");
+
+        SetMobileButtonVisible(leftButtonObject, false);
+        SetMobileButtonVisible(rightButtonObject, false);
+    }
+
+    private static void ConfigureMobileButton(GameObject buttonObject, string label, Vector2 position, Vector2 size, Vector2 anchor, Vector2 pivot)
+    {
+        if (buttonObject == null)
+        {
+            return;
+        }
+
+        RectTransform rect = buttonObject.GetComponent<RectTransform>();
+        if (rect != null)
+        {
+            rect.anchorMin = anchor;
+            rect.anchorMax = anchor;
+            rect.pivot = pivot;
+            rect.anchoredPosition = position;
+            rect.sizeDelta = size;
+        }
+
+        Image image = buttonObject.GetComponent<Image>();
+        if (image != null)
+        {
+            image.color = new Color(0.02f, 0.1f, 0.15f, 0.82f);
+        }
+
+        Text text = buttonObject.GetComponentInChildren<Text>(true);
+        if (text != null)
+        {
+            text.font = GetRuntimeFont();
+            text.text = label;
+            text.fontSize = label.Length <= 1 ? 58 : 34;
+            text.alignment = TextAnchor.MiddleCenter;
+            text.resizeTextForBestFit = true;
+            text.resizeTextMinSize = 16;
+            text.resizeTextMaxSize = text.fontSize;
+            text.color = new Color(0.75f, 1f, 1f, 1f);
+            ConfigureTextStroke(text, new Color(0f, 0f, 0f, 0.96f), new Vector2(3f, -3f), true);
+        }
+    }
+
+    private static Image CreateCooldownOverlay(GameObject buttonObject, string objectName)
+    {
+        if (buttonObject == null)
+        {
+            return null;
+        }
+
+        Transform existing = buttonObject.transform.Find(objectName);
+        GameObject overlayObject = existing != null ? existing.gameObject : new GameObject(objectName);
+        overlayObject.transform.SetParent(buttonObject.transform, false);
+        overlayObject.transform.SetAsLastSibling();
+
+        RectTransform rect = overlayObject.GetComponent<RectTransform>();
+        if (rect == null)
+        {
+            rect = overlayObject.AddComponent<RectTransform>();
+        }
+
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+
+        Image overlay = overlayObject.GetComponent<Image>();
+        if (overlay == null)
+        {
+            overlay = overlayObject.AddComponent<Image>();
+        }
+
+        overlay.raycastTarget = false;
+        overlay.color = new Color(0f, 0f, 0f, 0.55f);
+        overlay.type = Image.Type.Filled;
+        overlay.fillMethod = Image.FillMethod.Radial360;
+        overlay.fillOrigin = 2;
+        overlay.fillClockwise = false;
+        overlay.fillAmount = 0f;
+        return overlay;
+    }
+
+    private void RefreshInputMode()
+    {
+        bool shouldShowMobile = ShouldUseMobileControls();
+        if (shouldShowMobile == mobileControlsVisible)
+        {
+            return;
+        }
+
+        ApplyInputMode();
+    }
+
+    private void ApplyInputMode()
+    {
+        mobileControlsVisible = ShouldUseMobileControls();
+        SetMobileButtonVisible(mobilePadObject, mobileControlsVisible);
+        SetMobileButtonVisible(leftButtonObject, false);
+        SetMobileButtonVisible(rightButtonObject, false);
+        SetMobileButtonVisible(shootButtonObject, mobileControlsVisible);
+        SetMobileButtonVisible(treatmentButtonObject, mobileControlsVisible);
+    }
+
+    private bool ShouldUseMobileControls()
+    {
+        if (forceMobileControlsInEditor)
+        {
+            return true;
+        }
+
+        if (debugMobileControls)
+        {
+            return true;
+        }
+
+        return Application.isMobilePlatform || SystemInfo.deviceType == DeviceType.Handheld;
+    }
+
+    private GameObject CreateMobilePad()
+    {
+        Canvas canvas = GetComponentInParent<Canvas>();
+        if (canvas == null)
+        {
+            return null;
+        }
+
+        Transform existing = canvas.transform.Find("PAD_Move");
+        GameObject padObject = existing != null ? existing.gameObject : new GameObject("PAD_Move");
+        padObject.transform.SetParent(canvas.transform, false);
+
+        RectTransform rect = padObject.GetComponent<RectTransform>();
+        if (rect == null)
+        {
+            rect = padObject.AddComponent<RectTransform>();
+        }
+
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.zero;
+        rect.pivot = new Vector2(0f, 0f);
+        rect.anchoredPosition = new Vector2(28f, 32f);
+        rect.sizeDelta = new Vector2(270f, 156f);
+
+        Image image = padObject.GetComponent<Image>();
+        if (image == null)
+        {
+            image = padObject.AddComponent<Image>();
+        }
+
+        image.color = new Color(0.02f, 0.08f, 0.11f, 0.52f);
+        image.raycastTarget = true;
+
+        Transform knobExisting = padObject.transform.Find("Knob");
+        GameObject knobObject = knobExisting != null ? knobExisting.gameObject : new GameObject("Knob");
+        knobObject.transform.SetParent(padObject.transform, false);
+
+        RectTransform knobRect = knobObject.GetComponent<RectTransform>();
+        if (knobRect == null)
+        {
+            knobRect = knobObject.AddComponent<RectTransform>();
+        }
+
+        knobRect.anchorMin = new Vector2(0.5f, 0.5f);
+        knobRect.anchorMax = new Vector2(0.5f, 0.5f);
+        knobRect.pivot = new Vector2(0.5f, 0.5f);
+        knobRect.anchoredPosition = Vector2.zero;
+        knobRect.sizeDelta = new Vector2(74f, 74f);
+
+        Image knobImage = knobObject.GetComponent<Image>();
+        if (knobImage == null)
+        {
+            knobImage = knobObject.AddComponent<Image>();
+        }
+
+        knobImage.color = new Color(0.4f, 1f, 1f, 0.6f);
+        knobImage.raycastTarget = false;
+
+        Text label = padObject.GetComponentInChildren<Text>(true);
+        if (label == null)
+        {
+            GameObject labelObject = new GameObject("TXT_PadHint");
+            labelObject.transform.SetParent(padObject.transform, false);
+            RectTransform labelRect = labelObject.AddComponent<RectTransform>();
+            labelRect.anchorMin = Vector2.zero;
+            labelRect.anchorMax = Vector2.one;
+            labelRect.offsetMin = Vector2.zero;
+            labelRect.offsetMax = Vector2.zero;
+            label = labelObject.AddComponent<Text>();
+        }
+
+        label.text = string.Empty;
+        label.font = GetRuntimeFont();
+        label.alignment = TextAnchor.MiddleCenter;
+        label.fontSize = 42;
+        label.resizeTextForBestFit = true;
+        label.resizeTextMinSize = 18;
+        label.resizeTextMaxSize = 42;
+        label.color = new Color(0.75f, 1f, 1f, 0.82f);
+        label.raycastTarget = false;
+        ConfigureTextStroke(label, new Color(0f, 0f, 0f, 0.86f), new Vector2(2.6f, -2.6f), true);
+
+        MobileVirtualPad pad = padObject.GetComponent<MobileVirtualPad>();
+        if (pad == null)
+        {
+            pad = padObject.AddComponent<MobileVirtualPad>();
+        }
+
+        pad.Initialize(playerController, knobRect);
+
+        if (EventSystem.current == null)
+        {
+            GameObject eventSystemObject = new GameObject("EventSystem");
+            eventSystemObject.AddComponent<EventSystem>();
+            eventSystemObject.AddComponent<StandaloneInputModule>();
+        }
+
+        return padObject;
+    }
+
+    private static void SetMobileButtonVisible(GameObject buttonObject, bool visible)
+    {
+        if (buttonObject != null && buttonObject.activeSelf != visible)
+        {
+            buttonObject.SetActive(visible);
+        }
+    }
+
+    private static void RefreshCooldownButton(Button button, Image overlay, float availability)
+    {
+        if (button == null && overlay == null)
+        {
+            return;
+        }
+
+        float clampedAvailability = Mathf.Clamp01(availability);
+        if (button != null && button.targetGraphic != null)
+        {
+            button.targetGraphic.color = clampedAvailability >= 1f
+                ? new Color(0.02f, 0.1f, 0.15f, 0.82f)
+                : new Color(0.08f, 0.08f, 0.09f, 0.72f);
+        }
+
+        if (overlay != null)
+        {
+            overlay.fillAmount = 1f - clampedAvailability;
+            overlay.enabled = clampedAvailability < 1f;
+        }
+    }
+}

@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: a57624eb46e14544c89f88bdf305ac5e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1620118016363927817
+    second: SPR_Enemy_MutatedCell_18_0
+  - first:
+      213: -1423705941286817022
+    second: SPR_Enemy_MutatedCell_18_1
+  - first:
+      213: -3860668809674519714
+    second: SPR_Enemy_MutatedCell_18_2
+  - first:
+      213: -9072275148637845346
+    second: SPR_Enemy_MutatedCell_18_3
+  - first:
+      213: 3871172198504747043
+    second: SPR_Enemy_MutatedCell_18_4
+  - first:
+      213: -24055722316327097
+    second: SPR_Enemy_MutatedCell_18_5
+  - first:
+      213: 5792137359877918337
+    second: SPR_Enemy_MutatedCell_18_6
+  - first:
+      213: -4392648239872802615
+    second: SPR_Enemy_MutatedCell_18_7
+  - first:
+      213: 4681346055276319442
+    second: SPR_Enemy_MutatedCell_18_8
+  - first:
+      213: 6101076065219853906
+    second: SPR_Enemy_MutatedCell_18_9
+  - first:
+      213: -6413348181420361897
+    second: SPR_Enemy_MutatedCell_18_10
+  - first:
+      213: 5820809247649479313
+    second: SPR_Enemy_MutatedCell_18_11
+  - first:
+      213: 4309535112388065723
+    second: SPR_Enemy_MutatedCell_18_12
+  - first:
+      213: -1992240320813260589
+    second: SPR_Enemy_MutatedCell_18_13
+  - first:
+      213: 2973802347329025089
+    second: SPR_Enemy_MutatedCell_18_14
+  - first:
+      213: -5139142207029260119
+    second: SPR_Enemy_MutatedCell_18_15
+  - first:
+      213: -56111570729743359
+    second: SPR_Enemy_MutatedCell_18_16
+  - first:
+      213: -3218098617399378394
+    second: SPR_Enemy_MutatedCell_18_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 21
+        width: 71
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 909159b80c0db7610800000000000000
+      internalID: 1620118016363927817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 97
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2037cf05dfafd3ce0800000000000000
+      internalID: -1423705941286817022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_2
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 92
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b8beb1c262c6ac0800000000000000
+      internalID: -3860668809674519714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_3
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 89
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9846dcb1ddc81280800000000000000
+      internalID: -9072275148637845346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_4
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 70
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3205e3caa9a29b530800000000000000
+      internalID: 3871172198504747043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_5
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 61
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7471580b2798aaff0800000000000000
+      internalID: -24055722316327097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 57
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18ecac1ad3ec16050800000000000000
+      internalID: 5792137359877918337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_7
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 61
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c00327f2bd2a03c0800000000000000
+      internalID: -4392648239872802615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_8
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 41
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d2db673f6b77f040800000000000000
+      internalID: 4681346055276319442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 43
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25e311f3b506ba450800000000000000
+      internalID: 6101076065219853906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_10
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 33
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 757ba81fec53ff6a0800000000000000
+      internalID: -6413348181420361897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_11
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 33
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19ab477bb2ba7c050800000000000000
+      internalID: 5820809247649479313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_12
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 26
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb9b6f01a5b8ecb30800000000000000
+      internalID: 4309535112388065723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_13
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 19
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d027bacbf32a54e0800000000000000
+      internalID: -1992240320813260589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_14
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 13
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 144f4c0aa71154920800000000000000
+      internalID: 2973802347329025089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_15
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 23
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a0ddcb14691ea8b0800000000000000
+      internalID: -5139142207029260119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_16
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c4dded2d6a83ff0800000000000000
+      internalID: -56111570729743359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Enemy_MutatedCell_18_17
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 14
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62efbb19b540753d0800000000000000
+      internalID: -3218098617399378394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SPR_Enemy_MutatedCell_18_0: 1620118016363927817
+      SPR_Enemy_MutatedCell_18_1: -1423705941286817022
+      SPR_Enemy_MutatedCell_18_10: -6413348181420361897
+      SPR_Enemy_MutatedCell_18_11: 5820809247649479313
+      SPR_Enemy_MutatedCell_18_12: 4309535112388065723
+      SPR_Enemy_MutatedCell_18_13: -1992240320813260589
+      SPR_Enemy_MutatedCell_18_14: 2973802347329025089
+      SPR_Enemy_MutatedCell_18_15: -5139142207029260119
+      SPR_Enemy_MutatedCell_18_16: -56111570729743359
+      SPR_Enemy_MutatedCell_18_17: -3218098617399378394
+      SPR_Enemy_MutatedCell_18_2: -3860668809674519714
+      SPR_Enemy_MutatedCell_18_3: -9072275148637845346
+      SPR_Enemy_MutatedCell_18_4: 3871172198504747043
+      SPR_Enemy_MutatedCell_18_5: -24055722316327097
+      SPR_Enemy_MutatedCell_18_6: 5792137359877918337
+      SPR_Enemy_MutatedCell_18_7: -4392648239872802615
+      SPR_Enemy_MutatedCell_18_8: 4681346055276319442
+      SPR_Enemy_MutatedCell_18_9: 6101076065219853906
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
